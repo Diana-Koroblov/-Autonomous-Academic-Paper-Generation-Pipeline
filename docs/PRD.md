@@ -17,6 +17,12 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 
 ## 2. Measurable Goals, KPIs & Acceptance Criteria
 
+### Key Performance Indicators (KPIs)
+*   **RAG Retrieval Latency:** The system must achieve a maximum allowable time of < 1.5 seconds for individual chunk retrieval from the vector database.
+*   **Orchestration Token Efficiency:** The system targets a high ratio of useful synthesized text relative to input tokens to ensure cost-effective generation.
+*   **Compilation Success Rate:** 100% successful builds across multi-pass LuaLaTeX executions must be maintained during all testing and production cycles.
+*   **Agent Response Timeout Boundaries:** Strict response limits are enforced for every agent before triggering the Gatekeeper retry and FIFO queuing mechanisms to prevent pipeline stagnation.
+
 ### Final Product Acceptance Criteria:
 *   **Document Length:** 25-30 full pages.
 *   **Cover Page:** Must include Subject, Authors (AI Agents), Date, Course Name, and Lecturer Name.
@@ -39,7 +45,7 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
     *   **Writer:** Drafts chapters in an academic style.
     *   **Reviewer:** Performs fact-checking and quality control.
     *   **LaTeX Agent:** Formats content into a standard academic layout.
-2.  **RAG Pipeline:** Retrieves factual data from pre-loaded PDF documents.
+2.  **RAG Pipeline:** Retrieves factual data from pre-loaded PDF documents. Detailed technical specifications for the RAG engine are decoupled and fully mapped inside `docs/PRD_rag_engine.md`.
 3.  **Workflow:**
     *   Phase A: Generate a full draft in Markdown format.
     *   Phase B: Convert Markdown to a `.tex` file via the dedicated agent.
@@ -50,6 +56,11 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 *   **Performance:** Support parallel chapter writing where possible.
 *   **Language Support:** Full BiDi (Hebrew/English) support within the generated PDF.
 
+### Security Requirements:
+*   **Execution Sandboxing:** Hard requirement for running all dynamic, AI-generated Python plotting code strictly inside an isolated Windows Subsystem for Linux (WSL) Sandbox environment to protect the host architecture.
+*   **API Key Protection & Secret Leak Prevention:** Strict zero-hardcoding mandates require all LLM and vector database credentials to be extracted into `.env` runtime containers, validated via an `.env-example` boilerplate.
+*   **Data Poisoning Mitigations:** Mandatory prompt-level boundaries are enforced for the Researcher Agent to prevent untrusted context from overriding core system constraints (Prompt Injection and Memory Poisoning prevention).
+
 ### User Stories & Use Cases:
 *   **As an academic researcher**, I want the AI to automatically gather factual data from my provided PDFs (RAG), so that I don't have to manually verify every base fact.
 *   **As a content editor**, I want the system to output a preliminary Markdown draft before LaTeX compilation, so that I can easily review and adjust the text.
@@ -59,27 +70,33 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 
 ## 4. Assumptions, Dependencies, Constraints & Out-of-Scope
 
+### Project Assumptions:
+*   **Source Quality:** It is assumed that pre-loaded PDF materials in the RAG repository are authoritative, factually sound, and have been pre-vetted for academic integrity.
+*   **API Availability:** The system relies on uninterrupted, high-uptime access to upstream LLM providers (OpenAI/Anthropic) within standard Tier limits.
+*   **Resource Sufficiency:** The host machine is assumed to run a fully configured MiKTeX environment supporting LuaLaTeX compilation engines and necessary BiDi packages.
+
 ### Technical Constraints:
 *   **Compilation Engine:** Must use **LuaLaTeX** (via MiKTeX) to ensure perfect BiDi support for mixed Hebrew and English text.
 *   **Compilation Process:** Requires approximately 4 compiler runs (including BibTeX/biber) to ensure all citations, TOC, and internal references are synchronized.
 *   **Dependencies:** The system relies on LLM access (e.g., OpenAI or Anthropic) via CrewAI.
 
 ### Out-of-Scope:
-*   Automatic submission to academic journals.
-*   Generating video content from the paper.
-*   Physical verification of evidence (reliance on RAG sources only).
+*   **Automatic submission to academic journals.**
+*   **Generating video content from the paper.**
+*   **Physical verification of evidence (reliance on RAG sources only).**
 
 ---
 
 ## 5. Timeline & Milestones
 
-| Milestone | Description | Expected Deliverable |
-| :--- | :--- | :--- |
-| **Phase 1: Project Setup** | Define environment (uv), folder structure, and LLM connection. | Functional workspace. |
-| **Phase 2: RAG & Agent Implementation** | Load PDFs, define retrieval tools, and build the Crew. | Agents successfully retrieving info. |
-| **Phase 3: Content Generation (Markdown)** | Run the pipeline to create the full draft (25-30 pages). | Detailed `output.md` file. |
-| **Phase 4: LaTeX Formatting & Graphics** | Convert to TeX, implement TikZ, graphs, and Drake Equation. | `.tex` file ready for compilation. |
-| **Phase 5: Final Compilation & Review** | Run LuaLaTeX 4 times and perform final quality check. | Perfect `final_paper.pdf`. |
+| Milestone | Description | Expected Deliverable | Mandatory Review Gate (Review Point) |
+| :--- | :--- | :--- | :--- |
+| **Phase 1: Project Setup** | Define environment (uv), folder structure, and LLM connection. | Functional workspace. | **Gate 1:** Validate `uv.lock` environment stability and zero-Ruff structural configuration sign-off. |
+| **Phase 2: RAG & Agent Implementation** | Load PDFs, define retrieval tools, and build the Crew. | Agents successfully retrieving info. | **Gate 2:** Verify programmatic Skill loading mechanics and RAG connectivity response times ($<1.5$s). |
+| **Phase 3: Content Generation (Markdown)** | Run the pipeline to create the full draft (25-30 pages). | Detailed `output.md` file. | **Gate 3:** Execute the **Human-in-the-Loop Pause**; formal approval of prose, academic tone, and reference mappings. |
+| **Phase 4: LaTeX Formatting & Graphics** | Convert to TeX, implement TikZ, graphs, and Drake Equation. | `.tex` file ready for compilation. | **Gate 4:** Code-level inspection and compilation sanity check of raw TikZ source blocks and math layouts. |
+| **Phase 5: Final Compilation & Review** | Run LuaLaTeX 4 times and perform final quality check. | Perfect `final_paper.pdf`. | **Gate 5:** Page-budget validation (strictly 25-30 pages), perfect BiDi alignment check, and artifact lock. |
+| **Phase 6: Post-Prod Analysis & Token Economy** | Execute sensitivity experiments in Jupyter and generate final budget financial reports. | Document `docs/token_economy_report.md` and complete analysis notebook. | **Gate 6:** Financial audit compliance sign-off and cost-optimization strategy verification. |
 
 ---
 **Prepared by:** Senior Product Manager & System Architect
