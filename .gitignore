@@ -1,9 +1,9 @@
-# Secrets & Credentials
+# --- Secrets & Credentials ---
 .env
 .env.local
 .env.*.local
 
-# Python Environments & Cache
+# --- Python Environments & Cache ---
 __pycache__/
 *.py[cod]
 *$py.class
@@ -11,22 +11,19 @@ __pycache__/
 venv/
 env/
 
-# Package Managers
+# --- Package Managers ---
 .uv/
 uv.lock.bak
 
-# Local Data & Outputs (Exclude real files, preserve directory structures via .gitkeep)
+# --- Data & Logs ---
 data/processed/*.md
 data/processed/*.tex
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-
-# Logs & Generated Assets
 logs/*.log
 assets/*.png
 assets/*.pdf
 assets/*.svg
-!assets/.gitkeep
 
 # Notebooks
 notebooks/.ipynb_checkpoints/
+
+
