@@ -1,0 +1,13 @@
+{
+  "llm_api": {
+    "max_requests_per_minute": 60,
+    "max_tokens_per_minute": 1000000,
+    "timeout_seconds": 90,
+    "max_retries": 5,
+    "backoff_factor": 2.0
+  },
+  "vector_db": {
+    "max_concurrent_queries": 10,
+    "timeout_seconds": 30
+  }
+}

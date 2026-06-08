@@ -1,10 +1,33 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+# Secrets & Credentials
+.env
+.env.local
+.env.*.local
 
-# Virtual environments
-.venv
+# Python Environments & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Package Managers
+.uv/
+uv.lock.bak
+
+# Local Data & Outputs (Exclude real files, preserve directory structures via .gitkeep)
+data/raw/*.pdf
+data/processed/*.md
+data/processed/*.tex
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Logs & Generated Assets
+logs/*.log
+assets/*.png
+assets/*.pdf
+assets/*.svg
+!assets/.gitkeep
+
+# Notebooks
+notebooks/.ipynb_checkpoints/

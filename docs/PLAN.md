@@ -10,7 +10,7 @@ The system is an autonomous research and writing pipeline. The user provides a h
 graph TD
     User[User / Researcher] -->|Provides Topic| System[Autonomous Academic Paper Pipeline]
     System -->|Fetches Data| LocalPDFs[(Local Data Directory: Source PDFs)]
-    System -->|Dispatches Token Calls| LLM[External LLM Providers: OpenAI/Anthropic]
+    System -->|Dispatches Token Calls| LLM[External LLM Providers: Google Gemini API Ecosystem]
     System -->|Compiles Source Files| LocalOS[Host Environment: LuaLaTeX Engine]
 ```
 
@@ -192,7 +192,7 @@ graph LR
         SB --> GR[Data Graphs/Plots]
     end
     subgraph "External Services"
-        GK --> LLM[LLM Provider: OpenAI/Anthropic]
+        GK --> LLM[LLM Provider: Google Gemini API]
     end
     subgraph "Data Storage"
         SDK --> VDB[Vector Database: RAG]
@@ -216,7 +216,7 @@ The **Gatekeeper** is a mandatory wrapper for all external API calls.
 - **Configuration-Driven Limits:** Zero hard-coded values. All rate limits, timeouts, and maximum retry counts are loaded dynamically from a versioned config/rate_limits.json file.
 
 ### RAG Embedding Schema
-- **Embedding Model:** `text-embedding-3-small` (or equivalent).
+- **Embedding Model:** `text-embedding-004` (Google Gemini).
 - **Chunk Size:** 1000 tokens.
 - **Overlap:** 100 tokens.
 - **Metadata:** Includes page numbers, file names, and section headers for accurate BibTeX generation.

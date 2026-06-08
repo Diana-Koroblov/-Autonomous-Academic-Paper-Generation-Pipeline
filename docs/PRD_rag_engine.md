@@ -6,7 +6,7 @@ This standalone document defines the granular product and mathematical requireme
 ## 2. Granular Functional Architecture & Ingestion Mechanics
 * **Text Extraction Protocol:** The ingestion pipeline must accurately parse local text and metadata from multi-source PDF layout files stored within the `data/raw/` registry.
 * **Granular Chunking Strategy:** Ingested documents must be split into atomic text nodes using a strict sliding-window chunk size of **1000 tokens**, with a continuous overlapping boundary of **100 tokens** to ensure contextual prose preservation across chunk edges.
-* **Vector Vectorization Pipeline:** All text segments must be mathematically processed using the native `text-embedding-3-small` OpenAI foundational model.
+* **Vector Vectorization Pipeline:** All text segments must be mathematically processed using the native `text-embedding-004` Google Gemini foundational model.
 * **Metadata Schema Enforcement:** Every generated vector node must strictly append and map the following structural attributes for BibTeX source compilation:
   * `source_filename`: Exact origin file name string.
   * `page_number`: Integer tracking the exact physical layout page.

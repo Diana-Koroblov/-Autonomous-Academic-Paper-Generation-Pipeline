@@ -1,0 +1,19 @@
+{
+  "models": {
+    "drafting": "gemini-1.5-flash",
+    "reviewing": "gemini-1.5-pro",
+    "embedding": "text-embedding-004"
+  },
+  "rag_engine": {
+    "chunk_size": 1000,
+    "chunk_overlap": 100,
+    "top_k_retrieval": 5,
+    "similarity_threshold": 0.72
+  },
+  "paper_generation": {
+    "target_pages_min": 25,
+    "target_pages_max": 30,
+    "language": "Hebrew",
+    "subject": "Extraterrestrials and Conspiracy Theories"
+  }
+}

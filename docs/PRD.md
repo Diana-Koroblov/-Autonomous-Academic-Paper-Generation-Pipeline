@@ -40,11 +40,11 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 ## 3. Functional & Non-Functional Requirements
 
 ### Functional Requirements:
-1.  **Orchestration (CrewAI):** The system will operate a team of agents:
-    *   **Researcher:** Gathers information from RAG and the web.
-    *   **Writer:** Drafts chapters in an academic style.
-    *   **Reviewer:** Performs fact-checking and quality control.
-    *   **LaTeX Agent:** Formats content into a standard academic layout.
+1.  **Orchestration (CrewAI):** The system will operate a team of agents running natively on the **Google Gemini API Ecosystem**:
+    *   **Researcher:** Gathers information from RAG and the web (Model: **`gemini-1.5-flash`**).
+    *   **Writer:** Drafts chapters in an academic style (Model: **`gemini-1.5-flash`**).
+    *   **Reviewer:** Performs fact-checking and quality control (Model: **`gemini-1.5-pro`**).
+    *   **LaTeX Agent:** Formats content into a standard academic layout (Model: **`gemini-1.5-flash`**).
 2.  **RAG Pipeline:** Retrieves factual data from pre-loaded PDF documents. Detailed technical specifications for the RAG engine are decoupled and fully mapped inside `docs/PRD_rag_engine.md`.
 3.  **Workflow:**
     *   Phase A: Generate a full draft in Markdown format.
@@ -58,7 +58,7 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 
 ### Security Requirements:
 *   **Execution Sandboxing:** Hard requirement for running all dynamic, AI-generated Python plotting code strictly inside an isolated Windows Subsystem for Linux (WSL) Sandbox environment to protect the host architecture.
-*   **API Key Protection & Secret Leak Prevention:** Strict zero-hardcoding mandates require all LLM and vector database credentials to be extracted into `.env` runtime containers, validated via an `.env-example` boilerplate.
+*   **API Key Protection & Secret Leak Prevention:** Strict zero-hardcoding mandates require all LLM and vector database credentials to be extracted into `.env` runtime containers, seeking **`GEMINI_API_KEY`** validated via an `.env-example` boilerplate.
 *   **Data Poisoning Mitigations:** Mandatory prompt-level boundaries are enforced for the Researcher Agent to prevent untrusted context from overriding core system constraints (Prompt Injection and Memory Poisoning prevention).
 
 ### User Stories & Use Cases:
@@ -72,13 +72,13 @@ Writing a comprehensive academic paper is time-consuming, requiring extensive re
 
 ### Project Assumptions:
 *   **Source Quality:** It is assumed that pre-loaded PDF materials in the RAG repository are authoritative, factually sound, and have been pre-vetted for academic integrity.
-*   **API Availability:** The system relies on uninterrupted, high-uptime access to upstream LLM providers (OpenAI/Anthropic) within standard Tier limits.
+*   **API Availability:** The system relies on uninterrupted, high-uptime access to the **Google Gemini API Ecosystem** within standard Tier limits.
 *   **Resource Sufficiency:** The host machine is assumed to run a fully configured MiKTeX environment supporting LuaLaTeX compilation engines and necessary BiDi packages.
 
 ### Technical Constraints:
 *   **Compilation Engine:** Must use **LuaLaTeX** (via MiKTeX) to ensure perfect BiDi support for mixed Hebrew and English text.
 *   **Compilation Process:** Requires approximately 4 compiler runs (including BibTeX/biber) to ensure all citations, TOC, and internal references are synchronized.
-*   **Dependencies:** The system relies on LLM access (e.g., OpenAI or Anthropic) via CrewAI.
+*   **Dependencies:** The system relies on LLM access (Google Gemini API) via CrewAI.
 
 ### Out-of-Scope:
 *   **Automatic submission to academic journals.**

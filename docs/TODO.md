@@ -12,15 +12,15 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 **Definition of Done (DoD):** The environment is initialized with a robust security and QA posture. All foundational SDK files (Version, Gatekeeper, Harness) are implemented, verified under the 150-line limit, and pass the 0-Ruff/85%-coverage protocol. Configuration for rate limits and security is externalized.
 
 ### 1.1 Repository & Environment Genesis
-- [ ] 1.1.1 [Pending] [Architect] - Initialize workspace folder directory layout (`src/`, `tests/`, etc.) | DoD: All 8 operational paths physically exist on disk.
-- [ ] 1.1.2 [Pending] [Architect] - Configure `pyproject.toml` with strict Ruff metadata and `uv` dependencies | DoD: File passes syntax validation with no errors.
-- [ ] 1.1.3 [Pending] [Developer] - Execute `uv` to generate the deterministic `uv.lock` file | DoD: `uv.lock` successfully generated at project root.
-- [ ] 1.1.4 [Pending] [Developer] - Initialize testing paths (`tests/unit/`, `tests/integration/`) | DoD: Sub-directories created successfully.
-- [ ] 1.1.5 [Pending] [Developer] - Create `tests/conftest.py` for shared global testing fixtures | DoD: File exists and contains basic test fixtures.
-- [ ] 1.1.6 [Pending] [Architect] - Create standard secure `.gitignore` file to safeguard runtime caches | DoD: Git tracking successfully excludes target folders.
-- [ ] 1.1.7 [Pending] [Architect] - Create `.env-example` defining core LLM credential placeholders | DoD: File lists all required pipeline keys with dummy values.
-- [ ] 1.1.8 [Pending] [Architect] - Create `config/rate_limits.json` externalizing threshold matrices | DoD: Valid JSON file containing API bucket parameters is saved.
-- [ ] 1.1.9 [Pending] [Architect] - Create `config/setup.json` managing core app parameters | DoD: Valid JSON file mapping orchestrator environment configs is saved.
+- [X] 1.1.1 [Completed] [Architect] - Initialize workspace folder directory layout (`src/`, `tests/`, etc.) | DoD: All 8 operational paths physically exist on disk.
+- [X] 1.1.2 [Completed] [Architect] - Configure `pyproject.toml` with strict Ruff metadata and `uv` dependencies | DoD: File passes syntax validation with no errors.
+- [X] 1.1.3 [Completed] [Developer] - Execute `uv` to generate the deterministic `uv.lock` file | DoD: `uv.lock` successfully generated at project root.
+- [X] 1.1.4 [Completed] [Developer] - Initialize testing paths (`tests/unit/`, `tests/integration/`) | DoD: Sub-directories created successfully.
+- [X] 1.1.5 [Completed] [Developer] - Create `tests/conftest.py` for shared global testing fixtures | DoD: File exists and contains basic test fixtures.
+- [X] 1.1.6 [Completed] [Architect] - Create standard secure `.gitignore` file to safeguard runtime caches | DoD: Git tracking successfully excludes target folders.
+- [X] 1.1.7 [Completed] [Architect] - Create `.env-example` defining core LLM credential placeholders | DoD: File lists all required pipeline keys with dummy values.
+- [X] 1.1.8 [Completed] [Architect] - Create `config/rate_limits.json` externalizing threshold matrices | DoD: Valid JSON file containing API bucket parameters is saved.
+- [X] 1.1.9 [Completed] [Architect] - Create `config/setup.json` managing core app parameters | DoD: Valid JSON file mapping orchestrator environment configs is saved.
 
 ### 1.2 Shared Version Module
 - [ ] 1.2.1 [Pending] [Developer] - Implement logic inside `src/shared/version.py` initializing version to `1.00` | DoD: File compiles and declares version variable string.
