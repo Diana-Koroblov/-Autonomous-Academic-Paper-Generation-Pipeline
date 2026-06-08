@@ -23,20 +23,29 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 - [X] 1.1.9 [Completed] [Architect] - Create `config/setup.json` managing core app parameters | DoD: Valid JSON file mapping orchestrator environment configs is saved.
 
 ### 1.2 Shared Version Module
-- [ ] 1.2.1 [Pending] [Developer] - Implement logic inside `src/shared/version.py` initializing version to `1.00` | DoD: File compiles and declares version variable string.
-- [ ] 1.2.2 [Pending] [QA] - Verify line length limits for `version.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 1.2.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `version.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 1.2.1 [Completed] [Developer] - Implement logic inside `src/shared/version.py` initializing version to `1.00` | DoD: File compiles and declares version variable string.
+- [X] 1.2.2 [Completed] [QA] - Verify line length limits for `version.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
+- [X] 1.2.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `version.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 1.3 SDK Gatekeeper Implementation
-- [ ] 1.3.1 [Pending] [Developer] - Implement `src/sdk/gatekeeper.py` handling API rate limiting, exponential backoff retries, and strict FIFO Queue mechanism | DoD: File created with queue, retry, and limit logic.
-- [ ] 1.3.2 [Pending] [QA] - Verify line length limits for `gatekeeper.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 1.3.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `gatekeeper.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 1.3.1 [Completed] [Architect] - Create base file layout and ingest dynamic settings from `config/rate_limits.json` | DoD: `gatekeeper.py` initializes successfully and parameters parsed with zero errors.
+- [X] 1.3.2 [Completed] [Developer] - Implement async-safe, thread-safe strict FIFO Queue mechanism | DoD: Outgoing tasks are serialized linearly in execution order.
+- [X] 1.3.3 [Completed] [Developer] - Implement Token-Bucket rate limiter mapped to Gemini API limits | DoD: Requests exceeding RPM configuration are cleanly buffered or delayed without triggering 429 exceptions.
+- [X] 1.3.4 [Completed] [Developer] - Implement Exponential Backoff Retry framework for 429/5xx exceptions | DoD: Simulated transient network and concurrency blocks trigger mathematical delay retries up to max_retries.
+- [X] 1.3.5 [Completed] [QA] - Verify physical line length constraints for `gatekeeper.py` | DoD: Code budget analysis explicitly checked and verified strictly under 150 lines.
+- [X] 1.3.6 [Completed] [QA] - Implement comprehensive async unit test suite in `tests/unit/test_gatekeeper.py` | DoD: Test suites verify FIFO sequencing, token bucket delays, and backoff limits.
+- [X] 1.3.7 [Completed] [QA] - Execute Ruff code format scans and verify automated code test coverage | DoD: Code satisfies zero-Ruff violation mandate and coverage metrics reach >= 85%.
+- [X] 1.3.8 [Completed] [QA] - Finalize Phase 1.3 Infrastructure Compliance Audit | DoD: Official verification of pipeline robustness and formal execution of **Gate 1.3** architectural sign-off.
 
-### 1.4 SDK Harness Implementation
-- [ ] 1.4.1 [Pending] [Developer] - Implement `src/sdk/harness.py` to wrap agents for logging, context injection, and token tracking | DoD: File created with harness logging and tracking logic.
-- [ ] 1.4.2 [Pending] [QA] - Verify line length limits for `harness.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 1.4.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `harness.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
-- [ ] 1.4.4 [Pending] [QA] - Finalize Phase 1 Post-Setup Compliance Audit | DoD: Official administrative validation and execution of **Gate 1** structural sign-off.
+### 1.4 SDK Harness Implementation & Phase 1 Gate Sign-off
+- [X] 1.4.1 [Completed] [Architect] - Establish `src/sdk/harness.py` class structure and telemetry logging context holding unique `session_id` tokens | DoD: Class initializes cleanly and hooks up to central system logs.
+- [X] 1.4.2 [Completed] [Developer] - Implement real-time Token Usage Tracking per agent layer for input/output counts mapping Gemini API payload specs | DoD: Harness calculates and metrics accurately capture token velocity.
+- [X] 1.4.3 [Completed] [Developer] - Implement RAG Context Injection Tracking tracking exactly which text chunks and file page metadata strings are injected per session prompt | DoD: Telemetry captures and appends chunk arrays to runtime session telemetry logs.
+- [X] 1.4.4 [Completed] [Developer] - Implement Infrastructure Health Checks verifying baseline operational readiness for Vector DB and local LuaLaTeX engines | DoD: Utility returns valid boolean state responses with zero unhandled silent crashes.
+- [X] 1.4.5 [Completed] [QA] - Verify physical line length constraints for `harness.py` to prevent logic leak | DoD: Code budget analysis explicitly checked and verified strictly under 150 lines.
+- [X] 1.4.6 [Completed] [QA] - Implement complete async unit testing framework inside `tests/unit/test_harness.py` | DoD: Tests assert exact validation of mock token aggregations, session grouping, and health state checks.
+- [X] 1.4.7 [Completed] [QA] - Run automated Ruff compliance checks and confirm code test coverage criteria | DoD: Verification yields exactly 0 Ruff violations and pipeline metrics reach or exceed >= 85% coverage.
+- [X] 1.4.8 [Completed] [QA] - Finalize Phase 1 Post-Setup Compliance Audit | DoD: Verification of overall environment stability and formal execution of **Gate 1** structural sign-off.
 
 ## Phase 2: RAG Engine & Specialized Documentation
 **Priority:** High | **Status:** Pending
