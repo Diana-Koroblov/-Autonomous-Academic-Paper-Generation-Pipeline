@@ -90,14 +90,14 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 - [X] 3.2.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `researcher.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 3.3 Writer Agent Implementation
-- [ ] 3.3.1 [Pending] [Developer] - Implement `src/agents/writer.py` drafting academic Hebrew content, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
-- [ ] 3.3.2 [Pending] [QA] - Verify line length limits for `writer.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 3.3.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `writer.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 3.3.1 [Completed] [Developer] - Implement `src/agents/writer.py` drafting academic Hebrew content, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
+- [X] 3.3.2 [Completed] [QA] - Verify line length limits for `writer.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
+- [X] 3.3.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `writer.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 3.4 Reviewer Agent Implementation
-- [ ] 3.4.1 [Pending] [Developer] - Implement `src/agents/reviewer.py` to perform fact-checking, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
-- [ ] 3.4.2 [Pending] [QA] - Verify line length limits for `reviewer.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 3.4.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `reviewer.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 3.4.1 [Completed] [Developer] - Implement `src/agents/reviewer.py` to perform fact-checking, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
+- [X] 3.4.2 [Completed] [QA] - Verify line length limits for `reviewer.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
+- [X] 3.4.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `reviewer.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 3.5 LaTeX Agent Implementation
 - [ ] 3.5.1 [Pending] [Developer] - Implement `src/agents/latex_agent.py` for document structuring, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
