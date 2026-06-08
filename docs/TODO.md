@@ -100,10 +100,10 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 - [X] 3.4.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `reviewer.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 3.5 LaTeX Agent Implementation
-- [ ] 3.5.1 [Pending] [Developer] - Implement `src/agents/latex_agent.py` for document structuring, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
-- [ ] 3.5.2 [Pending] [QA] - Verify line length limits for `latex_agent.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 3.5.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `latex_agent.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
-- [ ] 3.6.4 [Pending] [QA] - Execute Hard Human-in-the-Loop Pipeline Pause and Inspection Tracking | DoD: Textual prose, factual citations, and TikZ layout structure manually vetted and formal execution of **Gate 3** sign-off.
+- [X] 3.5.1 [Completed] [Developer] - Implement `src/agents/latex_agent.py` for document structuring, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
+- [X] 3.5.2 [Completed] [QA] - Verify line length limits for `latex_agent.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
+- [X] 3.5.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `latex_agent.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 3.6.4 [Completed] [QA] - Execute Hard Human-in-the-Loop Pipeline Pause and Inspection Tracking | DoD: Textual prose, factual citations, and TikZ layout structure manually vetted and formal execution of **Gate 3** sign-off.
 
 ## Phase 4: Content Generation & Orchestration
 **Priority:** High | **Status:** Pending
