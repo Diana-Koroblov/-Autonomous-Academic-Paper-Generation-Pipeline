@@ -16,7 +16,6 @@ env/
 uv.lock.bak
 
 # Local Data & Outputs (Exclude real files, preserve directory structures via .gitkeep)
-data/raw/*.pdf
 data/processed/*.md
 data/processed/*.tex
 !data/raw/.gitkeep
