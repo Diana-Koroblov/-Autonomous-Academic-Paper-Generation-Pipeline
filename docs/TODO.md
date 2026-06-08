@@ -78,16 +78,16 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 **Definition of Done (DoD):** The CrewAI team is deployed using the Skills pattern. Each agent (Researcher, Writer, Reviewer, LaTeX) is defined in a separate file, verified under the 150-line limit, and passing the full QA protocol. Explicit `SKILL.md` files guide agent behavior.
 
 ### 3.1 CrewAI Skills Repository
-- [ ] 3.1.1 [Pending] [Architect] - Create the `skills/` directory at the project root | DoD: Directory physically exists on disk.
-- [ ] 3.1.2 [Pending] [Architect] - Write `skills/research_skill.md`, explicitly defining that it must govern fact-cross-referencing and prevent memory poisoning | DoD: File created with strict instructions.
-- [ ] 3.1.3 [Pending] [Architect] - Write `skills/writing_skill.md`, explicitly defining academic Hebrew prose style, structural coherence, and 25-30 page velocity | DoD: File created with strict constraints.
-- [ ] 3.1.4 [Pending] [Architect] - Write `skills/review_skill.md`, explicitly mandating a strict truth-verification protocol against RAG chunks to eliminate hallucinations | DoD: File created with hallucination elimination rules.
-- [ ] 3.1.5 [Pending] [Architect] - Write `skills/latex_skill.md`, explicitly governing accurate TikZ syntax compilation, math notation layout, and BiDi engine packages | DoD: File created with specific TeX constraints.
+- [X] 3.1.1 [Completed] [Architect] - Create the `skills/` directory at the project root | DoD: Directory physically exists on disk.
+- [X] 3.1.2 [Completed] [Architect] - Write `skills/research_skill.md`, explicitly defining that it must govern fact-cross-referencing and prevent memory poisoning | DoD: File created with strict instructions.
+- [X] 3.1.3 [Completed] [Architect] - Write `skills/writing_skill.md`, explicitly defining academic Hebrew prose style, structural coherence, and 25-30 page velocity | DoD: File created with strict constraints.
+- [X] 3.1.4 [Completed] [Architect] - Write `skills/review_skill.md`, explicitly mandating a strict truth-verification protocol against RAG chunks to eliminate hallucinations | DoD: File created with hallucination elimination rules.
+- [X] 3.1.5 [Completed] [Architect] - Write `skills/latex_skill.md`, explicitly governing accurate TikZ syntax compilation, math notation layout, and BiDi engine packages | DoD: File created with specific TeX constraints.
 
 ### 3.2 Researcher Agent Implementation
-- [ ] 3.2.1 [Pending] [Developer] - Implement `src/agents/researcher.py` specializing in RAG-driven factual extraction, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
-- [ ] 3.2.2 [Pending] [QA] - Verify line length limits for `researcher.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 3.2.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `researcher.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 3.2.1 [Completed] [Developer] - Implement `src/agents/researcher.py` specializing in RAG-driven factual extraction, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
+- [X] 3.2.2 [Completed] [QA] - Verify line length limits for `researcher.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
+- [X] 3.2.3 [Completed] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `researcher.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
 
 ### 3.3 Writer Agent Implementation
 - [ ] 3.3.1 [Pending] [Developer] - Implement `src/agents/writer.py` drafting academic Hebrew content, mandating programmatic SDK loading of skills | DoD: Agent dynamically rediscovers, activates, and injects its assigned skill via `pathlib.Path`.
