@@ -3,6 +3,14 @@
 ## 1. Module Overview & Technical Context
 This standalone document defines the granular product and mathematical requirements for the modular Retrieval-Augmented Generation (RAG) subsystem. The purpose of this engine is to provide strict factual grounding, extract structural citations, and prevent context poisoning for the autonomous academic crew.
 
+## 1.1 Research Corpus Registry
+The knowledge engine is formally constrained to the following verified source corpus currently staged in the `data/raw/` local ingestion directory. All RAG responses must derive exclusively from these documents:
+*   `ThePossibilityofAlienLifeFormsandUnidentifiedAerialPhenomena.pdf` (Holistic Overview)
+*   `bluebook.pdf` (Historical Government Archive)
+*   `s13194-025-00634-8.pdf` (Epistemological/Taboo Analysis)
+*   `DouglasSuttonCichocka2017.pdf` (Psychological Conspiracy Drivers)
+*   `s41599-025-04799-8.pdf` (Expert Authority & Social Discourse)
+
 ## 2. Granular Functional Architecture & Ingestion Mechanics
 * **Text Extraction Protocol:** The ingestion pipeline must accurately parse local text and metadata from multi-source PDF layout files stored within the `data/raw/` registry.
 * **Granular Chunking Strategy:** Ingested documents must be split into atomic text nodes using a strict sliding-window chunk size of **1000 tokens**, with a continuous overlapping boundary of **100 tokens** to ensure contextual prose preservation across chunk edges.

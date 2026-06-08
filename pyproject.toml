@@ -5,9 +5,11 @@ description = "Autonomous AI Pipeline for Academic Paper Generation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "chromadb>=1.1.1",
     "crewai",
     "google-genai",
-    "python-dotenv"
+    "pymupdf>=1.27.2.3",
+    "python-dotenv",
 ]
 
 [project.optional-dependencies]

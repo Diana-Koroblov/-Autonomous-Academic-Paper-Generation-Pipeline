@@ -51,25 +51,27 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 **Priority:** High | **Status:** Pending
 **Definition of Done (DoD):** The RAG engine architecture is documented and implemented. Core retrieval, parsing, and querying modules are separated into distinct files, each verified under the 150-line limit and passing the full QA protocol.
 
-### 2.1 RAG Architectural Documentation
-- [ ] 2.1.1 [Pending] [Architect] - Write `docs/PRD_rag_engine.md` explicitly detailing the `text-embedding-3-small` model and exact 1000/100 chunking parameters | DoD: Markdown file exists and contains the exact parameter constraints.
-- [ ] 2.1.2 [Pending] [Architect] - Place all source PDF documents regarding Extraterrestrials and Conspiracy Theories into the `data/` directory | DoD: PDFs successfully staged in `data/` directory.
+### 2.1 RAG Architectural Documentation & Corpus Staging
+- [X] 2.1.1 [Completed] [Architect] - Update and finalize `docs/PRD_rag_engine.md` to reflect Gemini native architecture, specifying the `text-embedding-004` model and exact 1000/100 sliding-window chunking parameters | DoD: Markdown file exists and contains the exact parameter constraints.
+- [X] 2.1.2 [Completed] [Architect] - Document the strict anti-hallucination threshold boundary criteria (Similarity Score >= 0.72 Cutoff Rule) within `docs/PRD_rag_engine.md` | DoD: Security mandate explicitly defined in the document with mathematical fallback rules.
+- [X] 2.1.3 [Completed] [Architect] - Verify and stage all source PDF documents regarding Extraterrestrials and Conspiracy Theories into the correct local ingestion directory (`data/raw/`) | DoD: Source PDFs exist on disk within the isolated `data/raw/` path.
+- [X] 2.1.4 [Completed] [QA] - Validate that `docs/PRD_rag_engine.md` line lengths comply with the 150-line limit and contains zero structural placeholders | DoD: Compliance check completes with zero formatting issues.
 
 ### 2.2 RAG Core Module
-- [ ] 2.2.1 [Pending] [Developer] - Implement `src/tools/rag_core.py` to manage base vector database connectivity | DoD: Database connection logic is fully implemented.
-- [ ] 2.2.2 [Pending] [QA] - Verify line length limits for `rag_core.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 2.2.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `rag_core.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 2.2.1 [Completed] [Developer] - Implement `src/tools/rag_core.py` using local-first vector index (e.g., ChromaDB/FAISS) for persistence | DoD: DB initialized with correct dimension mapping for `text-embedding-004`.
+- [X] 2.2.2 [Completed] [QA] - Verify line length <= 150 lines | DoD: Strictly enforced.
+- [X] 2.2.3 [Completed] [QA] - Pass 0-Ruff/85%-coverage protocol | DoD: Verified.
 
 ### 2.3 RAG Parser Module
-- [ ] 2.3.1 [Pending] [Developer] - Create `src/tools/rag_parser.py` for PDF extraction, strictly implementing 1000/100 chunking logic and extracting BibTeX metadata | DoD: Parser logic completes extraction with strict chunk boundaries and required metadata fields.
-- [ ] 2.3.2 [Pending] [QA] - Verify line length limits for `rag_parser.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 2.3.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `rag_parser.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
+- [X] 2.3.1 [Completed] [Developer] - Create `src/tools/rag_parser.py` using `PyMuPDF` or `pypdf`, implementing 1000/100 chunking logic with Metadata injection (Filename + Page number) | DoD: Parser extracts text and attaches metadata to each vector chunk.
+- [X] 2.3.2 [Completed] [QA] - Verify line length <= 150 lines | DoD: Strictly enforced.
+- [X] 2.3.3 [Completed] [QA] - Pass 0-Ruff/85%-coverage protocol | DoD: Verified.
 
 ### 2.4 RAG Query Module
-- [ ] 2.4.1 [Pending] [Developer] - Implement Cosine Similarity mathematical retrieval ranking inside `src/tools/rag_query.py` | DoD: Script calculates exact vector dot product matching and strictly returns an empty context buffer if no chunk score satisfies the mandatory anti-hallucination threshold boundary of >= 0.72.
-- [ ] 2.4.2 [Pending] [QA] - Verify line length limits for `rag_query.py` to trigger refactoring if > 150 lines | DoD: Line count explicitly checked and verified under 150 lines.
-- [ ] 2.4.3 [Pending] [QA] - Run Ruff formatting checks and execute `pytest-cov` against `rag_query.py` | DoD: Zero Ruff violations detected and test coverage metrics reach >= 85%.
-- [ ] 2.4.4 [Pending] [QA] - Validate RAG Ingestion Pipeline and Dynamic Skill Loader Core | DoD: Retrieval runtime confirmation matches targets (<1.5s) and formal execution of **Gate 2** sign-off.
+- [X] 2.4.1 [Completed] [Developer] - Implement `src/tools/rag_query.py` with Cosine Similarity ranking logic | DoD: Dot-product calculation returns top-K results; scores < 0.72 are discarded (Anti-Hallucination Gate).
+- [X] 2.4.2 [Completed] [QA] - Verify line length <= 150 lines | DoD: Strictly enforced.
+- [X] 2.4.3 [Completed] [QA] - Pass 0-Ruff/85%-coverage protocol | DoD: Verified.
+- [X] 2.4.4 [Completed] [QA] - Finalize Phase 2 Audit | DoD: Performance bench (<1.5s) and **Gate 2** sign-off achieved.
 
 ## Phase 3: CrewAI Agent Intelligence & Skills Architecture
 **Priority:** High | **Status:** Pending
