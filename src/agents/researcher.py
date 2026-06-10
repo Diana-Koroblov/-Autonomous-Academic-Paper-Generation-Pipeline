@@ -5,10 +5,14 @@ from typing import Any, Dict, List, Optional
 
 from crewai import Agent
 from google import genai
+from google.genai import types
 
 from tools.rag_query import RAGQuery
 
 logger = logging.getLogger(__name__)
+
+DEFAULT_EMBEDDING_MODEL = "gemini-embedding-001"
+EMBEDDING_DIMENSION = 768
 
 
 class ResearcherAgent:
@@ -23,10 +27,14 @@ class ResearcherAgent:
         llm: Optional[Any] = None,
         harness: Optional[Any] = None,
         skill_filename: str = "research_skill.md",
+        embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+        max_iter: int = 5,
     ) -> None:
         self.rag_query = rag_query
-        self.llm = llm or "gemini/gemini-1.5-flash"
+        self.llm = llm or "gemini/gemini-2.5-flash"
         self.harness = harness
+        self.embedding_model = embedding_model
+        self.max_iter = max_iter
         self.skill_content = self._load_skill(skill_filename)
 
     def _load_skill(self, filename: str) -> str:
@@ -48,12 +56,16 @@ class ResearcherAgent:
 
     def get_embedding(self, text: str) -> List[float]:
         """
-        Generates embedding using the text-embedding-004 model via google-genai.
+        Generates a 768-dimension embedding using the configured Gemini embedding model.
         """
         try:
             api_key = os.environ.get("GEMINI_API_KEY", "dummy")
             client = genai.Client(api_key=api_key)
-            response = client.models.embed_content(model="text-embedding-004", contents=text)
+            response = client.models.embed_content(
+                model=self.embedding_model,
+                contents=text,
+                config=types.EmbedContentConfig(output_dimensionality=EMBEDDING_DIMENSION),
+            )
             if hasattr(response, "embeddings") and response.embeddings:
                 return response.embeddings[0].values
             elif hasattr(response, "embedding") and response.embedding:
@@ -117,5 +129,6 @@ class ResearcherAgent:
             llm=self.llm,
             allow_delegation=False,
             verbose=True,
+            max_iter=self.max_iter,
             tools=[search_tool],
         )

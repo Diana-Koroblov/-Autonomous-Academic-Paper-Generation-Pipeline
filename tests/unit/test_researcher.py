@@ -56,9 +56,10 @@ def test_get_embedding_embeddings_success(mock_client_class):
     agent = ResearcherAgent()
     embedding = agent.get_embedding("hello extraterrestrial")
     assert embedding == [0.1] * 768
-    mock_client.models.embed_content.assert_called_with(
-        model="text-embedding-004", contents="hello extraterrestrial"
-    )
+    call = mock_client.models.embed_content.call_args
+    assert call.kwargs["model"] == "gemini-embedding-001"
+    assert call.kwargs["contents"] == "hello extraterrestrial"
+    assert call.kwargs["config"].output_dimensionality == 768
 
 
 @patch("google.genai.Client")

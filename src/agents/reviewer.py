@@ -18,7 +18,7 @@ class ReviewerAgent:
         llm: Optional[Any] = None,
         skill_filename: str = "review_skill.md",
     ) -> None:
-        self.llm = llm or "gemini/gemini-1.5-pro"
+        self.llm = llm or "gemini/gemini-2.5-pro"
         self.skill_content = self._load_skill(skill_filename)
 
     def _load_skill(self, filename: str) -> str:

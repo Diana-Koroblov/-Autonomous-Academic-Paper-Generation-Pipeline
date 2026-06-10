@@ -1,14 +1,15 @@
 {
   "models": {
-    "drafting": "gemini-1.5-flash",
-    "reviewing": "gemini-1.5-pro",
-    "embedding": "text-embedding-004"
+    "drafting": "gemini-2.5-flash-lite",
+    "reviewing": "gemini-2.5-flash-lite",
+    "embedding": "gemini-embedding-001",
+    "embedding_dimension": 768
   },
   "rag_engine": {
     "chunk_size": 1000,
     "chunk_overlap": 100,
     "top_k_retrieval": 5,
-    "similarity_threshold": 0.72
+    "similarity_threshold": 0.6
   },
   "paper_generation": {
     "target_pages_min": 25,
