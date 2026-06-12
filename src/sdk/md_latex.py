@@ -14,11 +14,40 @@ PREAMBLE = (
     "\\usepackage{amsmath}\n"
     "\\usepackage{array}\n"
     "\\usepackage{graphicx}\n"
+    # The draft may reference figures that were never generated. Fall back to a
+    # labelled box for any missing image so a stray \includegraphics filename
+    # cannot abort the build.
+    "\\makeatletter\n"
+    "\\let\\II@includegraphics\\includegraphics\n"
+    "\\renewcommand{\\includegraphics}[2][]{%\n"
+    "  \\IfFileExists{#2}{\\II@includegraphics[#1]{#2}}{%\n"
+    "  \\fbox{\\parbox{0.7\\linewidth}{\\centering\\vspace{1cm}"
+    "{\\ttfamily\\detokenize{#2}}\\\\[0.3em](image not found)\\vspace{1cm}}}}}\n"
+    "\\makeatother\n"
+    # tikz + libraries cover the flowchart diagrams the draft emits inline.
+    "\\usepackage{tikz}\n"
+    "\\usetikzlibrary{positioning,shapes.geometric,arrows.meta}\n"
+    # The draft's diagrams spread nodes wider than the text block (RTL pushes some
+    # off the page edge). Scale every picture's coordinates down so far nodes are
+    # pulled back in, then cap the result at \\linewidth as a backstop.
+    "\\tikzset{every picture/.append style={scale=0.55, transform shape}}\n"
+    "\\usepackage{etoolbox}\n"
+    "\\usepackage{adjustbox}\n"
+    "\\BeforeBeginEnvironment{tikzpicture}{\\begin{adjustbox}{max width=\\linewidth,center}}\n"
+    "\\AfterEndEnvironment{tikzpicture}{\\end{adjustbox}}\n"
     "\\usepackage{float}\n"
     "\\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}\n"
     "\\addbibresource{references.bib}\n"
     "\\setlength{\\parskip}{0.5em}\n"
     "\\setlength{\\parindent}{0pt}\n"
+    # hyperref (loaded late, per convention) makes biblatex turn every \cite
+    # mark like [1] into a clickable link to its bibliography entry; colorlinks
+    # renders those marks in blue so they read as links rather than plain text.
+    "\\usepackage{hyperref}\n"
+    "\\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue}\n"
+    # caption is loaded after hyperref (per its docs) so \captionof works for
+    # tables the draft places inside plain center environments.
+    "\\usepackage{caption}\n"
     "\\begin{document}\n"
 )
 

@@ -167,10 +167,10 @@ Every Python (.py) file created or modified in this project is subject to a 3-st
 - [ ] 5.5.7 [Pending] [QA] - Visually confirm the Drake Equation is rendered as a complex mathematical LaTeX "fancy formula" and not as plain text | DoD: Visual confirmation complete.
 
 ### 5.6 Comprehensive Project Documentation (README)
-- [ ] 5.6.1 [Pending] [Architect] - Write the `README.md` "Project Overview" and "Architecture" sections | DoD: README sections populated.
-- [ ] 5.6.2 [Pending] [Architect] - Write the `README.md` "Installation Instructions" section, explicitly detailing environment setup using `uv` | DoD: README instructions accurately reflect `uv` environment.
-- [ ] 5.6.3 [Pending] [Architect] - Write the `README.md` "Usage Instructions" section, demonstrating how to trigger the autonomous AI pipeline | DoD: Usage CLI/SDK commands are documented.
-- [ ] 5.6.4 [Pending] [Architect] - Write the `README.md` "Configuration Guide" detailing how to adjust `rate_limits.json` and agent skills | DoD: Config tweaks are documented.
+- [X] 5.6.1 [Completed] [Architect] - Write the `README.md` "Project Overview" and "Architecture" sections | DoD: README sections populated.
+- [X] 5.6.2 [Completed] [Architect] - Write the `README.md` "Installation Instructions" section, explicitly detailing environment setup using `uv` | DoD: README instructions accurately reflect `uv` environment.
+- [X] 5.6.3 [Completed] [Architect] - Write the `README.md` "Usage Instructions" section, demonstrating how to trigger the autonomous AI pipeline | DoD: Usage CLI/SDK commands are documented.
+- [X] 5.6.4 [Completed] [Architect] - Write the `README.md` "Configuration Guide" detailing how to adjust `rate_limits.json` and agent skills | DoD: Config tweaks are documented.
 
 ### 5.7 Final Delivery
 - [ ] 5.7.1 [Pending] [QA] - Finalize, version-tag, and securely archive `final_paper.pdf` | DoD: PDF hashed/archived as final output.

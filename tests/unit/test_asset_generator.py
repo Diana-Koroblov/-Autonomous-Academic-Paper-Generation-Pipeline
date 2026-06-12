@@ -32,10 +32,11 @@ def test_generate_uap_distribution_returns_path(tmp_path):
     assert out.name == "uap.pdf"
 
 
-def test_generate_all_creates_both_files(tmp_path):
+def test_generate_all_creates_all_files(tmp_path):
     result = generate_all(tmp_path / "assets")
     assert result["star_field"].exists()
     assert result["uap_distribution"].exists()
+    assert result["belief_network"].exists()
 
 
 def test_generate_all_creates_asset_dir(tmp_path):
@@ -45,9 +46,9 @@ def test_generate_all_creates_asset_dir(tmp_path):
     assert asset_dir.is_dir()
 
 
-def test_generate_all_returns_two_paths(tmp_path):
+def test_generate_all_returns_all_paths(tmp_path):
     result = generate_all(tmp_path)
-    assert set(result.keys()) == {"star_field", "uap_distribution"}
+    assert set(result.keys()) == {"star_field", "uap_distribution", "belief_network"}
     for p in result.values():
         assert isinstance(p, Path)
 

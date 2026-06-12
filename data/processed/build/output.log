@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.6.11)  12 JUN 2026 12:55
+This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.6.11)  12 JUN 2026 15:34
  restricted system commands enabled.
  file:line:error style messages enabled.
 **output.tex
@@ -711,31 +711,127 @@ Package biblatex Info: ... and expl3
 .sty
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/kvdefinekeys/kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/pdfescape/pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/gettitlestring/gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count445
+)
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/stringenc/stringenc.s
+ty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen173
+\Hy@linkcounter=\count446
+\Hy@pagecounter=\count447
+ (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+) (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count448
+ (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count449
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen174
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/bigintcalc/bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count450
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count451
+\c@Item=\count452
+\c@Hfootnote=\count453
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hluatex.def
+File: hluatex.def 2025-07-12 v7.01o Hyperref driver for luaTeX
+\Fld@listcount=\count454
+\c@bookmark@seq@number=\count455
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfil
+echeck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/generic/uniquecounter/uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip78
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 17.
+
 (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip78
-\f@nch@offset@elh=\skip79
-\f@nch@offset@erh=\skip80
-\f@nch@offset@olh=\skip81
-\f@nch@offset@orh=\skip82
-\f@nch@offset@elf=\skip83
-\f@nch@offset@erf=\skip84
-\f@nch@offset@olf=\skip85
-\f@nch@offset@orf=\skip86
-\f@nch@height=\skip87
-\f@nch@footalignment=\skip88
-\f@nch@widthL=\skip89
-\f@nch@widthC=\skip90
-\f@nch@widthR=\skip91
+\f@nch@headwidth=\skip79
+\f@nch@offset@elh=\skip80
+\f@nch@offset@erh=\skip81
+\f@nch@offset@olh=\skip82
+\f@nch@offset@orh=\skip83
+\f@nch@offset@elf=\skip84
+\f@nch@offset@erf=\skip85
+\f@nch@offset@olf=\skip86
+\f@nch@offset@orf=\skip87
+\f@nch@height=\skip88
+\f@nch@footalignment=\skip89
+\f@nch@widthL=\skip90
+\f@nch@widthC=\skip91
+\f@nch@widthR=\skip92
 \@temptokenb=\toks28
 )
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count445
-\@quotereset=\count446
+\@quotelevel=\count456
+\@quotereset=\count457
 
 (C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
 us-Academic-Paper-Generation-Pipeline/data/processed/build/output.aux
@@ -755,22 +851,26 @@ Package babel Info: The following font families will use the default
 )
 \openout1 = output.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -813,56 +913,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 23.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 23.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 23.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 23.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 23.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 23.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 23.
-LaTeX Font Info:    Redeclaring math accent \check on input line 23.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 23.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 23.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 23.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 23.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 23.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 25.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 25.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 25.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 25.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 25.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 25.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 25.
+LaTeX Font Info:    Redeclaring math accent \check on input line 25.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 25.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 25.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 25.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 25.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 25.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 23.
+(Font)              `operators' in the math version `normal' on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/Arial(0)/m/n on input line 23.
+(Font)                  OT1/cmr/m/n --> TU/Arial(0)/m/n on input line 25.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 23.
+(Font)              `operators' in the math version `bold' on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/Arial(0)/m/n on input line 23.
+(Font)                  OT1/cmr/bx/n --> TU/Arial(0)/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/Arial(0)/m/n --> TU/Arial(0)/m/n on input line 23.
+(Font)                  TU/Arial(0)/m/n --> TU/Arial(0)/m/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/Arial(0)/m/it on input line 23.
+(Font)                  OT1/cmr/m/it --> TU/Arial(0)/m/it on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/Arial(0)/b/n on input line 23.
+(Font)                  OT1/cmr/bx/n --> TU/Arial(0)/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 23.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 23.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 25.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/Arial(0)/m/n --> TU/Arial(0)/b/n on input line 23.
+(Font)                  TU/Arial(0)/m/n --> TU/Arial(0)/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/Arial(0)/b/it on input line 23.
+(Font)                  OT1/cmr/bx/it --> TU/Arial(0)/b/it on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 23.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 25.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 23.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 25.
 Removing  `Babel.pre_otfload_h' from `hpack_filter'.
 Removing  `luaotfload.node_processor' from `hpack_filter'.
 Removing  `luaotfload.harf.finalize_hlist' from `hpack_filter'.
@@ -875,16 +975,16 @@ Inserting `Babel.unset_atdir' in `hpack_filter'.
 (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count447
-\scratchdimen=\dimen173
+\scratchcounter=\count458
+\scratchdimen=\dimen177
 \scratchbox=\box59
-\nofMPsegments=\count448
-\nofMParguments=\count449
+\nofMPsegments=\count459
+\nofMParguments=\count460
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count450
-\MPscratchDim=\dimen174
-\MPnumerator=\count451
-\makeMPintoPDFobject=\count452
+\MPscratchCnt=\count461
+\MPscratchDim=\dimen178
+\MPnumerator=\count462
+\makeMPintoPDFobject=\count463
 \everyMPtoPDFconversion=\toks30
 )
 (C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-b
@@ -902,13 +1002,13 @@ Package biblatex Info: ... file 'nil.lbx' not found.
 
 
 Package biblatex Warning: Language 'nil' not supported.
-(biblatex)                Using dummy definitions on input line 23.
+(biblatex)                Using dummy definitions on input line 25.
 
 Package biblatex Info: Trying to load language 'hebrew'...
 Package biblatex Info: ... file 'hebrew.lbx' not found.
 
 Package biblatex Warning: Language 'hebrew' not supported.
-(biblatex)                Using dummy definitions on input line 23.
+(biblatex)                Using dummy definitions on input line 25.
 
 Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
@@ -921,283 +1021,745 @@ Package biblatex Info: ... file 'output.bbl' found.
 
 (C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
 us-Academic-Paper-Generation-Pipeline/data/processed/build/output.bbl)
-Package biblatex Info: Reference section=0 on input line 23.
-Package biblatex Info: Reference segment=0 on input line 23.
+Package biblatex Info: Reference section=0 on input line 25.
+Package biblatex Info: Reference segment=0 on input line 25.
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/graphics/color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: luatex.def on input line 149.
+(C:/Users/itaym/AppData/Local/Programs/MiKTeX/tex/latex/graphics/mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 25.
+
+(C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
+us-Academic-Paper-Generation-Pipeline/data/processed/build/output.out)
+(C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
+us-Academic-Paper-Generation-Pipeline/data/processed/build/output.out)
+\@outlinefile=\write4
+
+\openout4 = output.out
  [1
 
 {C:/Users/itaym/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (7.21768pt too wide) in paragraph at lines 52--53
-\TU/Arial(0)/m/n/12 solid evidence supporting claims that UAP sightings represen
-t extraterrestrial technology,
+
+LaTeX Warning: Citation 'ref1' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref2' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref3' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref4' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref5' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref6' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref7' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref8' undefined on input line 40.
+
+
+LaTeX Warning: Citation 'ref9' undefined on input line 40.
+
+
+Overfull \hbox (38.93079pt too wide) in paragraph at lines 45--77
+[]\TU/Arial(0)/m/n/12 % Example Preamble for LaTeX Typesetter: % \documentclass[
+12pt, a4paper, oneside]{article}
  []
 
 
-Overfull \hbox (0.83624pt too wide) in paragraph at lines 54--55
-\TU/Arial(0)/m/n/12 institutions in the dissemination of these beliefs. Furtherm
-ore, we examine the rhetorical
+Overfull \hbox (50.293pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 \setotherlanguage{english} % \setcode{utf8} % \newfontfamily
+\hebrewfont[Script=Hebrew]{David
  []
 
 
-Overfull \hbox (33.47583pt too wide) in paragraph at lines 54--55
-\TU/Arial(0)/m/n/12 between conspiracy theories and feelings of insecurity, post
-modern anxieties, and correlations
+Overfull \hbox (83.33319pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 CLM} % \newfontfamily\englishfont{Arial} % Or Times New Roma
+n, etc. % \setdefaultlanguage{hebrew}
  []
 
 
-Overfull \hbox (12.57973pt too wide) in paragraph at lines 54--55
-\TU/Arial(0)/m/n/12 between empirical data and conspiracy narratives, pointing 
-to the need for further research
+Overfull \hbox (11.96683pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 \usepackage{graphicx} % \usepackage{caption} % \usepackage{f
+ancyhdr} % For headers
  []
 
+
+Overfull \hbox (129.1005pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 \fancyhead[L]{\textLR{Paper Title}} % Example Left header fo
+r LTR content % \fancyhead[R]{\textRL{\rightmark}}
+ []
+
+
+Overfull \hbox (33.96292pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 centered % \renewcommand{\headrulewidth}{0.4pt} % \renewcomm
+and{\footrulewidth}{0.4pt}
+ []
+
+
+Overfull \hbox (92.20706pt too wide) in paragraph at lines 45--77
+\TU/Arial(0)/m/n/12 % \usepackage{hyperref} % \usepackage{xurl} % Better line br
+eaking for URLs % \usepackage{csquotes}
+ []
+
+
+Overfull \hbox (7.47464pt too wide) in paragraph at lines 78--89
+[]\TU/Arial(0)/m/n/12 % Adjustments for BiDi % \PolyglossiaSetup{hebrew}{indentf
+irst=false,bidifootnote=true}
+ []
+
+
+Overfull \hbox (62.71292pt too wide) in paragraph at lines 78--89
+\TU/Arial(0)/m/n/12 % Example % \makeatletter % \def\maketitle{% % \bgroup % \se
+ttowidth{\@tempdima}{\@author}%
+ []
+
+
+LaTeX Warning: Citation 'ref1' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref2' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref3' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref4' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref5' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref6' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref7' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref8' on page 1 undefined on input line 96.
+
+
+LaTeX Warning: Citation 'ref9' on page 1 undefined on input line 96.
+
+
+Overfull \hbox (8.71254pt too wide) in paragraph at lines 96--97
+\TU/Arial(0)/m/n/12 כפרשנויות לאירועים מרכזיים המר
+מזות על פעולות חשאיות ומתואמות של מספר יחי
+דים [[]], ממשיכות
+ []
+
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 [1]
+
+LaTeX Warning: Citation 'ref1' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref2' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref3' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref4' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref5' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref6' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref7' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref8' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation 'ref9' on page 2 undefined on input line 102.
+
+
+Overfull \hbox (17.21683pt too wide) in paragraph at lines 102--103
+\TU/Arial(0)/m/n/12 This research critically examines the complex issue of Unide
+ntified Anomalous Phenomena
+ []
+
+
+Overfull \hbox (0.53714pt too wide) in paragraph at lines 102--103
+\TU/Arial(0)/m/n/12 with an emphasis on reports from the U.S. government’s All
+-domain Anomaly Resolution
+ []
+
+
+Overfull \hbox (3.69496pt too wide) in paragraph at lines 102--103
+\TU/Arial(0)/m/n/12 bias and my-side bias [[]], the relationships between conspi
+racy theories and paranoia
+ []
+
+
+Overfull \hbox (26.13675pt too wide) in paragraph at lines 102--103
+\TU/Arial(0)/m/n/12 between the absence of scientific evidence and the resilienc
+e of extraterrestrial conspiratorial
+ []
+
+
+Overfull \hbox (8.14401pt too wide) in paragraph at lines 104--105
+[]\TU/Arial(0)/b/n/12 Keywords: \TU/Arial(0)/m/n/12 Conspiracy Theories, UFOs, 
+UAP, AARO, Extraterrestrials, Cognition, Social
+ []
+
+
 (C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
-us-Academic-Paper-Generation-Pipeline/data/processed/build/output.toc)
-\tf@toc=\write4
+us-Academic-Paper-Generation-Pipeline/data/processed/build/output.toc [2])
+\tf@toc=\write5
 
-\openout4 = output.toc
- [2]
-<assets/star_field.pdf, id=13, 574.5465pt x 310.11797pt>
-File: assets/star_field.pdf Graphic file (type pdf)
-<use assets/star_field.pdf>
-Package luatex.def Info: assets/star_field.pdf  used on input line 73.
-(luatex.def)             Requested size: 364.19667pt x 196.582pt.
+\openout5 = output.toc
 
-Overfull \hbox (4.66632pt too wide) in paragraph at lines 81--82
-\TU/Arial(0)/m/n/12 של אמונות אלו. המחקר יחתור להציג 
-תמונה מורכבת, המבחינה בין הנתונים האמפיריי
-ם לבין הפרשנויות
+[3]
+
+LaTeX Warning: Citation 'ref2' on page 4 undefined on input line 113.
+
+
+Overfull \hbox (19.13637pt too wide) in paragraph at lines 113--114
+[]\TU/Arial(0)/m/n/12 העניין בתופעות שמימיות בלתי מו
+סברות, המכונות כיום לרוב ”תופעות חריגות בל
+תי מזוהות” (Unidentified
  []
 
-[3<./assets/star_field.pdf>]
-Overfull \hbox (7.59183pt too wide) in paragraph at lines 99--100
-[]\TU/Arial(0)/m/n/12 אחד מהגופים המרכזיים שהוקמו הו
-א משרד הרזולוציה האנומלית לכל התחומים (All-domai
-n Anomaly
- []
+
+LaTeX Warning: Citation 'ref1' on page 4 undefined on input line 115.
+
+
+LaTeX Warning: Citation 'ref1' on page 4 undefined on input line 115.
+
+
+LaTeX Warning: Citation 'ref2' on page 4 undefined on input line 115.
+
+
+LaTeX Warning: Citation 'ref3' on page 4 undefined on input line 117.
+
+
+LaTeX Warning: Citation 'ref4' on page 4 undefined on input line 117.
+
+
+LaTeX Warning: Citation 'ref4' on page 4 undefined on input line 119.
+
+
+LaTeX Warning: Citation 'ref5' on page 4 undefined on input line 119.
+
+
+LaTeX Warning: Citation 'ref6' on page 4 undefined on input line 119.
+
+
+LaTeX Warning: Citation 'ref7' on page 4 undefined on input line 119.
+
+
+LaTeX Warning: Citation 'ref8' on page 4 undefined on input line 119.
+
+
+LaTeX Warning: Citation 'ref9' on page 4 undefined on input line 119.
 
 [4]
-Overfull \hbox (2.41957pt too wide) in paragraph at lines 107--108
-\TU/Arial(0)/m/n/12 מספקים מסגרת נרטיבית להבנת העול
-ם, להתמודדות עם חוסר ודאות ולקונסולידציה ש
-ל זהות קבוצתית.
+Overfull \hbox (0.57837pt too wide) in paragraph at lines 131--156
+\TU/Arial(0)/m/n/12 מספר הציוויליזציות בגלקסיה שלנ
+ו שבהן קיימת תקשורת \\ \hline $\OML/cmm/m/it/12 R[]$ \TU/Arial(
+0)/m/n/12 & קצב היווצרות כוכבים מתאימים
+ []
+
+
+LaTeX Warning: Citation 'ref2' on page 5 undefined on input line 167.
+
+
+LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 169.
+
+
+LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 169.
+
+
+LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 169.
+
+
+Overfull \hbox (93.24417pt too wide) in paragraph at lines 171--177
+[]\TU/Arial(0)/m/n/12 \begin{figure}[htbp] \centering \includegraphics[width=0.8
+\textwidth]{placeholder_uap_classification.png}
  []
 
 [5]
-Overfull \hbox (6.40102pt too wide) in paragraph at lines 122--123
-[]\TU/Arial(0)/b/n/12 סגנונות קוגניטיביים וצרכים פס
-יכולוגיים: \TU/Arial(0)/m/n/12 מעבר לטעויות קוגניטי
-ביות נקודתיות, אמונות קונספירטיביות
- []
+
+LaTeX Warning: Citation 'ref2' on page 6 undefined on input line 178.
 
 
-Overfull \hbox (1.02368pt too wide) in paragraph at lines 134--135
-[]\TU/Arial(0)/b/n/12 אמון: \TU/Arial(0)/m/n/12 חוסר אמון במוס
-דות – ממשלתיים, מדעיים, תקשורתיים – הוא מא
-פיין מרכזי של המאמינים
- []
+LaTeX Warning: Citation 'ref3' on page 6 undefined on input line 182.
 
 
-Overfull \hbox (4.72491pt too wide) in paragraph at lines 137--138
-\TU/Arial(0)/b/n/12 משמש זרז לחרדות פוסט-מודרניות, ב
-מיוחד בארה”ב” \TU/Arial(0)/m/n/12 [6]. העידן הפוסט-מ
-ודרני מאופיין בהתפוררות
- []
+LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 184.
+
+
+LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 184.
+
+
+LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 186.
+
+
+LaTeX Warning: Citation 'ref5' on page 6 undefined on input line 190.
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]|\TU/Arial(0)/m/n/12 אין עדות לטכנולוגיה חוץ-
+
+LaTeX Warning: Citation 'ref5' on page 7 undefined on input line 192.
+
+
+Overfull \hbox (2.24873pt too wide) in paragraph at lines 192--193
+[]\TU/Arial(0)/m/n/12 אחת הטקטיקות הנפוצות היא השימו
+ש ב”תמונות מטושטשות ועדויות עדים” [[]]. תמו
+נות מטושטשות
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 150--150
-\TU/Arial(0)/m/n/12 ארצית. רוב התצפיות –
+LaTeX Warning: Citation 'ref5' on page 7 undefined on input line 194.
+
+
+Overfull \hbox (45.08559pt too wide) in paragraph at lines 196--210
+[]\TU/Arial(0)/m/n/12 \begin{figure}[htbp] \centering \begin{tikzpicture}[ node distance=1.5cm, block/.style={rectangle,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-\TU/Arial(0)/m/n/12 אובייקטים/תופעות רגילות
+Overfull \hbox (7.09969pt too wide) in paragraph at lines 196--210
+\TU/Arial(0)/m/n/12 draw, fill=blue!10, text width=4cm, text centered, rounded 
+corners, minimum height=1cm,
  []
 
 
-Underfull \hbox (badness 3792) in paragraph at lines 150--150
-[]|\TU/Arial(0)/m/n/12 טוענות להסתרה ממשלתית
+Overfull \hbox (22.0196pt too wide) in paragraph at lines 196--210
+\TU/Arial(0)/m/n/12 text width=3cm, text centered, aspect=2, font=\small}, cloud
+/.style={draw, ellipse,fill=red!10,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-\TU/Arial(0)/m/n/12 מפרשות תצפיות UAP
+Overfull \hbox (33.99901pt too wide) in paragraph at lines 211--221
+\TU/Arial(0)/m/n/12 (rhetoric) node [midway, below] {מעודד ייצור}; % 
+Feedback loop \end{tikzpicture} \caption{תרשים
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--151
-[]|\TU/Arial(0)/m/n/12 זיהוי שגוי, חוסר נתונים,
+Overfull \hbox (7.93195pt too wide) in paragraph at lines 211--221
+\TU/Arial(0)/m/n/12 שימוש בטקטיקות רטוריות, והיווצר
+ות אמונה בתיאוריות קשר חוצניות.} \label{fig:interplay_
+diagram}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--151
-[]|\TU/Arial(0)/m/n/12 מעורבות חוצנים/טכנולוגיה
- []
+LaTeX Warning: Citation 'ref1' on page 7 undefined on input line 229.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-[]|\TU/Arial(0)/m/n/12 נתונים רשמיים, חקירות
- []
+LaTeX Warning: Citation 'ref2' on page 7 undefined on input line 229.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-[]|\TU/Arial(0)/m/n/12 עדויות עדים, תמונות
- []
+LaTeX Warning: Citation 'ref1' on page 7 undefined on input line 233.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-\TU/Arial(0)/m/n/12 מטושטשות [2], פרשנויות
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--153
-[]|\TU/Arial(0)/m/n/12 בחינה אובייקטיבית של
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 153--153
-[]|\TU/Arial(0)/m/n/12 מיתוס אטיולוגי המסביר את
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
-[]|\TU/Arial(0)/b/n/12 קשר לפסיכולוגיה
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
-[]|\TU/Arial(0)/m/n/12 חשיבה רציונלית, בחינת
- []
-
-
-Underfull \hbox (badness 6775) in paragraph at lines 154--154
-[]|\TU/Arial(0)/m/n/12 הטיות קוגניטיביות (אישוש,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--155
-[]|\TU/Arial(0)/m/n/12 חתירה לשקיפות ואמון
- []
-
-
-Underfull \hbox (badness 6961) in paragraph at lines 155--155
-\TU/Arial(0)/m/n/12 [5], חרדות פוסט-מודרניות
- []
+LaTeX Warning: Citation 'ref2' on page 7 undefined on input line 233.
 
 [7]
-Overfull \hbox (6.5137pt too wide) in paragraph at lines 168--169
-\TU/Arial(0)/m/n/12 ייעשה שימוש במודלים סוציולוגיי
-ם לבחינת תיאוריות קשר כמיתוסים מודרניים המ
-שרתים צרכים חברתיים
+
+LaTeX Warning: Citation 'ref1' on page 8 undefined on input line 234.
+
+
+Overfull \hbox (12.01358pt too wide) in paragraph at lines 234--235
+[]\TU/Arial(0)/b/n/12 בחינת מתודולוגיית החקירה: \TU/Arial
+(0)/m/n/12 ניתוח הדרכים שבהן AARO וגופים קודמים ל
+ו ביצעו את חקירותיהם
  []
 
+
+LaTeX Warning: Citation 'ref1' on page 8 undefined on input line 235.
+
+
+LaTeX Warning: Citation 'ref2' on page 8 undefined on input line 235.
+
+
+LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 246.
+
+
+LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 249.
+
+
+LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 250.
+
+
+Overfull \hbox (1.49515pt too wide) in paragraph at lines 250--251
+[]\TU/Arial(0)/b/n/12 אפקט החשיפה בלבד (Mere Exposure Effect): \T
+U/Arial(0)/m/n/12 נטייה לפתח העדפה לדברים שאנו חשו
+פים
+ []
+
+
+LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 251.
+
+
+LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 254.
+
+
+LaTeX Warning: Citation 'ref8' on page 8 undefined on input line 258.
+
 [8]
-Overfull \hbox (7.11743pt too wide) in paragraph at lines 201--202
-[]\TU/Arial(0)/b/n/12 איומים קיומיים: \TU/Arial(0)/m/n/12 תפי
-סת איומים מהעולם הסובב ומהחברה (אי-וודאות כ
-לכלית, חברתית, פוליטית)
+
+LaTeX Warning: Citation 'ref8' on page 9 undefined on input line 264.
+
+
+Overfull \hbox (18.02998pt too wide) in paragraph at lines 268--268
+[]\TU/Arial(0)/b/n/14.4 3.2.3. מודל הקשרים הפסיכו-חברתיי
+ם (Psycho-Social Linkages Model) 
+ []
+
+
+LaTeX Warning: Citation 'ref7' on page 9 undefined on input line 270.
+
+
+Overfull \hbox (2.35732pt too wide) in paragraph at lines 277--277
+[]\TU/Arial(0)/b/n/14.4 3.2.4. מודל החרדות הפוסט-מודרניו
+ת (Postmodern Anxieties Model) 
+ []
+
+
+LaTeX Warning: Citation 'ref9' on page 9 undefined on input line 279.
+
+
+LaTeX Warning: Citation 'ref9' on page 9 undefined on input line 282.
+
+
+LaTeX Warning: Citation 'ref6' on page 9 undefined on input line 291.
+
+
+LaTeX Warning: Citation 'ref8' on page 9 undefined on input line 293.
+
+
+LaTeX Warning: Citation 'ref7' on page 9 undefined on input line 295.
+
+
+LaTeX Warning: Citation 'ref9' on page 9 undefined on input line 297.
+
+
+Overfull \hbox (4.27933pt too wide) in paragraph at lines 285--303
+[]\TU/Arial(0)/m/n/12 \begin{table}[htbp] \centering \begin{tabular}{|p{4cm}|p{6
+cm}|p{4cm}|} \hline \textbf{מודל}
+ []
+
+
+Overfull \hbox (109.98506pt too wide) in paragraph at lines 285--303
+\TU/Arial(0)/m/n/12 מודלים קוגניטיביים ופסיכו-חברת
+יים ותרומתם לאמונה בתיאוריות קשר חוצניות.} \l
+abel{tab:cognitive_models_summary}
  []
 
 [9]
-<assets/uap_distribution.pdf, id=84, 713.58595pt x 317.99193pt>
-File: assets/uap_distribution.pdf Graphic file (type pdf)
-<use assets/uap_distribution.pdf>
-Package luatex.def Info: assets/uap_distribution.pdf  used on input line 257.
-(luatex.def)             Requested size: 364.19667pt x 162.29988pt.
- [10] [11<./assets/uap_distribution.pdf>]
-Overfull \hbox (13.25844pt too wide) in paragraph at lines 280--281
-[]\TU/Arial(0)/b/n/12 חיפוש ”עדויות” חלופיות: \TU/Arial(0
-)/m/n/12 התמקדות מחודשת בתמונות מטושטשות, עדוי
-ות עדים בלתי מאומתות,
+
+LaTeX Warning: Citation 'ref1' on page 10 undefined on input line 306.
+
+
+LaTeX Warning: Citation 'ref2' on page 10 undefined on input line 306.
+
+
+Overfull \hbox (11.66724pt too wide) in paragraph at lines 306--307
+\TU/Arial(0)/m/n/12 [[], []], המודלים הקוגניטיביים והפס
+יכו-חברתיים מסבירים את הרציונל שמאחורי האמ
+ונה העקשנית
  []
+
+
+LaTeX Warning: Citation 'ref5' on page 10 undefined on input line 311.
+
+
+LaTeX Warning: Citation 'ref6' on page 10 undefined on input line 311.
+
+
+LaTeX Warning: Citation 'ref6' on page 10 undefined on input line 312.
+
+
+LaTeX Warning: Citation 'ref8' on page 10 undefined on input line 312.
+
+
+LaTeX Warning: Citation 'ref7' on page 10 undefined on input line 313.
+
+
+LaTeX Warning: Citation 'ref9' on page 10 undefined on input line 313.
+
+
+LaTeX Warning: Citation 'ref4' on page 10 undefined on input line 313.
+
+
+Overfull \hbox (35.07777pt too wide) in paragraph at lines 317--334
+[]\TU/Arial(0)/m/n/12 \begin{figure}[htbp] \centering \begin{tikzpicture}[ node distance=2cm, block/.style={rectangle,
+ []
+
+
+Overfull \hbox (17.1075pt too wide) in paragraph at lines 317--334
+\TU/Arial(0)/m/n/12 draw, fill=blue!10, text width=3.5cm, text centered, rounded
+ corners, minimum height=1cm,
+ []
+
+
+Overfull \hbox (5.68367pt too wide) in paragraph at lines 317--334
+\TU/Arial(0)/m/n/12 font=\small}, input/.style={rectangle, draw, fill=green!10, text width=3.5cm, text centered,
+ []
+
+
+Overfull \hbox (7.88522pt too wide) in paragraph at lines 317--334
+\TU/Arial(0)/m/n/12 width=3.5cm, text centered, minimum height=1cm, font=\small}
+, output/.style={rectangle,
+ []
+
+
+Overfull \hbox (6.04784pt too wide) in paragraph at lines 335--347
+\TU/Arial(0)/m/n/12 (official_debunk) |- node [left, pos=0.25] {מתעלם מ} 
+(cognitive_process.east); % Cognitive
+ []
+
+[10]
+
+LaTeX Warning: Citation 'ref1' on page 11 undefined on input line 360.
+
+
+LaTeX Warning: Citation 'ref1' on page 11 undefined on input line 361.
+
+
+LaTeX Warning: Citation 'ref2' on page 11 undefined on input line 362.
+
+
+LaTeX Warning: Citation 'ref4' on page 11 undefined on input line 369.
+
+[11]
+
+LaTeX Warning: Citation 'ref4' on page 12 undefined on input line 372.
+
+
+LaTeX Warning: Citation 'ref4' on page 12 undefined on input line 372.
+
+
+LaTeX Warning: Citation 'ref4' on page 12 undefined on input line 373.
+
+
+LaTeX Warning: Citation 'ref5' on page 12 undefined on input line 381.
+
+
+LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 389.
+
+
+LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 390.
+
+
+LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 391.
+
+
+Overfull \hbox (12.08694pt too wide) in paragraph at lines 391--392
+[]\TU/Arial(0)/b/n/12 אפקט החשיפה בלבד (Mere Exposure Effect): \T
+U/Arial(0)/m/n/12 חשיפה חוזרת ונשנית למסרים מניפול
+טיביים,
+ []
+
+
+LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 392.
+
+
+LaTeX Warning: Citation 'ref8' on page 12 undefined on input line 393.
 
 [12]
-Overfull \hbox (6.44386pt too wide) in paragraph at lines 321--322
-\TU/Arial(0)/m/n/12 ניתוח הממצאים האמפיריים של משרד 
-הרזולוציה האנומלית לכל התחומים (AARO) בפרט [1], 
-והסקירה
+
+LaTeX Warning: Citation 'ref7' on page 13 undefined on input line 401.
+
+
+LaTeX Warning: Citation 'ref9' on page 13 undefined on input line 402.
+
+
+LaTeX Warning: Citation 'ref9' on page 13 undefined on input line 402.
+
+
+Overfull \hbox (121.94339pt too wide) in paragraph at lines 405--411
+[]\TU/Arial(0)/m/n/12 \begin{figure}[htbp] \centering \includegraphics[width=0.9
+\textwidth]{placeholder_data_graph_correlation.png}
  []
 
 
-Overfull \hbox (0.84073pt too wide) in paragraph at lines 327--328
-\TU/Arial(0)/m/n/12 לאמונות קונספירטיביות אודות חו
-צנים ולתופעת ה-UAP יש השלכות משמעותיות הן בר
-מה הפסיכולוגית
+Overfull \hbox (30.7878pt too wide) in paragraph at lines 405--411
+\TU/Arial(0)/m/n/12 קשר חוצניות (ציר Y), עם דגימות המב
+טאות את טווח התוצאות.} \label{fig:paranoia_correlation_graph}
  []
+
+
+LaTeX Warning: Citation 'ref1' on page 13 undefined on input line 420.
+
+
+LaTeX Warning: Citation 'ref2' on page 13 undefined on input line 420.
+
+
+LaTeX Warning: Citation 'ref4' on page 13 undefined on input line 422.
+
+
+LaTeX Warning: Citation 'ref5' on page 13 undefined on input line 424.
+
+
+LaTeX Warning: Citation 'ref6' on page 13 undefined on input line 426.
+
+
+LaTeX Warning: Citation 'ref7' on page 13 undefined on input line 428.
+
+
+LaTeX Warning: Citation 'ref8' on page 13 undefined on input line 428.
+
+
+LaTeX Warning: Citation 'ref9' on page 13 undefined on input line 428.
+
+
+Overfull \hbox (20.16995pt too wide) in paragraph at lines 414--434
+[]\TU/Arial(0)/m/n/12 \begin{table}[htbp] \centering \begin{tabular}{|p{3cm}|p{8
+cm}|p{3cm}|} \hline \textbf{קטגוריה}
+ []
+
+
+LaTeX Warning: Citation 'ref1' on page 13 undefined on input line 438.
+
+
+LaTeX Warning: Citation 'ref2' on page 13 undefined on input line 438.
 
 [13]
-Overfull \hbox (2.43248pt too wide) in paragraph at lines 350--351
-\TU/Arial(0)/m/n/12 אלטרנטיביים בהפצה, חיזוק, וקיטו
-ב של אמונות קונספירטיביות אודות חוצנים, וה
-שוואת טקטיקות
- []
+
+LaTeX Warning: Citation 'ref1' on page 14 undefined on input line 442.
+
+
+LaTeX Warning: Citation 'ref2' on page 14 undefined on input line 442.
+
+
+LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 446.
+
+
+LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 446.
+
+
+LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 446.
+
+
+LaTeX Warning: Citation 'ref5' on page 14 undefined on input line 448.
+
+
+LaTeX Warning: Citation 'ref6' on page 14 undefined on input line 450.
+
+
+LaTeX Warning: Citation 'ref6' on page 14 undefined on input line 450.
+
+
+LaTeX Warning: Citation 'ref8' on page 14 undefined on input line 452.
+
+
+LaTeX Warning: Citation 'ref7' on page 14 undefined on input line 454.
+
+
+LaTeX Warning: Citation 'ref9' on page 14 undefined on input line 456.
+
+
+LaTeX Warning: Citation 'ref9' on page 14 undefined on input line 456.
 
 [14]
-Overfull \hbox (13.20609pt too wide) in paragraph at lines 365--366
-[]\TU/Arial(0)/b/n/12 היעדר ראיות לטכנולוגיה חוץ-ארצ
-ית: \TU/Arial(0)/m/n/12 ממצאי משרד הרזולוציה האנומל
-ית לכל התחומים (AARO)
+
+LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 467.
+
+
+LaTeX Warning: Citation 'ref4' on page 15 undefined on input line 468.
+
+
+LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 469.
+
+
+LaTeX Warning: Citation 'ref7' on page 15 undefined on input line 469.
+
+
+Overfull \hbox (15.7796pt too wide) in paragraph at lines 469--470
+\TU/Arial(0)/m/n/12 ופרנויה [[], []]. כיצד ניתן למדל את 
+תהליכי ההד (echo chambers) והקיטוב (polarization)
+ []
+
+
+LaTeX Warning: Citation 'ref9' on page 15 undefined on input line 470.
+
+
+LaTeX Warning: Citation 'ref7' on page 15 undefined on input line 477.
+
+
+LaTeX Warning: Citation 'ref4' on page 15 undefined on input line 478.
+
+
+LaTeX Warning: Citation 'ref5' on page 15 undefined on input line 478.
+
+
+LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 478.
+
+
+LaTeX Warning: Citation 'ref8' on page 15 undefined on input line 478.
+
+
+LaTeX Warning: Citation 'ref9' on page 15 undefined on input line 478.
+
+
+Overfull \hbox (2.27113pt too wide) in paragraph at lines 478--479
+\TU/Arial(0)/m/n/12 bunking) מפני טקטיקות רטוריות קונספ
+ירטיביות, והתייחסות לצרכים הפסיכולוגיים ש
+התיאוריות
  []
 
 [15]
-Overfull \hbox (12.73207pt too wide) in paragraph at lines 382--383
-\TU/Arial(0)/m/n/12 מחקרים עתידיים צריכים להתמקד בח
-קירה כמותית של הגורמים הללו, בניתוח השפעת ה
-מדיה הדיגיטלית,
+
+LaTeX Warning: Citation 'ref1' on page 16 undefined on input line 487.
+
+
+LaTeX Warning: Citation 'ref2' on page 16 undefined on input line 487.
+
+
+LaTeX Warning: Citation 'ref4' on page 16 undefined on input line 489.
+
+
+LaTeX Warning: Citation 'ref5' on page 16 undefined on input line 491.
+
+
+LaTeX Warning: Citation 'ref6' on page 16 undefined on input line 491.
+
+
+LaTeX Warning: Citation 'ref8' on page 16 undefined on input line 491.
+
+
+Overfull \hbox (9.31215pt too wide) in paragraph at lines 491--492
+[]\TU/Arial(0)/m/n/12 המחקר הדגיש את תפקידן של ”טקטי
+קות רטוריות” בחיזוק אמונות אלו, ובהן שימוש 
+ב”תמונות מטושטשות
  []
 
 
-Overfull \hbox (7.82973pt too wide) in paragraph at lines 382--383
-\TU/Arial(0)/m/n/12 בביצוע מחקרים השוואתיים בין-תרב
-ותיים, ופיתוח התערבויות שמטרתן לחזק חשיבה 
-ביקורתית ואוריינות
+Overfull \hbox (0.45148pt too wide) in paragraph at lines 491--492
+\TU/Arial(0)/m/n/12 ועדויות עדים” המעניקות אמינות 
+לכאורה לנרטיבים [[]]. כמו כן, נבחנו ”טעויות ק
+וגניטיביות” בסיסיות,
  []
 
 
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
+LaTeX Warning: Citation 'ref7' on page 16 undefined on input line 493.
 
 
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
+LaTeX Warning: Citation 'ref9' on page 16 undefined on input line 493.
 
 
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
-
-
-Package biblatex Warning: Using fallback definition for \mkbibdatelong.
-(biblatex)                The command should be defined in the .lbx file.
-(biblatex)                If you see this message, the .lbx file could not be
-(biblatex)                loaded, is faulty or does not contain a definition
-(biblatex)                for \mkbibdatelong.
+Overfull \hbox (1.67256pt too wide) in paragraph at lines 497--498
+\TU/Arial(0)/m/n/12 פתוח ושקוף שיכול למתן את הצורך ב
+חיפוש אחר הסברים קונספירטיביים. הדיון אודו
+ת חוצנים ותיאוריות
+ []
 
 [16]
 (C:/Users/itaym/Documents/hw3-autonomous-academic-paper-generation-ai/-Autonomo
@@ -1206,32 +1768,42 @@ us-Academic-Paper-Generation-Pipeline/data/processed/build/output.aux)
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `output.out' has not changed.
+(rerunfilecheck)             Checksum: D3A063699B43D4DCB4BF35C1877F5781;7895.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                output
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'output.run.xml'.
 
 \openout1 = output.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 14834 strings out of 476081
+ 21151 strings out of 476081
  125165,1373583 words of node,token memory allocated
- 3214 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 7 dir, 2 glue, 4 kern, 1 glyph, 986 attribute, 69 g
-lue_spec, 331 attribute_list, 1 write nodes
-   avail lists: 1:2,2:14331,3:218,4:10,5:451,6:67,7:6939,8:16,9:552,10:9,11:54,1
-2:1
- 37029 multiletter control sequences out of 65536+600000
- 52 fonts using 25110039 bytes
- 73i,12n,98p,1900b,1421s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/WINDOWS/Fonts/arialni.ttf><C:/WINDOWS/Fonts/arial.ttf><C:/WINDOWS/Fonts/aria
-lbd.ttf><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmmi12.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/itaym/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on output.pdf (17 pages, 615989 bytes).
+ 3814 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 1226 attribute, 68 glue_sp
+ec, 411 attribute_list, 1 write nodes
+   avail lists: 1:4,2:14494,3:421,4:104,5:353,6:63,7:7316,8:16,9:303,10:7,11:21
+ 43202 multiletter control sequences out of 65536+600000
+ 51 fonts using 24898671 bytes
+ 73i,12n,98p,2842b,1214s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/WINDOWS/Fonts/arial.ttf><C:/WINDOWS/Fonts/arialbd.ttf><C:/Users/itaym/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/itay
+m/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Use
+rs/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+y10.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb>
+Output written on output.pdf (17 pages, 241992 bytes).
 
-PDF statistics: 211 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 1048576)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 231 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 1048576)
+ 177 words of extra memory for PDF output out of 10000 (max. 100000000)
 

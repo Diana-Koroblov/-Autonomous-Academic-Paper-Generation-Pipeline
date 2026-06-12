@@ -8,6 +8,8 @@ from typing import Dict
 import matplotlib.pyplot as plt
 import numpy as np
 
+from sdk.belief_network import generate_belief_network
+
 # Approximate AARO UAP category counts (Annual Report, 2024).
 _AARO_DATA: Dict[str, int] = {
     "Unknown / Unresolved": 171,
@@ -96,4 +98,5 @@ def generate_all(asset_dir: Path) -> Dict[str, Path]:
     return {
         "star_field": generate_star_field(asset_dir / "star_field.pdf"),
         "uap_distribution": generate_uap_distribution(asset_dir / "uap_distribution.pdf"),
+        "belief_network": generate_belief_network(asset_dir / "belief_network.pdf"),
     }

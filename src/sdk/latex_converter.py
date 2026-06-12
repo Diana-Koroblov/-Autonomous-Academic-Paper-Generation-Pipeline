@@ -23,6 +23,14 @@ class LatexConverter:
     def __init__(self) -> None:
         self._list_mode: Optional[str] = None
         self._in_refs: bool = False
+        # >0 while inside a raw LaTeX environment the draft emitted itself
+        # (e.g. \begin{figure}/\begin{tikzpicture}/\begin{table}); such lines are
+        # passed through verbatim instead of being escaped into visible source.
+        self._latex_depth: int = 0
+        # Shallowest Markdown heading level in the draft, so headings map onto
+        # section/subsection/subsubsection regardless of whether the writer used
+        # '#' or '##' as its top level.
+        self._min_depth: int = 1
 
     def _open_list(self, out: List[str], mode: str) -> None:
         if self._list_mode != mode:
@@ -64,16 +72,17 @@ class LatexConverter:
             return True
         return self._emit_heading_or_list(s, out)
 
+    @staticmethod
+    def _heading_depths(lines: List[str]) -> List[int]:
+        return [len(m.group(1)) for line in lines if (m := re.match(r"(#{1,6})\s+\S", line.strip()))]
+
     def _emit_heading_or_list(self, s: str, out: List[str]) -> bool:
-        head3 = re.match(r"###\s+(.*)", s)
-        if head3:
+        head = re.match(r"(#{1,6})\s+(.*)", s)
+        if head:
             self._close_list(out)
-            out.append("\\subsection{" + inline(head3.group(1)) + "}")
-            return True
-        head2 = re.match(r"##\s+(.*)", s)
-        if head2:
-            self._close_list(out)
-            out.append("\\section{" + inline(head2.group(1)) + "}")
+            level = min(max(len(head.group(1)) - self._min_depth, 0), 2)
+            cmd = ("section", "subsection", "subsubsection")[level]
+            out.append("\\" + cmd + "{" + inline(head.group(2)) + "}")
             return True
         bullet = re.match(r"\*\s+(.+)", s)
         if bullet:
@@ -102,13 +111,33 @@ class LatexConverter:
         nums = sorted(in_text_numbers(raw))
         if nums:
             out.append("\\nocite{" + ",".join(f"ref{n}" for n in nums) + "}")
+        lines = raw.splitlines()
+        depths = self._heading_depths(lines)
+        self._min_depth = min(depths) if depths else 1
         self._list_mode = None
         self._in_refs = False
+        self._latex_depth = 0
         table_buf: List[str] = []
         title_done = False
-        for line in raw.splitlines():
+        for line in lines:
             stripped = line.strip()
             if self._in_refs:  # entries are captured in references.bib; skip the raw list
+                continue
+            if stripped.startswith("```"):  # drop Markdown code-fence markers
+                continue
+            # Pass raw LaTeX (and LaTeX comments) through verbatim. The writer may
+            # emit whole environments itself; escaping them would print the source.
+            if self._latex_depth > 0 or stripped.startswith("\\") or stripped.startswith("%"):
+                if table_buf:
+                    self._close_list(out)
+                    out.append(md_table(table_buf))
+                    table_buf = []
+                self._close_list(out)
+                out.append(line)
+                if not stripped.startswith("%"):
+                    self._latex_depth = max(
+                        0, self._latex_depth + stripped.count("\\begin{") - stripped.count("\\end{")
+                    )
                 continue
             if stripped.startswith("|"):
                 table_buf.append(line)
@@ -130,6 +159,10 @@ class LatexConverter:
                 title_done = True
                 if stripped.startswith("**") and stripped.endswith("**"):
                     out.append(title_block(stripped))
+                    continue
+                htitle = re.match(r"#{1,6}\s+(.*)", stripped)
+                if htitle:  # a leading heading stands in as the document title
+                    out.append(title_block("**" + htitle.group(1).strip() + "**"))
                     continue
             if not self._emit_block(stripped, out):
                 self._close_list(out)
