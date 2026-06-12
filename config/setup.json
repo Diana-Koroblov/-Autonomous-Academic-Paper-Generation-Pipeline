@@ -1,7 +1,7 @@
 {
   "models": {
-    "drafting": "gemini-2.5-flash-lite",
-    "reviewing": "gemini-2.5-flash-lite",
+    "drafting": "gemini-2.5-flash",
+    "reviewing": "gemini-2.5-flash",
     "embedding": "gemini-embedding-001",
     "embedding_dimension": 768
   },
@@ -14,7 +14,16 @@
   "paper_generation": {
     "target_pages_min": 25,
     "target_pages_max": 30,
+    "verify_pages_min": 14,
+    "verify_pages_max": 16,
     "language": "Hebrew",
     "subject": "Extraterrestrials and Conspiracy Theories"
+  },
+  "cover_page": {
+    "subject": "חייזרים ותיאוריות קונספירציה",
+    "authors": "מר בינה מלאכותית",
+    "date": "יוני 2026",
+    "course": "שם הקורס",
+    "lecturer": "שם המרצה"
   }
 }

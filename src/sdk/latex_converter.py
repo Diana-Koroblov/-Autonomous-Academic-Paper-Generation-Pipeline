@@ -1,75 +1,149 @@
 import logging
 import re
 from pathlib import Path
-from typing import List
+from typing import List, Optional
+
+from sdk.bib_sync import REFERENCES_HEADINGS, in_text_numbers
+from sdk.latex_style import CoverInfo, cover_page_tex, enhanced_preamble
+from sdk.md_latex import POSTAMBLE, PREAMBLE, figure_block, inline, md_table, placeholder_box, title_block
 
 logger = logging.getLogger(__name__)
-
-# Robust Hebrew BiDi preamble for LuaLaTeX. babel's bidi=basic reliably renders
-# embedded English (Latin) runs left-to-right inside the right-to-left Hebrew flow,
-# which polyglossia does not do dependably on LuaLaTeX.
-BIDI_PREAMBLE = (
-    "% --- BiDi Setup (LuaLaTeX + babel) ---\n"
-    "\\usepackage{fontspec}\n"
-    "\\usepackage[bidi=basic]{babel}\n"
-    "\\babelprovide[main, import]{hebrew}\n"
-    "\\babelprovide[import]{english}\n"
-    "\\babelfont{rm}{Arial}\n"
-)
-
-# Preamble lines that must be removed (polyglossia/manual font setup is replaced
-# by BIDI_PREAMBLE) or that are invalid/hallucinated commands.
-_DROP_PREFIXES = (
-    "\\usepackage{polyglossia}",
-    "\\usepackage{fontspec}",
-    "\\setmainlanguage",
-    "\\setotherlanguage",
-    "\\setcode",
-    "\\setmainfont",
-    "\\setsansfont",
-    "\\newfontfamily",
-)
 
 
 class LatexConverter:
     """
-    Transforms raw AI Markdown/LaTeX output into a compilable LuaLaTeX document:
-    strips Markdown code fences, removes invalid commands, converts leaked
-    Markdown bold, drops the polyglossia language environment, and injects a
-    babel BiDi preamble so Hebrew is RTL and embedded English is LTR.
+    Transforms the raw academic Markdown draft into a complete, compilable
+    LuaLaTeX document: emits a BiDi preamble, maps Markdown headings/lists/tables
+    /bold to LaTeX, renders `$$...$$` as display math, turns `[TOC]` into a real
+    table of contents, and replaces missing-asset placeholders ([IMAGE], [DATA
+    GRAPH], [TIKZ DIAGRAM]) with framed boxes so the document lays out and the
+    true page count can be measured.
     """
 
-    def _sanitize_line(self, line: str) -> str:
-        line = line.replace("\\tableofcontents*", "\\tableofcontents")
-        # Paired Markdown bold -> LaTeX bold.
-        line = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", line)
-        # A stray, unpaired '**' is the model closing an opened \textbf{ with
-        # Markdown syntax; map it back to the missing closing brace.
-        if "**" in line:
-            logger.warning("Converting stray Markdown '**' to closing brace in: %s", line.strip()[:60])
-            line = line.replace("**", "}")
-        return line
+    def __init__(self) -> None:
+        self._list_mode: Optional[str] = None
+        self._in_refs: bool = False
 
-    def convert(self, raw: str) -> str:
-        """Returns a compilable .tex string built from the raw agent output."""
-        out: List[str] = []
+    def _open_list(self, out: List[str], mode: str) -> None:
+        if self._list_mode != mode:
+            self._close_list(out)
+            out.append(f"\\begin{{{mode}}}")
+            self._list_mode = mode
+
+    def _close_list(self, out: List[str]) -> None:
+        if self._list_mode:
+            out.append(f"\\end{{{self._list_mode}}}")
+            self._list_mode = None
+
+    def _emit_block(self, s: str, out: List[str]) -> bool:
+        """Handles a single non-table, non-blank line. Returns True if consumed."""
+        if s in ("***", "---", "___"):
+            self._close_list(out)
+            return True
+        if s == "[TOC]":
+            self._close_list(out)
+            out.append("\\tableofcontents\n\\newpage")
+            return True
+        if s == "[DRAKE EQUATION]":
+            self._close_list(out)
+            return True
+        math = re.fullmatch(r"\$\$(.+)\$\$", s)
+        if math:
+            self._close_list(out)
+            out.append("\\[" + math.group(1).strip() + "\\]")
+            return True
+        asset_m = re.match(r"\[(IMAGE|DATA GRAPH|TIKZ DIAGRAM)\s+(\S+)\s*[-—–]+\s*(.+)\]", s)
+        if asset_m or re.match(r"\[(IMAGE|DATA GRAPH|TIKZ DIAGRAM)\b[^\]]*\]", s):
+            self._close_list(out)
+            block = figure_block(asset_m.group(2), asset_m.group(3).strip()) if asset_m \
+                else placeholder_box(s.strip("[]"))
+            out.append(block)
+            return True
+        if re.match(r"\[TABLE\b[^\]]*\]", s):  # caption marker; the tabular follows
+            self._close_list(out)
+            return True
+        return self._emit_heading_or_list(s, out)
+
+    def _emit_heading_or_list(self, s: str, out: List[str]) -> bool:
+        head3 = re.match(r"###\s+(.*)", s)
+        if head3:
+            self._close_list(out)
+            out.append("\\subsection{" + inline(head3.group(1)) + "}")
+            return True
+        head2 = re.match(r"##\s+(.*)", s)
+        if head2:
+            self._close_list(out)
+            out.append("\\section{" + inline(head2.group(1)) + "}")
+            return True
+        bullet = re.match(r"\*\s+(.+)", s)
+        if bullet:
+            self._open_list(out, "itemize")
+            out.append("\\item " + inline(bullet.group(1)))
+            return True
+        numbered = re.match(r"(\d+)\.\s+(.+)", s)
+        if numbered:
+            self._open_list(out, "enumerate")
+            out.append("\\item " + inline(numbered.group(2)))
+            return True
+        return False
+
+    def _is_references_heading(self, stripped: str) -> bool:
+        head = re.match(r"##\s+(.*)", stripped)
+        return bool(head and any(h in head.group(1) for h in REFERENCES_HEADINGS))
+
+    def convert(self, raw: str, cover: Optional[CoverInfo] = None) -> str:
+        """Returns a complete, compilable .tex string built from the raw draft."""
+        preamble = enhanced_preamble(PREAMBLE, cover) if cover else PREAMBLE
+        out: List[str] = [preamble]
+        if cover:
+            out.append(cover_page_tex(cover))
+        # Seed \nocite in citation order so biblatex (sorting=none) numbers the
+        # bibliography to match the writer's existing [1], [2], ... markers.
+        nums = sorted(in_text_numbers(raw))
+        if nums:
+            out.append("\\nocite{" + ",".join(f"ref{n}" for n in nums) + "}")
+        self._list_mode = None
+        self._in_refs = False
+        table_buf: List[str] = []
+        title_done = False
         for line in raw.splitlines():
             stripped = line.strip()
-            if stripped in ("```latex", "```"):  # drop Markdown code fences
+            if self._in_refs:  # entries are captured in references.bib; skip the raw list
                 continue
-            if stripped in ("\\begin{hebrew}", "\\end{hebrew}"):  # polyglossia env
+            if stripped.startswith("|"):
+                table_buf.append(line)
                 continue
-            if any(stripped.startswith(prefix) for prefix in _DROP_PREFIXES):
+            if table_buf:
+                self._close_list(out)
+                out.append(md_table(table_buf))
+                table_buf = []
+            if not stripped:
+                self._close_list(out)
+                out.append("")
                 continue
-            if stripped == "\\begin{document}":
-                out.append(BIDI_PREAMBLE)
-            out.append(self._sanitize_line(line))
+            if self._is_references_heading(stripped):
+                self._close_list(out)
+                out.append("\\printbibliography")
+                self._in_refs = True
+                continue
+            if not title_done:
+                title_done = True
+                if stripped.startswith("**") and stripped.endswith("**"):
+                    out.append(title_block(stripped))
+                    continue
+            if not self._emit_block(stripped, out):
+                self._close_list(out)
+                out.append(inline(line))
+        if table_buf:
+            out.append(md_table(table_buf))
+        self._close_list(out)
+        out.append(POSTAMBLE)
         return "\n".join(out) + "\n"
 
-    def convert_file(self, src: str | Path, dst: str | Path) -> Path:
-        """Converts a raw output file and writes the compilable .tex to dst."""
+    def convert_file(self, src: str | Path, dst: str | Path, cover: Optional[CoverInfo] = None) -> Path:
+        """Converts a raw draft file and writes the compilable .tex to dst."""
         raw = Path(src).read_text(encoding="utf-8")
-        tex = self.convert(raw)
+        tex = self.convert(raw, cover=cover)
         dst_path = Path(dst)
         dst_path.write_text(tex, encoding="utf-8")
         logger.info("Wrote compilable LaTeX to %s (%d lines).", dst_path, tex.count("\n"))

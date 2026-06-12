@@ -1,0 +1,137 @@
+import re
+from typing import List
+
+# Full compilable LuaLaTeX preamble. babel's bidi=basic renders embedded English
+# (Latin) runs LTR inside the RTL Hebrew flow; Arial carries Hebrew glyphs.
+PREAMBLE = (
+    "\\documentclass[12pt,a4paper]{article}\n"
+    "\\usepackage[a4paper,margin=2.5cm]{geometry}\n"
+    "\\usepackage{fontspec}\n"
+    "\\usepackage[bidi=basic]{babel}\n"
+    "\\babelprovide[main,import]{hebrew}\n"
+    "\\babelprovide[import]{english}\n"
+    "\\babelfont{rm}{Arial}\n"
+    "\\usepackage{amsmath}\n"
+    "\\usepackage{array}\n"
+    "\\usepackage{graphicx}\n"
+    "\\usepackage{float}\n"
+    "\\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}\n"
+    "\\addbibresource{references.bib}\n"
+    "\\setlength{\\parskip}{0.5em}\n"
+    "\\setlength{\\parindent}{0pt}\n"
+    "\\begin{document}\n"
+)
+
+POSTAMBLE = "\\end{document}\n"
+
+_ESCAPES = {
+    "\\": "\\textbackslash{}",
+    "&": "\\&",
+    "%": "\\%",
+    "#": "\\#",
+    "_": "\\_",
+    "{": "\\{",
+    "}": "\\}",
+    "~": "\\textasciitilde{}",
+    "^": "\\textasciicircum{}",
+}
+
+
+def escape_text(text: str) -> str:
+    """Escapes LaTeX special characters in a plain (non-math) text run."""
+    out = []
+    for ch in text:
+        out.append(_ESCAPES.get(ch, ch))
+    return "".join(out)
+
+
+def _bold_and_escape(text: str) -> str:
+    """Converts Markdown **bold** to \\textbf{} and escapes the surrounding text."""
+    segments = re.split(r"\*\*(.+?)\*\*", text)
+    rendered = []
+    for idx, seg in enumerate(segments):
+        escaped = escape_text(seg)
+        rendered.append(f"\\textbf{{{escaped}}}" if idx % 2 == 1 else escaped)
+    return "".join(rendered)
+
+
+_CITATION_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
+
+
+def convert_citations(text: str) -> str:
+    """Maps numeric in-text citations like [5, 6] to \\cite{ref5,ref6}."""
+
+    def repl(match: "re.Match[str]") -> str:
+        keys = ",".join(f"ref{n.strip()}" for n in match.group(1).split(","))
+        return f"\\cite{{{keys}}}"
+
+    return _CITATION_RE.sub(repl, text)
+
+
+def inline(text: str) -> str:
+    """
+    Renders an inline Markdown run to LaTeX: numeric citations become \\cite,
+    inline math ($...$) and the emitted \\cite{...} are preserved verbatim, and
+    the remaining text is escaped with **bold** converted.
+    """
+    text = convert_citations(text)
+    parts = re.split(r"(\$[^$]*\$|\\cite\{[^}]*\})", text)
+    out = []
+    for part in parts:
+        is_math = len(part) >= 2 and part.startswith("$") and part.endswith("$")
+        if is_math or part.startswith("\\cite{"):
+            out.append(part)
+        else:
+            out.append(_bold_and_escape(part))
+    return "".join(out)
+
+
+def figure_block(path: str, caption: str) -> str:
+    return (
+        "\\begin{figure}[H]\n\\centering\n"
+        f"\\includegraphics[width=0.8\\linewidth]{{{path}}}\n"
+        f"\\caption{{{escape_text(caption)}}}\n"
+        "\\end{figure}"
+    )
+
+
+def title_block(text: str) -> str:
+    return "\\begin{center}\n{\\Huge " + inline(text) + "}\n\\end{center}\n\\vspace{1em}"
+
+
+def placeholder_box(caption: str) -> str:
+    """
+    A framed box standing in for a missing asset (image/graph/diagram). The
+    caption is set upright (not italic): Arial's italic instance lacks Hebrew
+    glyphs on some systems, which would silently drop the characters.
+    """
+    return (
+        "\\begin{center}\n\\fbox{\\begin{minipage}{0.85\\linewidth}\n"
+        f"\\centering {escape_text(caption)}\n"
+        "\\end{minipage}}\n\\end{center}"
+    )
+
+
+def _is_separator(row: str) -> bool:
+    """True for a Markdown table separator row like | :--- | :--- |."""
+    return bool(re.fullmatch(r"\|[\s:\-\|]+\|", row.strip()))
+
+
+def md_table(rows: List[str]) -> str:
+    """Converts a collected Markdown table (pipe rows) to a LaTeX tabular."""
+    cells = [
+        [c.strip() for c in row.strip().strip("|").split("|")]
+        for row in rows
+        if row.strip().startswith("|") and not _is_separator(row)
+    ]
+    if not cells:
+        return ""
+    ncols = max(len(r) for r in cells)
+    width = 0.9 / ncols
+    colspec = "|" + "|".join([f"p{{{width:.2f}\\linewidth}}"] * ncols) + "|"
+    lines = ["\\begin{center}", f"\\begin{{tabular}}{{{colspec}}}", "\\hline"]
+    for row in cells:
+        padded = row + [""] * (ncols - len(row))
+        lines.append(" & ".join(inline(c) for c in padded) + " \\\\ \\hline")
+    lines += ["\\end{tabular}", "\\end{center}"]
+    return "\n".join(lines)

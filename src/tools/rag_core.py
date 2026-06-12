@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 class RAGCore:
     """
     Manages local-first vector database persistence for RAG operations.
-    Configured specifically for the Google Gemini text-embedding-004 model (768 dimensions).
+    Configured specifically for the Google Gemini gemini-embedding-001 model (768 dimensions).
     """
     def __init__(self, persist_directory: str | Path = "data/processed/chroma_db"):
         self.persist_directory = str(persist_directory)
@@ -22,7 +22,7 @@ class RAGCore:
             settings=Settings(anonymized_telemetry=False)
         )
         self.collection_name = "academic_corpus"
-        self.embedding_dimension = 768  # Native dimension for text-embedding-004
+        self.embedding_dimension = 768  # Native dimension for gemini-embedding-001
 
         logger.info(f"Initialized ChromaDB persistent client at {self.persist_directory}")
 
@@ -50,7 +50,7 @@ class RAGCore:
         if not embeddings:
             return
 
-        # Enforce dimension check for text-embedding-004
+        # Enforce dimension check for gemini-embedding-001
         if len(embeddings[0]) != self.embedding_dimension:
             raise ValueError(
                 f"Embedding dimension mismatch. Expected {self.embedding_dimension}, got {len(embeddings[0])}"

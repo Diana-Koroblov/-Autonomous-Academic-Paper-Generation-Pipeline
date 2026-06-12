@@ -4,74 +4,140 @@ import sys
 # Add src to the path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../src")))
 
-from sdk.latex_converter import BIDI_PREAMBLE, LatexConverter
+from sdk.latex_converter import LatexConverter
 
 RAW = "\n".join(
     [
-        "```latex",
-        "\\documentclass[12pt]{book}",
-        "\\usepackage{polyglossia}",
-        "\\usepackage{fontspec}",
-        "\\setmainlanguage{hebrew}",
-        "\\setotherlanguage{english}",
-        "\\setcode{utf8}",
-        "\\setmainfont{David CLM}[Script=Hebrew]",
-        "\\newfontfamily\\englishfont{Times New Roman}",
-        "\\begin{document}",
-        "\\tableofcontents*",
-        "\\begin{hebrew}",
-        "\\section*{כותרת}",
-        "This is **important** text.",
-        "\\item \\textbf{open bold here**: rest of line",
-        "\\end{hebrew}",
-        "\\end{document}",
-        "```",
+        "**כותרת ראשית**",
+        "",
+        "## פרק 1: מבוא",
+        "",
+        "[TOC]",
+        "",
+        "### 1.1 רקע",
+        "",
+        "טקסט עם **הדגשה** ומתמטיקה $N$ בתוך השורה.",
+        "",
+        "[IMAGE 1: תרשים]",
+        "",
+        "* פריט ראשון",
+        "* פריט שני",
+        "",
+        "1. שלב אחד",
+        "2. שלב שתיים",
+        "",
+        "[DRAKE EQUATION]",
+        "$$N = R^* \\cdot f_p$$",
+        "",
+        "[TABLE 1]",
+        "| א | ב |",
+        "| :-- | :-- |",
+        "| 1 | 2 |",
+        "",
+        "מקור עם תו מיוחד #page=2 בטקסט.",
     ]
 )
 
 
-def test_fences_removed():
+def test_document_is_wrapped():
     out = LatexConverter().convert(RAW)
-    assert "```" not in out
-
-
-def test_invalid_commands_removed():
-    out = LatexConverter().convert(RAW)
-    assert "\\setcode" not in out
-    assert "\\usepackage{polyglossia}" not in out
-    assert "\\setmainlanguage" not in out
-    assert "David CLM" not in out
-
-
-def test_bidi_preamble_injected_before_document():
-    out = LatexConverter().convert(RAW)
+    assert out.startswith("\\documentclass")
+    assert out.rstrip().endswith("\\end{document}")
     assert "bidi=basic" in out
-    assert out.index(BIDI_PREAMBLE.strip().splitlines()[0]) < out.index("\\begin{document}")
 
 
-def test_hebrew_env_dropped():
+def test_title_rendered_once():
     out = LatexConverter().convert(RAW)
-    assert "\\begin{hebrew}" not in out
-    assert "\\end{hebrew}" not in out
+    assert "\\Huge \\textbf{כותרת ראשית}" in out
 
 
-def test_tableofcontents_destarred():
+def test_headings_mapped():
     out = LatexConverter().convert(RAW)
-    assert "\\tableofcontents*" not in out
+    assert "\\section{פרק 1: מבוא}" in out
+    assert "\\subsection{1.1 רקע}" in out
+
+
+def test_toc_marker_becomes_tableofcontents():
+    out = LatexConverter().convert(RAW)
     assert "\\tableofcontents" in out
+    assert "[TOC]" not in out
 
 
-def test_paired_markdown_bold_converted():
+def test_inline_bold_and_math_preserved():
     out = LatexConverter().convert(RAW)
-    assert "**important**" not in out
-    assert "\\textbf{important}" in out
+    assert "\\textbf{הדגשה}" in out
+    assert "$N$" in out  # inline math kept verbatim
 
 
-def test_stray_markdown_bold_becomes_brace():
+def test_lists_rendered():
     out = LatexConverter().convert(RAW)
-    # The unpaired '**' that closed an opened \textbf{ must become '}'.
-    assert "**" not in out
-    assert "\\textbf{open bold here}: rest of line" in out
+    assert "\\begin{itemize}" in out and "\\end{itemize}" in out
+    assert "\\begin{enumerate}" in out and "\\end{enumerate}" in out
+    assert out.count("\\item") == 4
+
+
+def test_display_equation_rendered():
+    out = LatexConverter().convert(RAW)
+    assert "\\[N = R^* \\cdot f_p\\]" in out
+    assert "[DRAKE EQUATION]" not in out
+    assert "$$" not in out
+
+
+def test_asset_placeholder_boxed():
+    out = LatexConverter().convert(RAW)
+    assert "\\fbox" in out
+    assert "IMAGE 1: תרשים" in out
+
+
+def test_markdown_table_to_tabular():
+    out = LatexConverter().convert(RAW)
+    assert "\\begin{tabular}" in out
+    assert "[TABLE 1]" not in out
+    assert ":--" not in out  # separator row consumed, not emitted
+
+
+def test_special_char_escaped_outside_math():
+    out = LatexConverter().convert(RAW)
+    assert "\\#page=2" in out
+
+
+CITED = "\n".join(
+    [
+        "## פרק 1",
+        "",
+        "טענה ראשונה [1] ושנייה [2, 3].",
+        "",
+        "## רשימת מקורות",
+        "",
+        "[1] AARO. (2024). *Report*. (Referenced as `a.pdf#page=2`).",
+        "[2] Wojcik. (2021). *UFO*. (Referenced as `a.pdf#page=3`).",
+        "[3] Kahneman. (2011). *Thinking*. (Referenced as `a.pdf#page=3`).",
+    ]
+)
+
+
+def test_body_citations_become_cite():
+    out = LatexConverter().convert(CITED)
+    assert "\\cite{ref1}" in out
+    assert "\\cite{ref2,ref3}" in out
+
+
+def test_references_section_becomes_printbibliography():
+    out = LatexConverter().convert(CITED)
+    assert "\\printbibliography" in out
+    # The raw reference entries are dropped (now living in references.bib).
+    assert "Referenced as" not in out
+    assert "\\section{רשימת מקורות}" not in out
+
+
+def test_nocite_seeds_numbering_in_order():
+    out = LatexConverter().convert(CITED)
+    assert "\\nocite{ref1,ref2,ref3}" in out
+
+
+def test_addbibresource_in_preamble():
+    out = LatexConverter().convert(CITED)
+    assert "\\addbibresource{references.bib}" in out
 
 
 def test_convert_file_roundtrip(tmp_path):

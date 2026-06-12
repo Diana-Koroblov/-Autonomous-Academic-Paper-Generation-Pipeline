@@ -24,10 +24,18 @@ def main() -> dict:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     auto_approve = "--auto-approve-hil" in sys.argv
     skip_ingestion = "--skip-ingestion" in sys.argv
-    outcome = run_pipeline(auto_approve_hil=auto_approve, skip_ingestion=skip_ingestion)
+    verify_length = "--verify-length" in sys.argv
+    outcome = run_pipeline(
+        auto_approve_hil=auto_approve,
+        skip_ingestion=skip_ingestion,
+        verify_length=verify_length,
+    )
     log = logging.getLogger(__name__)
     log.info(f"Pipeline finished. Raw draft: {outcome['output_path']}")
     log.info(f"Compile-ready LaTeX (compile this): {outcome['tex_path']}")
+    if "length_report" in outcome:
+        report = outcome["length_report"]
+        log.info(f"Page-length: {report['status']} ({report['page_count']} pages, target {report['target']}).")
     return outcome
 
 
