@@ -76,14 +76,19 @@ def _run_with_retry(
             raise
 
 
-def _archive_pdf(pdf_path: Path) -> Path:
-    """Copies the compiled PDF into the articles archive with a timestamp name."""
-    ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
+def _archive_run(pdf_path: Path, tex_path: Path | None = None, bib_path: Path | None = None) -> Path:
+    """Archives the compiled PDF, LaTeX source, and bibliography into a timestamped folder."""
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    dest = ARTICLES_DIR / f"paper_{stamp}.pdf"
-    shutil.copy2(pdf_path, dest)
-    logger.info("Article archived → %s", dest)
-    return dest
+    run_dir = ARTICLES_DIR / f"paper_{stamp}"
+    run_dir.mkdir(parents=True, exist_ok=True)
+    dest_pdf = run_dir / pdf_path.name
+    shutil.copy2(pdf_path, dest_pdf)
+    if tex_path and tex_path.exists():
+        shutil.copy2(tex_path, run_dir / tex_path.name)
+    if bib_path and bib_path.exists():
+        shutil.copy2(bib_path, run_dir / bib_path.name)
+    logger.info("Article archived → %s/ (.pdf + .tex + .bib)", run_dir)
+    return dest_pdf
 
 
 def ensure_corpus(core: Optional[RAGCore] = None) -> int:
@@ -143,7 +148,11 @@ def run_pipeline(
 
     archived_pdf: Optional[Path] = None
     if compiled_pdf and Path(compiled_pdf).exists():
-        archived_pdf = _archive_pdf(Path(compiled_pdf))
+        archived_pdf = _archive_run(
+            Path(compiled_pdf),
+            tex_path=tex_path,
+            bib_path=md_path.parent / "references.bib",
+        )
 
     outcome: Dict[str, Any] = {
         "result": result,

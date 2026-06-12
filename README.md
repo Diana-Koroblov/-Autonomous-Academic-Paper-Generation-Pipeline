@@ -139,32 +139,43 @@ cp .env-example .env
 
 ## Usage
 
-### Command-line interface
-
-The primary entry point is `run_pipeline.py`. All flags are optional.
+### Quick start
 
 ```bash
-# Full run: ingest corpus → generate draft → compile PDF → HIL gate
+# 1. Drop your source PDFs into data/raw/ (these become the RAG corpus)
+#    At least one PDF is required.
+
+# 2. First run — ingests the corpus, generates the paper, compiles PDF, opens HIL gate
 uv run python run_pipeline.py
 
-# Skip re-ingestion (corpus already indexed from a previous run)
+# 3. Subsequent runs — corpus is already indexed, skip re-ingestion
+uv run python run_pipeline.py --skip-ingestion
+```
+
+Every run compiles the PDF and saves a recompilable snapshot (`output.pdf` + `output.tex` + `references.bib`) into a timestamped folder under `data/processed/articles/`.
+
+### CLI flags
+
+| Flag | Effect |
+|------|--------|
+| *(none)* | Full run: ingest corpus → generate draft → compile PDF → HIL gate |
+| `--skip-ingestion` | Skip corpus ingestion (use after the first run) |
+| `--auto-approve-hil` | Bypass the interactive HIL gate (CI / automated runs) |
+| `--verify-length` | After compiling, confirm the page count is within the configured target range |
+
+**HIL gate:** after draft generation the pipeline pauses and asks you to approve four review items in the terminal. Read the compiled `.tex` (or open `data/processed/build/output.pdf`) before answering. Use `--auto-approve-hil` or set `HIL_AUTO_APPROVE=true` in your environment to skip it.
+
+**Most common invocations:**
+
+```bash
+# Interactive run from the second run onwards
 uv run python run_pipeline.py --skip-ingestion
 
-# Auto-approve the Human-in-the-Loop gate (non-interactive / CI mode)
-uv run python run_pipeline.py --auto-approve-hil
-
-# Compile to PDF and verify the page count is within the configured target range
-uv run python run_pipeline.py --verify-length
-
-# Combine flags (most common CI invocation)
+# Fully automated / CI
 uv run python run_pipeline.py --skip-ingestion --auto-approve-hil --verify-length
 ```
 
-The HIL gate pauses execution after draft generation and asks you to approve four review items interactively. Use `--auto-approve-hil` to bypass it (e.g. in automated runs), or set `HIL_AUTO_APPROVE=true` in your environment.
-
 ### SDK usage
-
-Instantiate `run_pipeline` directly from Python for programmatic control:
 
 ```python
 import logging
@@ -177,12 +188,13 @@ logging.basicConfig(level=logging.INFO)
 outcome = run_pipeline(
     auto_approve_hil=True,   # skip interactive gate
     skip_ingestion=True,     # corpus already indexed
-    verify_length=True,      # compile and check page count
+    verify_length=True,      # also check page count after compiling
 )
 
-print("Draft:", outcome["output_path"])      # data/processed/output.md
-print("LaTeX:", outcome["tex_path"])         # data/processed/output.tex
-print("HIL approved:", outcome["approval"]["approved"])
+print("Draft:    ", outcome["output_path"])   # data/processed/output.md
+print("LaTeX:    ", outcome["tex_path"])      # data/processed/output.tex
+print("Archived: ", outcome["archived_pdf"])  # data/processed/articles/paper_.../output.pdf
+print("Approved: ", outcome["approval"]["approved"])
 
 if "length_report" in outcome:
     r = outcome["length_report"]
@@ -207,7 +219,7 @@ result = orchestrator.run()   # returns the CrewAI result object
 | `data/processed/build/output.pdf` | Final compiled PDF |
 | `data/processed/references.bib` | BibTeX bibliography (auto-synced from draft) |
 | `data/processed/assets/` | Generated figures: `star_field.pdf`, `uap_distribution.pdf`, `belief_network.pdf` |
-| `data/processed/articles/` | Accumulated PDFs from past runs — `paper_YYYYMMDD_HHMMSS.pdf` per run |
+| `data/processed/articles/` | Accumulated recompilable snapshots — one `paper_YYYYMMDD_HHMMSS/` folder per run, each containing `output.pdf`, `output.tex`, `references.bib` |
 
 ---
 
