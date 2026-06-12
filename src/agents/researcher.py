@@ -126,6 +126,14 @@ class ResearcherAgent:
             find real online sources that can be cited in the reference list.
             """
             results = web_search(query_text)
+            # Persist the hits so the bibliography step can ground citations in
+            # these real URLs even if the draft never lists them explicitly.
+            try:
+                from sdk.web_sources import record_web_sources
+
+                record_web_sources(results)
+            except Exception as e:  # capture is best-effort; never break research
+                logger.warning("Could not record web sources: %s", e)
             return format_web_results(results)
 
         backstory_text = (

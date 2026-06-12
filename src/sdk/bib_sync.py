@@ -171,7 +171,11 @@ def validate_sync(md_text: str, refs: List[Reference]) -> Dict[str, object]:
     by_number = {r.number: r for r in refs}
     cited = in_text_numbers(md_text)
     broken = sorted(n for n in cited if n not in by_number)
-    missing_metadata = sorted(r.number for r in refs if r.number in cited and not (r.filename and r.page))
+    # A reference is grounded if it carries corpus metadata (filename + page) OR
+    # a real web URL; only refs with neither count as missing metadata.
+    missing_metadata = sorted(
+        r.number for r in refs if r.number in cited and not (r.filename and r.page) and not r.url
+    )
     unused = sorted(r.number for r in refs if r.number not in cited)
     return {
         "ok": not broken and not missing_metadata,

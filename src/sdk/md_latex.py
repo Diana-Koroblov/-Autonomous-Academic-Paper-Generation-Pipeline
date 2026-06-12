@@ -24,9 +24,14 @@ PREAMBLE = (
     "  \\fbox{\\parbox{0.7\\linewidth}{\\centering\\vspace{1cm}"
     "{\\ttfamily\\detokenize{#2}}\\\\[0.3em](image not found)\\vspace{1cm}}}}}\n"
     "\\makeatother\n"
-    # tikz + libraries cover the flowchart diagrams the draft emits inline.
+    # tikz + libraries cover the flowchart diagrams the draft emits inline;
+    # pgfplots covers any \begin{axis} data charts a rogue full-document draft
+    # emits, and the legacy `arrows` library supplies the `>=stealth` tip those
+    # flowcharts request.
     "\\usepackage{tikz}\n"
-    "\\usetikzlibrary{positioning,shapes.geometric,arrows.meta}\n"
+    "\\usetikzlibrary{positioning,shapes.geometric,arrows.meta,arrows}\n"
+    "\\usepackage{pgfplots}\n"
+    "\\pgfplotsset{compat=1.18}\n"
     # The draft's diagrams spread nodes wider than the text block (RTL pushes some
     # off the page edge). Scale every picture's coordinates down so far nodes are
     # pulled back in, then cap the result at \\linewidth as a backstop.
@@ -121,11 +126,13 @@ def inline(text: str) -> str:
     the remaining text is escaped with **bold** converted.
     """
     text = convert_citations(text)
-    parts = re.split(r"(\$[^$]*\$|\\cite\{[^}]*\})", text)
+    # Preserve inline math, \cite, and the common formatting macros a draft may
+    # emit inline (e.g. after a \RTL{...} wrapper is unwrapped); escape the rest.
+    parts = re.split(r"(\$[^$]*\$|\\(?:cite|textbf|textit|emph|texttt|underline)\{[^}]*\})", text)
     out = []
     for part in parts:
         is_math = len(part) >= 2 and part.startswith("$") and part.endswith("$")
-        if is_math or part.startswith("\\cite{"):
+        if is_math or part.startswith("\\"):
             out.append(part)
         else:
             out.append(_bold_and_escape(part))

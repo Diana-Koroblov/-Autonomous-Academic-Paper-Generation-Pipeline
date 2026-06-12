@@ -147,3 +147,63 @@ def test_convert_file_roundtrip(tmp_path):
     result = LatexConverter().convert_file(src, dst)
     assert result == dst
     assert dst.read_text(encoding="utf-8").startswith("\\documentclass")
+
+
+# A rogue draft: the agent emitted a COMPLETE standalone document (its own
+# preamble, polyglossia \RTL wrappers, \chapter, a filecontents* bib, an example
+# image, and a trailing \printbibliography) instead of body-only content.
+ROGUE = "\n".join(
+    [
+        "```latex",
+        "\\documentclass[12pt]{book}",
+        "\\usepackage{polyglossia}",
+        "\\setmainlanguage{hebrew}",
+        "\\begin{filecontents*}{references.bib}",
+        "@article{aaro2024, title={X}}",
+        "\\end{filecontents*}",
+        "\\begin{document}",
+        "\\RTL % whole document is RTL by default",
+        "\\title{\\RTL{כותרת}}",
+        "\\maketitle",
+        "\\chapter{\\RTL{מבוא}}",
+        "\\RTL{טקסט עם \\cite{aaro2024} וגם \\textbf{הדגשה}.}",
+        "\\section{\\RTL{רקע}}",
+        "\\begin{figure}[h!]",
+        "\\includegraphics[width=0.8\\textwidth]{example-image-a}",
+        "\\end{figure}",
+        "\\chapter*{\\RTL{רשימת מקורות}}",
+        "\\printbibliography",
+        "\\end{document}",
+        "```",
+    ]
+)
+
+
+def test_rogue_full_document_has_single_preamble():
+    out = LatexConverter().convert(ROGUE)
+    assert out.count("\\documentclass") == 1
+    assert out.count("\\begin{document}") == 1
+    assert out.count("\\end{document}") == 1
+
+
+def test_rogue_full_document_strips_undefined_macros():
+    out = LatexConverter().convert(ROGUE)
+    assert "\\RTL" not in out  # polyglossia macro, undefined under babel
+    assert "\\chapter" not in out  # invalid in the article class
+    assert "filecontents" not in out  # fake bib would overwrite references.bib
+    assert "\\maketitle" not in out
+    assert "\\title{" not in out
+
+
+def test_rogue_full_document_demotes_and_unwraps():
+    out = LatexConverter().convert(ROGUE)
+    assert "\\section{מבוא}" in out  # \chapter -> \section, \RTL unwrapped
+    assert "\\subsection{רקע}" in out  # \section -> \subsection
+    assert "\\cite{aaro2024}" in out  # citation preserved through unwrap
+    assert "\\textbf{הדגשה}" in out  # nested macro preserved through unwrap
+
+
+def test_rogue_full_document_replaces_example_image():
+    out = LatexConverter().convert(ROGUE)
+    assert "example-image" not in out
+    assert "assets/star_field.pdf" in out

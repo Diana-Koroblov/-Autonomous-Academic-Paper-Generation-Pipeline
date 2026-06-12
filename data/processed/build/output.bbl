@@ -16,5 +16,141 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{aaro2024misidentification}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=73d2b65353d7b00e0f198ffdc085edc8}{%
+           family={{FBI}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{fullhash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{fullhashraw}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{bibnamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorbibnamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authornamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorfullhash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorfullhashraw}{73d2b65353d7b00e0f198ffdc085edc8}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: bluebook.pdf, page 1}
+      \field{title}{Project Blue Book (UFO) part 1 of 1}
+    \endentry
+    \entry{aaro2024noevidence}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d346c83911138f24a7fc4287f238f4dc}{%
+           family={{Karen M. Douglas, Robbie M. Sutton, and Aleksandra Cichocka}},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{fullhash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{fullhashraw}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{bibnamehash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{authorbibnamehash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{authornamehash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{authorfullhash}{d346c83911138f24a7fc4287f238f4dc}
+      \strng{authorfullhashraw}{d346c83911138f24a7fc4287f238f4dc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: DouglasSuttonCichocka2017.pdf, page 1}
+      \field{title}{The Psychology of Conspiracy Theories}
+      \field{year}{2017}
+    \endentry
+    \entry{wojcik2021cosmologies}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=73d2b65353d7b00e0f198ffdc085edc8}{%
+           family={{FBI}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{fullhash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{fullhashraw}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{bibnamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorbibnamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authornamehash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorfullhash}{73d2b65353d7b00e0f198ffdc085edc8}
+      \strng{authorfullhashraw}{73d2b65353d7b00e0f198ffdc085edc8}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: bluebook.pdf, page 1}
+      \field{title}{Project Blue Book (UFO) part 1 of 1}
+    \endentry
+    \entry{bowes2023conspiracy}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=6749e01a5804fb91ffcf89d19255ea64}{%
+           family={{Maria Lipińska}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{fullhash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{fullhashraw}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{bibnamehash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{authorbibnamehash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{authornamehash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{authorfullhash}{6749e01a5804fb91ffcf89d19255ea64}
+      \strng{authorfullhashraw}{6749e01a5804fb91ffcf89d19255ea64}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: s41599-025-04799-8.pdf, page 1}
+      \field{title}{Exploring expert figures in alien-related UFO conspiracy theories}
+      \field{year}{2025}
+    \endentry
+    \entry{biddlestone2025conspiracy}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1a4211dcf328d1a1853357c9c7329f4c}{%
+           family={{William C. Lane}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{fullhash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{fullhashraw}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{bibnamehash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{authorbibnamehash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{authornamehash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{authorfullhash}{1a4211dcf328d1a1853357c9c7329f4c}
+      \strng{authorfullhashraw}{1a4211dcf328d1a1853357c9c7329f4c}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: s13194-025-00634-8.pdf, page 1}
+      \field{title}{The extraterrestrial hypothesis: an epistemological case for removing the taboo}
+      \field{year}{2025}
+    \endentry
+    \entry{ellwood1999ufo}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=88183b946cc5f0e8c96b2e66e1c74a7e}{%
+           family={{Unknown}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{fullhash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{fullhashraw}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{bibnamehash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{authorbibnamehash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{authornamehash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{authorfullhash}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \strng{authorfullhashraw}{88183b946cc5f0e8c96b2e66e1c74a7e}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{RAG source: ThePossibilityofAlienLifeFormsandUnidentifiedAerialPhenomena.pdf, page 1}
+      \field{title}{The Possibility of Alien Life Forms and}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

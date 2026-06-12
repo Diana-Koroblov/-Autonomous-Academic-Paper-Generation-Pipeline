@@ -1,16 +1,14 @@
 # LaTeX Production & Compilation Protocol (latex_skill.md)
 
 ## Objective and Role
-The LaTeX Agent is tasked with compiling draft Hebrew Markdown documents into publishable, professional TeX source, and structuring its configurations to yield a flawless multi-page PDF output using LuaLaTeX.
+The LaTeX Agent structures a draft Hebrew academic paper as **document-body content only**. The pipeline's converter supplies the complete LuaLaTeX preamble (document class, BiDi engine, fonts, bibliography backend) and wraps your content automatically. Your job is the body between — never a whole document.
 
 ## Core Mandates
 
-### 1. Bidirectional (BiDi) Engine Packages
-- **LuaLaTeX Target:** The document must use `LuaLaTeX` for native RTL (Right-to-Left) Hebrew and LTR (Left-to-Right) English bidirectional text mixing.
-- **RTL Setup:** Explicitly import and configure standard packages:
-  - `polyglossia` or `babel` with Hebrew as the primary language and English as a secondary language.
-  - Correct bidirectional font configurations using `fontspec` (e.g., using a system Hebrew font like David CLM or Arial).
-  - Explicit direction commands (`\setcode{utf8}`, `\setmainlanguage{hebrew}`, `\setotherlanguage{english}`).
+### 1. Emit BODY CONTENT ONLY — never a full document
+- **NO preamble, NO document wrapper.** Do **not** emit `\documentclass`, `\usepackage`, `\begin{document}`, `\end{document}`, `\title`, `\author`, `\date`, `\maketitle`, `\tableofcontents` setup, `filecontents`, `\hypersetup`, `fancyhdr`, font, or language-setup commands. The pipeline already provides all of these. Emitting them produces a broken document with a duplicate preamble.
+- **No direction wrappers.** Do **not** wrap text in `\RTL{...}`, `\LTR{...}`, `\setmainlanguage`, `\setcode`, or `\settextfont`. The preamble sets Hebrew as the main language with `babel` `bidi=basic`, so Hebrew is right-to-left automatically and embedded English flows left-to-right on its own. For an explicitly LTR English block use `\begin{otherlanguage}{english}...\end{otherlanguage}`.
+- **Sectioning:** Use `\section{...}`, `\subsection{...}`, `\subsubsection{...}` (article class). Do **not** use `\chapter` — it does not exist here.
 
 ### 2. Math Notation Layout
 - **Academic Precision:** Format all math operators, equations, and expressions using standard TeX mathematical environments (`equation`, `align`, `gather`).
@@ -31,7 +29,10 @@ The LaTeX Agent is tasked with compiling draft Hebrew Markdown documents into pu
   \hline
   \end{tabular}
   ```
-- **References section:** Do NOT emit a raw reference list using `\cite{refN} Author text...` lines. The bibliography is generated automatically by biblatex; just write `\chapter{רשימת מקורות}` and leave the rest to the pipeline.
+- **References section:** Do NOT emit a raw reference list, a `filecontents` bib, or a `\printbibliography`. The bibliography is generated and printed automatically by the pipeline. Just write `\section{רשימת מקורות}` (or omit it entirely) and leave the rest to the pipeline. Cite sources inline with `\cite{key}` or numeric `[1]` markers.
+
+### 5. Figures and Images
+- Include at least one real figure via `\includegraphics{...}`. The pipeline generates topic-relevant figures into `assets/` (`assets/star_field.pdf`, `assets/uap_distribution.pdf`, `assets/belief_network.pdf`) — reference one of these. Do **not** use placeholder names like `example-image-a`.
 
 ### 4. Accurate TikZ Block Diagram Syntax
 - **Valid Compilation:** All TikZ diagrams must contain syntactically flawless code. No missing semicolons, unmatched braces, or invalid node shapes.

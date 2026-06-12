@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
 
+from sdk.asset_generator import generate_all
 from sdk.core import PaperOrchestrator
 from sdk.hil_gate import HumanInLoopGate
 from sdk.ingest import CorpusIngestor
@@ -14,6 +15,7 @@ from sdk.latex_converter import LatexConverter
 from sdk.latex_style import load_cover_info
 from sdk.post_generation import synchronize_bibliography
 from sdk.post_generation import verify_length as verify_page_length
+from sdk.web_sources import clear_web_sources
 from tools.rag_core import RAGCore
 
 ARTICLES_DIR = Path("data/processed/articles")
@@ -122,6 +124,10 @@ def run_pipeline(
     if not skip_ingestion:
         ensure_corpus()
 
+    # Start each run with an empty web-source sink so the bibliography only ever
+    # cites pages the researcher actually fetched during THIS run.
+    clear_web_sources()
+
     orchestrator = orchestrator or PaperOrchestrator()
     logger.info("Launching CrewAI generation flow.")
     result = _run_with_retry(orchestrator)
@@ -130,6 +136,9 @@ def run_pipeline(
     # compile and inspect it during the HIL pause below.
     md_path = Path(orchestrator.output_path)
     tex_path = md_path.with_suffix(".tex")
+    # Generate the figure assets the draft includes so \includegraphics resolves
+    # to a real, topic-relevant image rather than a "not found" fallback box.
+    generate_all(md_path.parent / "assets")
     LatexConverter().convert_file(md_path, tex_path, cover=load_cover_info())
     logger.info(f"Compile-ready LaTeX written to {tex_path}")
 

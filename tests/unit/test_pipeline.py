@@ -10,6 +10,19 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from sdk import pipeline
 
 
+@pytest.fixture(autouse=True)
+def _isolate_pipeline_side_effects():
+    """Keep run_pipeline from touching the real LaTeX toolchain or filesystem:
+    stub asset generation, PDF compilation, and PDF archiving so the unit tests
+    never shell out to latexmk or write into data/processed/articles/."""
+    with patch("sdk.pipeline.generate_all"), patch("sdk.pipeline.LatexCompiler") as compiler, patch(
+        "sdk.pipeline._archive_run"
+    ) as archive, patch("sdk.pipeline.clear_web_sources"):
+        compiler.return_value.compile.return_value = {"pdf_path": None, "ok": False, "page_count": None}
+        archive.return_value = None
+        yield
+
+
 def test_ensure_corpus_already_populated():
     core = MagicMock()
     core.get_collection.return_value.count.return_value = 426

@@ -89,7 +89,8 @@ Each agent loads a Markdown skill file from `skills/` at startup. The skill file
 | `sdk/bib_sync.py` | Synchronises in-text citation numbers to `references.bib` |
 | `sdk/corpus_bib.py` | Extracts bibliographic records from corpus PDFs for citation fallback |
 | `sdk/post_generation.py` | Bibliography synchronization and PDF page-length verification |
-| `tools/web_search.py` | DuckDuckGo academic web search for the Researcher agent |
+| `tools/web_search.py` | Academic web search (via the `ddgs` DuckDuckGo client) for the Researcher agent |
+| `sdk/web_sources.py` | Persists the researcher's web hits so real online URLs land in `references.bib` |
 
 ---
 
@@ -153,6 +154,8 @@ uv run python run_pipeline.py --skip-ingestion
 ```
 
 Every run compiles the PDF and saves a recompilable snapshot (`output.pdf` + `output.tex` + `references.bib`) into a timestamped folder under `data/processed/articles/`.
+
+> **Be patient — a full run takes ~5 minutes.** The bulk of that time is spent waiting on the Gemini API: the four agents (Researcher → Writer → Reviewer → LaTeX) each make sequential calls, and free-tier Gemini responses are slow. The pipeline is working even when the console looks idle between log lines — don't interrupt it. (Transient `429`/`503` spikes are retried automatically with backoff, which can extend a run further.)
 
 ### CLI flags
 

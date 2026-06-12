@@ -9,6 +9,58 @@ from sdk.md_latex import MAX_CITE, POSTAMBLE, PREAMBLE, figure_block, inline, md
 
 logger = logging.getLogger(__name__)
 
+# A rogue LaTeX draft (one that emits a whole standalone document) carries these
+# preamble/scaffolding commands inside its body. The converter supplies its own
+# article+babel preamble, cover page, and bibliography, so each of these is
+# either redundant or undefined here and must be dropped.
+_DROP_LINE_RE = re.compile(
+    r"^\\(?:title|author|date|maketitle|settextfont|setmainlanguage"
+    r"|setotherlanguage|setcode|newfontfamily|pagestyle|fancyhf|fancyhead"
+    r"|fancyfoot|hypersetup|addbibresource|addtocontents|addcontentsline"
+    # bare \RTL/\LTR direction switches (their \RTL{...} form is unwrapped first,
+    # so any remaining occurrence is the standalone command on its own line).
+    r"|printbibliography|RTL(?![A-Za-z])|LTR(?![A-Za-z]))"
+)
+
+# \chapter is undefined in the article class; map the draft's chapter/section/
+# subsection onto the article hierarchy (section/subsection/subsubsection).
+_HEADING_DEMOTION = (
+    ("subsection", "subsubsection"),
+    ("section", "subsection"),
+    ("chapter", "section"),
+)
+
+
+def _unwrap_braced(text: str, command: str) -> str:
+    """Replaces every ``\\command{...}`` with its inner content, honoring nested
+    braces, so an undefined wrapper macro (e.g. polyglossia's ``\\RTL``) is
+    stripped while keeping the text — and any real macros — it wrapped."""
+    token = "\\" + command + "{"
+    while (idx := text.find(token)) != -1:
+        depth, j = 1, idx + len(token)
+        while j < len(text) and depth:
+            if text[j] == "{":
+                depth += 1
+            elif text[j] == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+            j += 1
+        text = text[:idx] + text[idx + len(token) : j] + text[j + 1 :]
+    return text
+
+
+def _demote_heading(line: str) -> Optional[str]:
+    """Demotes a raw LaTeX sectioning command one level. Returns None to drop a
+    starred references chapter (the converter prints the bibliography itself)."""
+    s = line.strip()
+    if re.match(r"\\chapter\*\{", s):
+        return None
+    for src, dst in _HEADING_DEMOTION:
+        if re.match(rf"\\{src}(\*)?\{{", s):
+            return re.sub(rf"^\\{src}(\*)?\{{", rf"\\{dst}\1{{", s, count=1)
+    return line
+
 
 class LatexConverter:
     """
@@ -100,8 +152,51 @@ class LatexConverter:
         head = re.match(r"(?:#{1,3}\s+|\\(?:chapter|section)\{)(.*?)(?:\}|$)", stripped)
         return bool(head and any(h in head.group(1) for h in REFERENCES_HEADINGS))
 
+    def _sanitize_draft(self, raw: str, asset: str = "assets/star_field.pdf") -> str:
+        """
+        Reduces a rogue *full-document* draft to converter-friendly body content.
+
+        The LaTeX agent occasionally emits a complete standalone document — its
+        own ``\\documentclass``, a polyglossia preamble, a ``filecontents*`` bib,
+        ``\\begin{document}``, ``\\RTL{...}`` wrappers, ``\\chapter`` headings and a
+        trailing ``\\printbibliography``. Wrapped inside the converter's own
+        article+babel preamble this fails to compile (duplicate ``\\documentclass``,
+        undefined ``\\RTL``, ``\\chapter`` outside book class, a ``filecontents*``
+        that overwrites the real ``references.bib``). When such a draft is
+        detected we keep only the body and normalize it; an ordinary Markdown
+        draft is returned untouched.
+        """
+        if "\\documentclass" not in raw:
+            return raw
+        logger.info("Rogue full-document draft detected; sanitizing to body content.")
+        # Drop the fake filecontents* bib so it cannot overwrite the real
+        # references.bib synchronized from the corpus at compile time.
+        raw = re.sub(r"\\begin\{filecontents\*?\}.*?\\end\{filecontents\*?\}", "", raw, flags=re.DOTALL)
+        # Keep only what sits between the agent's \begin{document}/\end{document}.
+        if (begin := raw.find("\\begin{document}")) != -1:
+            raw = raw[begin + len("\\begin{document}") :]
+        if (end := raw.find("\\end{document}")) != -1:
+            raw = raw[:end]
+        # \RTL is a polyglossia macro, undefined under babel's bidi=basic (which
+        # derives direction from the Hebrew main language); unwrap it everywhere.
+        raw = _unwrap_braced(raw, "RTL")
+        out: List[str] = []
+        for line in raw.splitlines():
+            if _DROP_LINE_RE.match(line.strip()):
+                continue
+            demoted = _demote_heading(line)
+            if demoted is None:
+                continue
+            out.append(demoted)
+        text = "\n".join(out)
+        # The agent's placeholder example image renders as a "not found" box;
+        # point it at a real, topic-relevant generated figure instead.
+        text = re.sub(r"\{example-image-[a-c]\}", "{" + asset + "}", text)
+        return text
+
     def convert(self, raw: str, cover: Optional[CoverInfo] = None) -> str:
         """Returns a complete, compilable .tex string built from the raw draft."""
+        raw = self._sanitize_draft(raw)
         preamble = enhanced_preamble(PREAMBLE, cover) if cover else PREAMBLE
         out: List[str] = [preamble]
         if cover:

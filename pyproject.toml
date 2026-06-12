@@ -13,7 +13,7 @@ dependencies = [
     "pymupdf>=1.27.2.3",
     "python-bidi>=0.4",
     "python-dotenv",
-    "duckduckgo-search>=6.3",
+    "ddgs>=9.14.4",
 ]
 
 [project.optional-dependencies]

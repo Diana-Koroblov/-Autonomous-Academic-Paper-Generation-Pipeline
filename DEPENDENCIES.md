@@ -37,7 +37,7 @@ MiKTeX can also install missing packages automatically on first compile (on-the-
 | `numpy` | 2.2.6 | Numerical arrays for figure generation |
 | `python-bidi` | 0.6.10 | Hebrew right-to-left text rendering in matplotlib diagrams |
 | `python-dotenv` | 1.2.2 | `.env` file loading for API credentials |
-| `duckduckgo-search` | 8.1.1 | Academic web search via DuckDuckGo (`tools/web_search.py`) |
+| `ddgs` | 9.14.4 | Academic web search via DuckDuckGo (`tools/web_search.py`); successor to the deprecated `duckduckgo-search` |
 
 ### Development (required to run tests and linting)
 

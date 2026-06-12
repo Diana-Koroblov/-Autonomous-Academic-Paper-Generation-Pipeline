@@ -93,18 +93,20 @@ def _make_ddgs_result(title="Paper", url="https://arxiv.org/abs/1", body="2020 r
 
 
 def _ddgs_context(mock_ddgs):
-    """Returns a mock DDGS class whose context manager yields mock_ddgs."""
+    """Returns a mock DDGS class whose instance is mock_ddgs.
+
+    The tool calls ``DDGS().text(...)`` directly (no context manager), so the
+    class' return_value — the instance — must carry the mocked ``.text``."""
     mock_cls = MagicMock()
-    mock_cls.return_value.__enter__.return_value = mock_ddgs
-    mock_cls.return_value.__exit__.return_value = False
+    mock_cls.return_value = mock_ddgs
     return mock_cls
 
 
 def _patch_ddgs(mock_ddgs_cls):
-    """Injects mock_ddgs_cls into sys.modules so the local `from duckduckgo_search import DDGS` resolves it."""
+    """Injects mock_ddgs_cls into sys.modules so the local `from ddgs import DDGS` resolves it."""
     fake_module = MagicMock()
     fake_module.DDGS = mock_ddgs_cls
-    return patch.dict("sys.modules", {"duckduckgo_search": fake_module})
+    return patch.dict("sys.modules", {"ddgs": fake_module})
 
 
 def test_web_search_returns_structured_results():
@@ -170,6 +172,7 @@ def test_web_search_open_query_exception_returns_empty():
 
 
 def test_web_search_import_error_returns_empty():
-    with patch.dict("sys.modules", {"duckduckgo_search": None}):
+    # Both the preferred `ddgs` and the legacy `duckduckgo_search` are absent.
+    with patch.dict("sys.modules", {"ddgs": None, "duckduckgo_search": None}):
         results = web_search("query")
     assert results == []

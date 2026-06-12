@@ -9,6 +9,7 @@ from sdk.core import PaperOrchestrator
 from sdk.corpus_bib import DEFAULT_CORPUS_DIR, corpus_references
 from sdk.latex_compiler import LatexCompiler
 from sdk.tex_sanity import check_tex
+from sdk.web_sources import load_web_references
 
 logger = logging.getLogger(__name__)
 
@@ -18,10 +19,12 @@ def synchronize_bibliography(md_path: Path, tex_path: Path, corpus_dir=DEFAULT_C
     Builds references.bib for the draft and verifies every in-text citation
     resolves, then runs the pre-compilation schema/math sanity check (Gate 4).
 
-    Two tiers, so the bibliography never depends on the model emitting a list:
+    Three tiers, so the bibliography never depends on the model emitting a list:
       1. References the writer actually listed, mapped to RAG source metadata.
-      2. For any remaining \\cite key, a real corpus document (round-robin), so
-         no citation is ever left undefined.
+      2. For any remaining \\cite key, a real source (round-robin): web sources
+         the researcher pulled off the internet (with URLs) come first, then the
+         corpus PDFs, so genuine online links appear in the bibliography.
+      3. No citation is ever left undefined.
     """
     md_text = md_path.read_text(encoding="utf-8")
     tex_text = tex_path.read_text(encoding="utf-8")
@@ -29,7 +32,10 @@ def synchronize_bibliography(md_path: Path, tex_path: Path, corpus_dir=DEFAULT_C
 
     refs = parse_references(md_text)[:MAX_CITE]
     cite_keys = extract_cite_keys(tex_text)
-    filled = fill_unmapped(cite_keys, refs, corpus_references(corpus_dir))
+    # Web sources first so real URLs surface in the bibliography; corpus PDFs
+    # back-fill any remaining keys (and cover the case where web search failed).
+    fill_pool = load_web_references() + corpus_references(corpus_dir)
+    filled = fill_unmapped(cite_keys, refs, fill_pool)
     refs += filled[: max(0, MAX_CITE - len(refs))]
     bib_path.write_text(build_bib(refs), encoding="utf-8")
     logger.info("Wrote %d bibliography entries to %s.", len(refs), bib_path)

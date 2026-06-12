@@ -24,42 +24,46 @@ def web_search(query: str, max_results: int = 8) -> List[Dict[str, Any]]:
     Each result has: title, url, snippet, author (best-effort), year (best-effort).
     Focuses on academic/news sources relevant to the query.
     """
+    # `duckduckgo-search` was renamed to `ddgs`; the old package prints a
+    # deprecation warning and its backend is increasingly rate-limited/broken.
+    # Prefer the maintained `ddgs`, fall back to the legacy name if that is all
+    # that is installed.
     try:
-        from duckduckgo_search import DDGS
+        from ddgs import DDGS
     except ImportError:
-        logger.error("duckduckgo-search is not installed. Run: uv add duckduckgo-search")
-        return []
+        try:
+            from duckduckgo_search import DDGS
+        except ImportError:
+            logger.error("No DuckDuckGo client installed. Run: uv add ddgs")
+            return []
 
     academic_query = f"{query} site:arxiv.org OR site:researchgate.net OR site:scholar.google.com OR site:pubmed.ncbi.nlm.nih.gov OR site:semanticscholar.org"
     results: List[Dict[str, Any]] = []
 
+    def _run(q: str) -> List[Dict[str, Any]]:
+        # ddgs's DDGS().text(...) returns a plain list and no longer requires a
+        # context manager; this call shape works for the legacy package too.
+        found: List[Dict[str, Any]] = []
+        for r in DDGS().text(q, max_results=max_results):
+            snippet = r.get("body", "")
+            found.append({
+                "title": r.get("title", "Untitled"),
+                "url": r.get("href", ""),
+                "snippet": snippet,
+                "author": _extract_author(snippet),
+                "year": _extract_year(snippet),
+            })
+        return found
+
     try:
-        with DDGS() as ddgs:
-            for r in ddgs.text(academic_query, max_results=max_results):
-                snippet = r.get("body", "")
-                results.append({
-                    "title": r.get("title", "Untitled"),
-                    "url": r.get("href", ""),
-                    "snippet": snippet,
-                    "author": _extract_author(snippet),
-                    "year": _extract_year(snippet),
-                })
+        results = _run(academic_query)
     except Exception as e:
         logger.warning("Academic DuckDuckGo search failed (%s); falling back to open query.", e)
 
     # Fallback: open query if academic-filtered search returned nothing
     if not results:
         try:
-            with DDGS() as ddgs:
-                for r in ddgs.text(query, max_results=max_results):
-                    snippet = r.get("body", "")
-                    results.append({
-                        "title": r.get("title", "Untitled"),
-                        "url": r.get("href", ""),
-                        "snippet": snippet,
-                        "author": _extract_author(snippet),
-                        "year": _extract_year(snippet),
-                    })
+            results = _run(query)
         except Exception as e:
             logger.error("DuckDuckGo search error: %s", e)
 
