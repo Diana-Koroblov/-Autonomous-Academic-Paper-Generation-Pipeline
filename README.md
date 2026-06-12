@@ -2,6 +2,8 @@
 
 An AI pipeline that autonomously researches a topic, writes a Hebrew academic paper, and compiles it to a print-ready PDF — end-to-end, without manual writing.
 
+> **Output length note:** The pipeline currently produces papers of approximately **20 pages**. The Gemini free-tier enforces strict rate limits (20 requests/day, 1 M tokens/minute), which causes the writer agent to stay conservative rather than risk mid-generation quota exhaustion. Upgrading to a paid Gemini API key and raising `max_requests_per_minute` in `config/rate_limits.json` will unlock longer output.
+
 ---
 
 ## Project Overview
@@ -75,6 +77,7 @@ Each agent loads a Markdown skill file from `skills/` at startup. The skill file
 |--------|----------------|
 | `sdk/pipeline.py` | Top-level orchestration: ingestion → generation → HIL gate |
 | `sdk/core.py` | Builds the CrewAI crew and task graph |
+| `sdk/token_economy.py` | Pricing matrices, token extraction from CrewAI results, cost computation, and page-count extrapolation model |
 | `sdk/latex_converter.py` | Markdown → LuaLaTeX conversion |
 | `sdk/latex_compiler.py` | 4-pass latexmk compile |
 | `sdk/latex_style.py` | Cover page + fancyhdr preamble |
@@ -84,6 +87,9 @@ Each agent loads a Markdown skill file from `skills/` at startup. The skill file
 | `sdk/ingest.py` | PDF → chunks → ChromaDB |
 | `sdk/hil_gate.py` | Human-in-the-Loop sign-off gate |
 | `sdk/bib_sync.py` | Synchronises in-text citation numbers to `references.bib` |
+| `sdk/corpus_bib.py` | Extracts bibliographic records from corpus PDFs for citation fallback |
+| `sdk/post_generation.py` | Bibliography synchronization and PDF page-length verification |
+| `tools/web_search.py` | DuckDuckGo academic web search for the Researcher agent |
 
 ---
 
@@ -201,6 +207,7 @@ result = orchestrator.run()   # returns the CrewAI result object
 | `data/processed/build/output.pdf` | Final compiled PDF |
 | `data/processed/references.bib` | BibTeX bibliography (auto-synced from draft) |
 | `data/processed/assets/` | Generated figures: `star_field.pdf`, `uap_distribution.pdf`, `belief_network.pdf` |
+| `data/processed/articles/` | Accumulated PDFs from past runs — `paper_YYYYMMDD_HHMMSS.pdf` per run |
 
 ---
 
@@ -272,6 +279,10 @@ Controls how aggressively the pipeline calls the Gemini API and the vector DB.
 **Common tweaks:**
 - If you hit `429 RESOURCE_EXHAUSTED` errors, lower `max_requests_per_minute` to `30` and raise `max_retries` to `8`.
 - If network latency is high, increase `timeout_seconds` to `120`.
+
+**Rate limits and output length:** The Gemini free tier caps the pipeline at 20 generation requests/day. Within a single run the 4 agents each consume one request; there is no quota risk mid-generation. However, the model has been observed to keep drafts conservative (≈20 pages) when operating on a free-tier key. Switching to a paid API key removes this behavioural constraint.
+
+**Token usage tracking:** After every pipeline run, aggregate token counts (prompt tokens, completion tokens, total tokens, and successful requests) are read from the CrewAI result object and stored in the `Harness` token registry via `sdk/token_economy.py::extract_crew_token_usage()`. Cost is computed against the pricing matrices in `PRICING` and logged at INFO level. See `docs/token_economy_report.md` for the full cost analysis of the reference run (estimated grand total: **$0.026** for a 20-page paper).
 
 ### Agent skill files (`skills/*.md`)
 

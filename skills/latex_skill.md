@@ -18,7 +18,22 @@ The LaTeX Agent is tasked with compiling draft Hebrew Markdown documents into pu
   $$N = R_* \cdot f_p \cdot n_e \cdot f_l \cdot f_i \cdot f_c \cdot L$$
 - **Math Flow:** Ensure mathematical variables and inline formulas flow correctly inside RTL Hebrew sentences without getting reversed or broken.
 
-### 3. Accurate TikZ Block Diagram Syntax
+### 3. LaTeX Table Syntax
+- **Column separator:** Inside every `tabular` environment, always use `&` (ampersand) to separate columns — NEVER use `|` (pipe). Pipe characters inside a data cell are ordinary text and will not create column breaks.
+- **Row terminator:** Every data row must end with `\\`.
+- **Correct example:**
+  ```
+  \begin{tabular}{|l|l|l|}
+  \hline
+  Column A & Column B & Column C \\
+  \hline
+  Cell 1   & Cell 2   & Cell 3   \\
+  \hline
+  \end{tabular}
+  ```
+- **References section:** Do NOT emit a raw reference list using `\cite{refN} Author text...` lines. The bibliography is generated automatically by biblatex; just write `\chapter{רשימת מקורות}` and leave the rest to the pipeline.
+
+### 4. Accurate TikZ Block Diagram Syntax
 - **Valid Compilation:** All TikZ diagrams must contain syntactically flawless code. No missing semicolons, unmatched braces, or invalid node shapes.
 - **Packages:** Ensure the document preamble includes `\usepackage{tikz}` and necessary TikZ libraries (e.g., `shapes.geometric`, `arrows.meta`, `positioning`).
 - **Styling:** Use clean, professional styling (e.g., defined block styles, readable coordinates, clear arrow links) suitable for a scientific/engineering academic paper.

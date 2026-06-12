@@ -141,9 +141,12 @@ def test_get_agent(mock_rag_query):
     assert "Research Skill & Verification Protocol" in crew_agent.backstory
     assert "Lead Researcher" in crew_agent.backstory
 
-    # Test the dynamic search_tool function
-    assert len(crew_agent.tools) == 1
-    tool_func = crew_agent.tools[0]
+    # Agent now has two tools: run_rag_search + search_web_for_articles
+    assert len(crew_agent.tools) == 2
+    tool_names = [t.name for t in crew_agent.tools]
+    assert "run_rag_search" in tool_names
+    assert "search_web_for_articles" in tool_names
+    tool_func = next(t for t in crew_agent.tools if t.name == "run_rag_search")
 
     # Run the tool when it finds results
     with patch.object(ResearcherAgent, "get_embedding", return_value=[0.1] * 768):

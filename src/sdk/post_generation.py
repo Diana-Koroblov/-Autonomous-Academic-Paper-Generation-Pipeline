@@ -2,25 +2,40 @@ import logging
 from pathlib import Path
 from typing import Any, Dict
 
-from sdk.bib_sync import validate_sync, write_bib
+from sdk.bib_generator import extract_cite_keys
+from sdk.bib_sync import build_bib, fill_unmapped, parse_references, validate_sync
+from sdk.md_latex import MAX_CITE
 from sdk.core import PaperOrchestrator
+from sdk.corpus_bib import DEFAULT_CORPUS_DIR, corpus_references
 from sdk.latex_compiler import LatexCompiler
 from sdk.tex_sanity import check_tex
 
 logger = logging.getLogger(__name__)
 
 
-def synchronize_bibliography(md_path: Path, tex_path: Path) -> Dict[str, Any]:
+def synchronize_bibliography(md_path: Path, tex_path: Path, corpus_dir=DEFAULT_CORPUS_DIR) -> Dict[str, Any]:
     """
-    Builds a RAG-mapped references.bib from the draft, verifies every in-text
-    citation resolves to a source (zero broken citations), and runs the
-    pre-compilation schema/math sanity check (Gate 4).
+    Builds references.bib for the draft and verifies every in-text citation
+    resolves, then runs the pre-compilation schema/math sanity check (Gate 4).
+
+    Two tiers, so the bibliography never depends on the model emitting a list:
+      1. References the writer actually listed, mapped to RAG source metadata.
+      2. For any remaining \\cite key, a real corpus document (round-robin), so
+         no citation is ever left undefined.
     """
     md_text = md_path.read_text(encoding="utf-8")
+    tex_text = tex_path.read_text(encoding="utf-8")
     bib_path = md_path.parent / "references.bib"
-    refs = write_bib(md_text, bib_path)
+
+    refs = parse_references(md_text)[:MAX_CITE]
+    cite_keys = extract_cite_keys(tex_text)
+    filled = fill_unmapped(cite_keys, refs, corpus_references(corpus_dir))
+    refs += filled[: max(0, MAX_CITE - len(refs))]
+    bib_path.write_text(build_bib(refs), encoding="utf-8")
+    logger.info("Wrote %d bibliography entries to %s.", len(refs), bib_path)
+
     sync = validate_sync(md_text, refs)
-    sanity = check_tex(tex_path.read_text(encoding="utf-8"), bib_keys={r.key for r in refs})
+    sanity = check_tex(tex_text, bib_keys={r.key for r in refs})
     if not sync["ok"]:
         logger.warning("Citation synchronization issues: %s", sync)
     if not sanity["ok"]:

@@ -1,6 +1,5 @@
-This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.6.11)  12 JUN 2026 16:03
+This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.6.11)  12 JUN 2026 19:02
  restricted system commands enabled.
- file:line:error style messages enabled.
 **output.tex
 (./output.tex
 LaTeX2e <2025-11-01>
@@ -1448,647 +1447,470 @@ Package caption Info: End \AtBeginDocument code.
  [1
 
 {C:/Users/itaym/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+! Undefined control sequence.
+l.60 \texthebrew
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Citation 'ref1' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref2' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref3' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref4' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref5' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref6' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref7' undefined on input line 54.
+! Undefined control sequence.
+l.69 \textenglish
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation 'ref8' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref9' undefined on input line 54.
-
-
-LaTeX Warning: Citation 'ref1' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref2' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref3' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref4' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref5' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref6' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref7' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref8' on page 1 undefined on input line 112.
-
-
-LaTeX Warning: Citation 'ref9' on page 1 undefined on input line 112.
-
-
-Overfull \hbox (8.71254pt too wide) in paragraph at lines 112--113
-\TU/Arial(0)/m/n/12 כפרשנויות לאירועים מרכזיים המר
-מזות על פעולות חשאיות ומתואמות של מספר יחי
-דים [[]], ממשיכות
+Overfull \hbox (41.06253pt too wide) in paragraph at lines 71--72
+\TU/Arial(0)/m/n/12 absence of evidence for extraterrestrial technology among Un
+identified Anomalous Phenomena
  []
 
 
-LaTeX Warning: Citation 'ref1' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref2' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref3' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref4' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref5' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref6' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref7' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref8' on page 1 undefined on input line 118.
-
-
-LaTeX Warning: Citation 'ref9' on page 1 undefined on input line 118.
-
-
-Overfull \hbox (17.21683pt too wide) in paragraph at lines 118--119
-\TU/Arial(0)/m/n/12 This research critically examines the complex issue of Unide
-ntified Anomalous Phenomena
+Overfull \hbox (51.46573pt too wide) in paragraph at lines 71--72
+\TU/Arial(0)/m/n/12 (UAP) and the persistence of conspiracy theories attributing
+ these phenomena to extraterrestrials.
  []
 
 
-Overfull \hbox (0.53714pt too wide) in paragraph at lines 118--119
-\TU/Arial(0)/m/n/12 with an emphasis on reports from the U.S. government’s All
--domain Anomaly Resolution
+Overfull \hbox (19.92386pt too wide) in paragraph at lines 71--72
+\TU/Arial(0)/m/n/12 unequivocally stated that no evidence confirming the presenc
+e of extraterrestrial technology
  []
 
 
-Overfull \hbox (3.69496pt too wide) in paragraph at lines 118--119
-\TU/Arial(0)/m/n/12 bias and my-side bias [[]], the relationships between conspi
-racy theories and paranoia
+Overfull \hbox (46.85773pt too wide) in paragraph at lines 71--72
+\TU/Arial(0)/m/n/12 objects and phenomena. Conversely, conspiracy theories conce
+rning UFOs and extraterrestrials
  []
 
 
-Overfull \hbox (26.13675pt too wide) in paragraph at lines 118--119
-\TU/Arial(0)/m/n/12 between the absence of scientific evidence and the resilienc
-e of extraterrestrial conspiratorial
+Overfull \hbox (26.59183pt too wide) in paragraph at lines 71--72
+\TU/Arial(0)/m/n/12 the necessity of distinguishing between rigorous empirical 
+examination and the psychological
  []
 
+! Undefined control sequence.
+l.73 \texthebrew
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+(./output.toc
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
-[1]
-Overfull \hbox (8.14401pt too wide) in paragraph at lines 120--121
-[]\TU/Arial(0)/b/n/12 Keywords: \TU/Arial(0)/m/n/12 Conspiracy Theories, UFOs, 
-UAP, AARO, Extraterrestrials, Cognition, Social
- []
-
-(./output.toc [2])
+[1])
 \tf@toc=\write6
 
 \openout6 = output.toc
- [3]
+ [2]
+! Undefined control sequence.
+l.80 \chapter
+             {מבוא} % Chapter marker
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Citation 'ref2' on page 4 undefined on input line 129.
+! Undefined control sequence.
+l.94 \chapter
+             {סקירת ספרות} % Chapter marker
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+[3
 
-Overfull \hbox (19.13637pt too wide) in paragraph at lines 129--130
-\TU/Arial(0)/m/n/12 העניין בתופעות שמימיות בלתי מוס
-ברות, המכונות כיום לרוב ”תופעות חריגות בלת
-י מזוהות” (Unidentified
+]
+Overfull \hbox (6.57935pt too wide) in paragraph at lines 103--104
+[]\TU/Arial(0)/m/n/12 בשנים האחרונות, התגבר העניין ה
+ממסדי בחקר ה-UAP, במיוחד בארצות הברית, מתוך ה
+כרה בחשיבות
  []
 
 
-LaTeX Warning: Citation 'ref1' on page 4 undefined on input line 131.
+Overfull \hbox (3.87178pt too wide) in paragraph at lines 103--104
+\TU/Arial(0)/m/n/12 הפוטנציאלית שלהן לביטחון הלאומ
+י ולבטיחות הטיסה. משרד הפתרון האנומלי בכל ה
+תחומים (AARO),
+ []
 
 
-LaTeX Warning: Citation 'ref1' on page 4 undefined on input line 131.
-
-
-LaTeX Warning: Citation 'ref2' on page 4 undefined on input line 131.
-
-
-LaTeX Warning: Citation 'ref3' on page 4 undefined on input line 133.
-
-
-LaTeX Warning: Citation 'ref4' on page 4 undefined on input line 133.
-
-
-LaTeX Warning: Citation 'ref4' on page 4 undefined on input line 135.
-
-
-LaTeX Warning: Citation 'ref5' on page 4 undefined on input line 135.
-
-
-LaTeX Warning: Citation 'ref6' on page 4 undefined on input line 135.
-
-
-LaTeX Warning: Citation 'ref7' on page 4 undefined on input line 135.
-
-
-LaTeX Warning: Citation 'ref8' on page 4 undefined on input line 135.
-
-
-LaTeX Warning: Citation 'ref9' on page 4 undefined on input line 135.
-
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 139.
+Overfull \hbox (252.95709pt too wide) in paragraph at lines 113--126
+ [][] 
+ []
 
 [4]
+Overfull \hbox (5.21097pt too wide) in paragraph at lines 138--139
+[]\TU/Arial(0)/m/n/12 תיאוריות קונספירציה מספקות לע
+יתים קרובות תחושה של ”ידע מיוחד” או ”אמת 
+נסתרת” לאלו המאמינים
+ []
 
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 169.
-See the caption package documentation for explanation.
+[5] [6]
+! Undefined control sequence.
+l.184 \texthebrew
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (25.95004pt too wide) in paragraph at lines 148--169
- [] 
+! Package pgf Error: Unknown arrow tip kind 'stealth''.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.185 ...ure}[node distance=2cm, auto, >=stealth']
+                                                  
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+! Undefined control sequence.
+l.210 \chapter
+              {מתודולוגיית מחקר ומידול} % Chapter marker
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (14.62817pt too wide) in paragraph at lines 220--221
+\TU/Arial(0)/m/n/12 אופי המסקנות (היעדר ראיות לטכנו
+לוגיה חוצנית, זיהוי שגוי כתופעה שכיחה), והה
+שלכות האפשריות
  []
 
 
-LaTeX Warning: Citation 'ref2' on page 5 undefined on input line 183.
-
-
-LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 185.
-
-
-LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 185.
-
-
-LaTeX Warning: Citation 'ref1' on page 5 undefined on input line 185.
-
-[5]
-
-LaTeX Warning: Citation 'ref2' on page 6 undefined on input line 194.
-
-
-LaTeX Warning: Citation 'ref3' on page 6 undefined on input line 198.
-
-
-LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 200.
-
-
-LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 200.
-
-
-LaTeX Warning: Citation 'ref4' on page 6 undefined on input line 202.
-
-[6]
-
-LaTeX Warning: Citation 'ref5' on page 7 undefined on input line 206.
-
-
-LaTeX Warning: Citation 'ref5' on page 7 undefined on input line 208.
-
-
-Overfull \hbox (2.24873pt too wide) in paragraph at lines 208--209
-[]\TU/Arial(0)/m/n/12 אחת הטקטיקות הנפוצות היא השימו
-ש ב”תמונות מטושטשות ועדויות עדים” [[]]. תמו
-נות מטושטשות
+Overfull \hbox (22.85843pt too wide) in paragraph at lines 221--222
+[]\TU/Arial(0)/b/n/12 ניתוח תרבותי של מיתוסים: \TU/Arial(0)
+/m/n/12 בחינת תיאוריות קונספירציה חוצניות דרך 
+עדשת התיאוריה המיתולוגית,
  []
 
 
-LaTeX Warning: Citation 'ref5' on page 7 undefined on input line 210.
-
-
-LaTeX Warning: Citation 'ref1' on page 7 undefined on input line 245.
-
-
-LaTeX Warning: Citation 'ref2' on page 7 undefined on input line 245.
-
-[7]
-
-LaTeX Warning: Citation 'ref1' on page 8 undefined on input line 249.
-
-
-LaTeX Warning: Citation 'ref2' on page 8 undefined on input line 249.
-
-
-LaTeX Warning: Citation 'ref1' on page 8 undefined on input line 250.
-
-
-Overfull \hbox (12.01358pt too wide) in paragraph at lines 250--251
-[]\TU/Arial(0)/b/n/12 בחינת מתודולוגיית החקירה: \TU/Arial
-(0)/m/n/12 ניתוח הדרכים שבהן AARO וגופים קודמים ל
-ו ביצעו את חקירותיהם
+Overfull \hbox (11.91898pt too wide) in paragraph at lines 222--223
+[]\TU/Arial(0)/b/n/12 ניתוח פסיכולוגי-קוגניטיבי: \TU/Ari
+al(0)/m/n/12 בחינת הגורמים הפסיכולוגיים והקוגני
+טיביים העומדים בבסיס הדבקות
  []
 
-
-LaTeX Warning: Citation 'ref1' on page 8 undefined on input line 251.
-
-
-LaTeX Warning: Citation 'ref2' on page 8 undefined on input line 251.
-
-
-LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 262.
-
-
-LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 265.
-
-
-LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 266.
-
-
-Overfull \hbox (1.49515pt too wide) in paragraph at lines 266--267
-[]\TU/Arial(0)/b/n/12 אפקט החשיפה בלבד (Mere Exposure Effect): \T
-U/Arial(0)/m/n/12 נטייה לפתח העדפה לדברים שאנו חשו
-פים
+[7
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no @ (U+0040) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+]
+Overfull \hbox (8.06741pt too wide) in paragraph at lines 250--251
+[]\TU/Arial(0)/b/n/12 נרטיב קונספירטיבי: \TU/Arial(0)/m/n/12 
+חורג מהממצאים האמפיריים ומייחס את התופעות 
+למזימה נסתרת (לדוגמה,
  []
 
+! Undefined control sequence.
+l.255 \texthebrew
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 267.
 
+! Package pgf Error: Unknown arrow tip kind 'stealth''.
 
-LaTeX Warning: Citation 'ref6' on page 8 undefined on input line 270.
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.256 ...e}[node distance=2.5cm, auto, >=stealth']
+                                                  
+(That was another \errmessage.)
 
-
-LaTeX Warning: Citation 'ref8' on page 8 undefined on input line 274.
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   2
+l.257 ...דו"חות רשמיים (AARO) \\ [1, 2]
+                                                  };
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
 
 [8]
-
-LaTeX Warning: Citation 'ref8' on page 9 undefined on input line 280.
-
-
-LaTeX Warning: Citation 'ref7' on page 9 undefined on input line 286.
-
-
-LaTeX Warning: Citation 'ref9' on page 9 undefined on input line 295.
-
-
-LaTeX Warning: Citation 'ref9' on page 9 undefined on input line 298.
+! Undefined control sequence.
+l.275 \chapter
+              {ממצאים אמפיריים וניתוח מקרים} % Chap...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
-[]|\TU/Arial(0)/b/n/12 תרומה לאמונה
+Overfull \hbox (11.538pt too wide) in paragraph at lines 282--283
+\TU/Arial(0)/m/n/12 הדו”ח של משרד הפתרון האנומלי בכ
+ל התחומים (AARO) בפברואר 2024 מספק את הנתונים הא
+מפיריים
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
-[]|\TU/Arial(0)/m/n/12 מודל הטעויות
+[9
+Missing character: There is no p (U+0070) in font nullfont!
+Missing character: There is no g (U+0067) in font nullfont!
+Missing character: There is no f (U+0066) in font nullfont!
+Missing character: There is no @ (U+0040) in font nullfont!
+Missing character: There is no s (U+0073) in font nullfont!
+Missing character: There is no t (U+0074) in font nullfont!
+Missing character: There is no o (U+006F) in font nullfont!
+Missing character: There is no p (U+0070) in font nullfont!
+]
+Overfull \hbox (15.43362pt too wide) in paragraph at lines 313--314
+\TU/Arial(0)/m/n/12 ועמיתיה (2025) חשפו קשרים מובהקים 
+בין אמונות קונספירציה לבין שורה של מאפייני
+ם פסיכולוגיים
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
-[]|\TU/Arial(0)/m/n/12 חיזוק אמונות קיימות,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--309
-[]|\TU/Arial(0)/m/n/12 מודל הסגנונות
- []
-
-
-Underfull \hbox (badness 2277) in paragraph at lines 309--309
-[]|\TU/Arial(0)/m/n/12 אינטואיציה, הנמקה ירודה, איומי
-ם
- []
-
-
-Underfull \hbox (badness 3386) in paragraph at lines 311--311
-[]|\TU/Arial(0)/m/n/12 מודל הקשרים הפסיכו-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
-[]|\TU/Arial(0)/m/n/12 חוסר אמון בהסברים
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
-\TU/Arial(0)/m/n/12 רשמיים, חיפוש אחר
- []
-
-
-Underfull \hbox (badness 6364) in paragraph at lines 313--313
-[]|\TU/Arial(0)/m/n/12 מודל החרדות הפוסט-
- []
-
-
-Underfull \hbox (badness 7522) in paragraph at lines 313--313
-[]|\TU/Arial(0)/m/n/12 חוסר ביטחון, חוסר יכולת הגנה
- []
-
-
-Underfull \hbox (badness 1127) in paragraph at lines 313--314
-[]|\TU/Arial(0)/m/n/12 הסבר לחרדות, הצבעה
- []
-
-
-LaTeX Warning: Citation 'ref1' on page 9 undefined on input line 322.
-
-
-LaTeX Warning: Citation 'ref2' on page 9 undefined on input line 322.
-
-
-Overfull \hbox (11.66724pt too wide) in paragraph at lines 322--323
-\TU/Arial(0)/m/n/12 [[], []], המודלים הקוגניטיביים והפס
-יכו-חברתיים מסבירים את הרציונל שמאחורי האמ
-ונה העקשנית
- []
-
-[9]
-
-LaTeX Warning: Citation 'ref5' on page 10 undefined on input line 327.
-
-
-LaTeX Warning: Citation 'ref6' on page 10 undefined on input line 327.
-
-
-LaTeX Warning: Citation 'ref6' on page 10 undefined on input line 328.
-
-
-LaTeX Warning: Citation 'ref8' on page 10 undefined on input line 328.
-
-
-LaTeX Warning: Citation 'ref7' on page 10 undefined on input line 329.
-
-
-LaTeX Warning: Citation 'ref9' on page 10 undefined on input line 329.
-
-
-LaTeX Warning: Citation 'ref4' on page 10 undefined on input line 329.
 
 [10]
 
-LaTeX Warning: Citation 'ref1' on page 11 undefined on input line 376.
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 322.
+
+! Undefined control sequence.
+l.331 \chapter
+              {דיון והשלכות עתידיות} % Chapter marker
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation 'ref1' on page 11 undefined on input line 377.
+Overfull \hbox (38.28323pt too wide) in paragraph at lines 338--339
+\TU/Arial(0)/m/n/12 הממצאים שהוצגו מדגישים פער אפיס
+טמולוגי עמוק בין הגישה המדעית-ממשלתית לבין 
+הגישה הקונספירטיבית-
+ []
 
-
-LaTeX Warning: Citation 'ref2' on page 11 undefined on input line 378.
-
-
-LaTeX Warning: Citation 'ref4' on page 11 undefined on input line 385.
-
-
-LaTeX Warning: Citation 'ref4' on page 11 undefined on input line 388.
-
-
-LaTeX Warning: Citation 'ref4' on page 11 undefined on input line 388.
-
-[11]
-
-LaTeX Warning: Citation 'ref4' on page 12 undefined on input line 389.
-
-
-LaTeX Warning: Citation 'ref5' on page 12 undefined on input line 397.
-
-
-LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 405.
-
-
-LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 406.
-
-
-LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 407.
-
-
-Overfull \hbox (12.08694pt too wide) in paragraph at lines 407--408
-[]\TU/Arial(0)/b/n/12 אפקט החשיפה בלבד (Mere Exposure Effect): \T
-U/Arial(0)/m/n/12 חשיפה חוזרת ונשנית למסרים מניפול
-טיביים,
+[11] [12]
+Overfull \hbox (9.78421pt too wide) in paragraph at lines 372--373
+[]\TU/Arial(0)/b/n/12 יעילות התערבויות תקשורתיות: \TU/A
+rial(0)/m/n/12 מחקרים אמפיריים שיבחנו את היעילות 
+של אסטרטגיות תקשורת
  []
 
 
-LaTeX Warning: Citation 'ref6' on page 12 undefined on input line 408.
-
-
-LaTeX Warning: Citation 'ref8' on page 12 undefined on input line 409.
-
-[12]
-
-LaTeX Warning: Citation 'ref7' on page 13 undefined on input line 417.
-
-
-LaTeX Warning: Citation 'ref9' on page 13 undefined on input line 418.
-
-
-LaTeX Warning: Citation 'ref9' on page 13 undefined on input line 418.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 444--444
-[]|\TU/Arial(0)/m/n/12 קשרים פסיכו-
+Overfull \hbox (138.21138pt too wide) in paragraph at lines 382--397
+ [][] 
  []
 
+! Undefined control sequence.
+l.402 \chapter
+              {סיכום} % Chapter marker
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Underfull \hbox (badness 1953) in paragraph at lines 444--444
-[]|\TU/Arial(0)/m/n/12 קשרים לפרנויה ואמון; חרדות פוס
-ט-מודרניות;
+
+Overfull \hbox (2.94144pt too wide) in paragraph at lines 405--406
+[]\TU/Arial(0)/m/n/12 המאמר הנוכחי בחן את הדיסוננס ה
+מורכב והמתמשך שבין הממצאים הרשמיים בנוגע ל
+תופעות אנומליות
  []
-
-
-Underfull \hbox (badness 3158) in paragraph at lines 447--447
-[]\TU/Arial(0)/m/n/12 טבלה 3: |סיכום הממצאים העיקריים 
-ממקורות רשמיים וממחקרים קודמים אודות אמונ
-ות
- []
-
-
-LaTeX Warning: Citation 'ref1' on page 13 undefined on input line 454.
-
-
-LaTeX Warning: Citation 'ref2' on page 13 undefined on input line 454.
 
 [13]
 
-LaTeX Warning: Citation 'ref1' on page 14 undefined on input line 458.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref2' on page 14 undefined on input line 458.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 462.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 462.
+Overfull \hbox (7.0426pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Maria Lipińska. \TU/Arial(0)/m/it/12 Exploring expert fig
+ures in alien-related UFO conspiracy theories\TU/Arial(0)/m/n/12 . RAG source:
+ []
 
 
-LaTeX Warning: Citation 'ref4' on page 14 undefined on input line 462.
+Overfull \hbox (234.96416pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Unknown. \TU/Arial(0)/m/it/12 The Possibility of Alien Lif
+e Forms and\TU/Arial(0)/m/n/12 . RAG source: ThePossibilityofAlienLifeFormsandUn
+identifiedAerialPhenomena.pdf,
+ []
 
 
-LaTeX Warning: Citation 'ref5' on page 14 undefined on input line 464.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref6' on page 14 undefined on input line 466.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref6' on page 14 undefined on input line 466.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref8' on page 14 undefined on input line 468.
-
-
-LaTeX Warning: Citation 'ref7' on page 14 undefined on input line 470.
-
-
-LaTeX Warning: Citation 'ref9' on page 14 undefined on input line 472.
-
-
-LaTeX Warning: Citation 'ref9' on page 14 undefined on input line 472.
+Overfull \hbox (7.0426pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Maria Lipińska. \TU/Arial(0)/m/it/12 Exploring expert fig
+ures in alien-related UFO conspiracy theories\TU/Arial(0)/m/n/12 . RAG source:
+ []
 
 [14]
-
-LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 483.
-
-
-LaTeX Warning: Citation 'ref4' on page 15 undefined on input line 484.
-
-
-LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 485.
-
-
-LaTeX Warning: Citation 'ref7' on page 15 undefined on input line 485.
-
-
-Overfull \hbox (15.7796pt too wide) in paragraph at lines 485--486
-\TU/Arial(0)/m/n/12 ופרנויה [[], []]. כיצד ניתן למדל את 
-תהליכי ההד (echo chambers) והקיטוב (polarization)
+Overfull \hbox (234.96416pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Unknown. \TU/Arial(0)/m/it/12 The Possibility of Alien Lif
+e Forms and\TU/Arial(0)/m/n/12 . RAG source: ThePossibilityofAlienLifeFormsandUn
+identifiedAerialPhenomena.pdf,
  []
 
 
-LaTeX Warning: Citation 'ref9' on page 15 undefined on input line 486.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref7' on page 15 undefined on input line 493.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref4' on page 15 undefined on input line 494.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref5' on page 15 undefined on input line 494.
-
-
-LaTeX Warning: Citation 'ref6' on page 15 undefined on input line 494.
-
-
-LaTeX Warning: Citation 'ref8' on page 15 undefined on input line 494.
-
-
-LaTeX Warning: Citation 'ref9' on page 15 undefined on input line 494.
-
-
-Overfull \hbox (2.27113pt too wide) in paragraph at lines 494--495
-\TU/Arial(0)/m/n/12 bunking) מפני טקטיקות רטוריות קונספ
-ירטיביות, והתייחסות לצרכים הפסיכולוגיים ש
-התיאוריות
- []
-
-[15]
-
-LaTeX Warning: Citation 'ref1' on page 16 undefined on input line 503.
-
-
-LaTeX Warning: Citation 'ref2' on page 16 undefined on input line 503.
-
-
-LaTeX Warning: Citation 'ref4' on page 16 undefined on input line 505.
-
-
-LaTeX Warning: Citation 'ref5' on page 16 undefined on input line 507.
-
-
-LaTeX Warning: Citation 'ref6' on page 16 undefined on input line 507.
-
-
-LaTeX Warning: Citation 'ref8' on page 16 undefined on input line 507.
-
-
-Overfull \hbox (9.31215pt too wide) in paragraph at lines 507--508
-[]\TU/Arial(0)/m/n/12 המחקר הדגיש את תפקידן של ”טקטי
-קות רטוריות” בחיזוק אמונות אלו, ובהן שימוש 
-ב”תמונות מטושטשות
+Overfull \hbox (7.0426pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Maria Lipińska. \TU/Arial(0)/m/it/12 Exploring expert fig
+ures in alien-related UFO conspiracy theories\TU/Arial(0)/m/n/12 . RAG source:
  []
 
 
-Overfull \hbox (0.45148pt too wide) in paragraph at lines 507--508
-\TU/Arial(0)/m/n/12 ועדויות עדים” המעניקות אמינות 
-לכאורה לנרטיבים [[]]. כמו כן, נבחנו ”טעויות ק
-וגניטיביות” בסיסיות,
+Overfull \hbox (234.96416pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Unknown. \TU/Arial(0)/m/it/12 The Possibility of Alien Lif
+e Forms and\TU/Arial(0)/m/n/12 . RAG source: ThePossibilityofAlienLifeFormsandUn
+identifiedAerialPhenomena.pdf,
  []
 
 
-LaTeX Warning: Citation 'ref7' on page 16 undefined on input line 509.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-LaTeX Warning: Citation 'ref9' on page 16 undefined on input line 509.
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
-Overfull \hbox (1.67256pt too wide) in paragraph at lines 513--514
-\TU/Arial(0)/m/n/12 פתוח ושקוף שיכול למתן את הצורך ב
-חיפוש אחר הסברים קונספירטיביים. הדיון אודו
-ת חוצנים ותיאוריות
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Overfull \hbox (7.0426pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Maria Lipińska. \TU/Arial(0)/m/it/12 Exploring expert fig
+ures in alien-related UFO conspiracy theories\TU/Arial(0)/m/n/12 . RAG source:
  []
 
-[16] (./output.aux)
+
+Overfull \hbox (234.96416pt too wide) in paragraph at lines 416--416
+[]\TU/Arial(0)/m/n/12 Unknown. \TU/Arial(0)/m/it/12 The Possibility of Alien Lif
+e Forms and\TU/Arial(0)/m/n/12 . RAG source: ThePossibilityofAlienLifeFormsandUn
+identifiedAerialPhenomena.pdf,
+ []
+
+[15] (./output.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `output.out' has not changed.
-(rerunfilecheck)             Checksum: 184A5FB548F30A4B2ED14032D3A46195;9434.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                output
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: 6F18ACE8752D67D9DC3B247C63E309A1;4768.
 Package logreq Info: Writing requests to 'output.run.xml'.
 
 \openout1 = output.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 35159 strings out of 476081
+ 35248 strings out of 476081
  125165,1648299 words of node,token memory allocated
- 4329 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 1418 attribute, 68 glue_sp
-ec, 475 attribute_list, 2 write nodes
-   avail lists: 1:1,2:14459,3:741,4:160,5:564,6:79,7:7076,8:16,9:615,10:11,11:18
+ 3396 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 21 dir, 2 glue, 4 kern, 1 glyph, 1025 attribute, 70
+ glue_spec, 344 attribute_list, 2 write nodes
+   avail lists: 2:16093,3:513,4:108,5:258,6:71,7:7639,8:25,9:407,10:8,11:36
+ 56845 multiletter control sequences out of 65536+600000
+ 52 fonts using 25110039 bytes
+ 84i,12n,115p,2077b,1479s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/WINDOWS/Fonts/arialni.ttf><c:/users/itaym/appdata/local/programs/miktex/font
+s/opentype/public/lm/lmmono12-regular.otf><C:/WINDOWS/Fonts/arial.ttf><C:/WINDOW
+S/Fonts/arialbd.ttf><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/itaym/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/itaym/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on output.pdf (16 pages, 266142 bytes).
 
- 56773 multiletter control sequences out of 65536+600000
- 51 fonts using 24898671 bytes
- 84i,12n,115p,2842b,1362s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/users/itaym/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono12-
-regular.otf><C:/WINDOWS/Fonts/arial.ttf><C:/WINDOWS/Fonts/arialbd.ttf><C:/Users/
-itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
-:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Users/itaym/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb>
-Output written on output.pdf (17 pages, 242408 bytes).
-
-PDF statistics: 278 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 1048576)
- 240 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 401 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 1048576)
+ 144 words of extra memory for PDF output out of 10000 (max. 100000000)
 

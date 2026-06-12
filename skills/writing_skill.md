@@ -25,3 +25,7 @@ The Writer Agent drafts academic Hebrew content based on the factual packages pr
   - Chapter 6: Conclusion (סיכום)
 - **Placeholders:** Embed highly structured markdown tags for non-textual components (TOC, Tables, Drake Equation, TikZ Diagrams) in designated positions to maintain visual and operational continuity.
 - **Reference Anchors:** Maintain consistent inline numeric citation brackets (e.g., `[1]`, `[2]`) that perfectly map to the retrieved sources.
+- **Reference List Format:** At the end of the paper, include a `## רשימת מקורות` section. Each entry must follow one of these two formats:
+  - **RAG/PDF source:** `[N] Author. (Year). *Title*. (Referenced as \`filename.pdf#page=N\`).`
+  - **Web/online source:** `[N] Author. (Year). *Title*. (Web: https://url)`
+  Use the web format for any source the Researcher found via `search_web_for_articles`. Never leave a citation without a URL or PDF reference.

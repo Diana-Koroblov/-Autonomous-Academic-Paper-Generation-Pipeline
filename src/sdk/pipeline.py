@@ -1,5 +1,7 @@
+import datetime
 import logging
 import re
+import shutil
 import time
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
@@ -7,11 +9,14 @@ from typing import Any, Callable, Dict, Optional
 from sdk.core import PaperOrchestrator
 from sdk.hil_gate import HumanInLoopGate
 from sdk.ingest import CorpusIngestor
+from sdk.latex_compiler import LatexCompiler
 from sdk.latex_converter import LatexConverter
 from sdk.latex_style import load_cover_info
 from sdk.post_generation import synchronize_bibliography
 from sdk.post_generation import verify_length as verify_page_length
 from tools.rag_core import RAGCore
+
+ARTICLES_DIR = Path("data/processed/articles")
 
 logger = logging.getLogger(__name__)
 
@@ -71,6 +76,16 @@ def _run_with_retry(
             raise
 
 
+def _archive_pdf(pdf_path: Path) -> Path:
+    """Copies the compiled PDF into the articles archive with a timestamp name."""
+    ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    dest = ARTICLES_DIR / f"paper_{stamp}.pdf"
+    shutil.copy2(pdf_path, dest)
+    logger.info("Article archived → %s", dest)
+    return dest
+
+
 def ensure_corpus(core: Optional[RAGCore] = None) -> int:
     """
     Guarantees the vector DB is populated before generation. If the collection
@@ -118,13 +133,26 @@ def run_pipeline(
     gate = gate or HumanInLoopGate(auto_approve=auto_approve_hil)
     approval = gate.request_approval(tex_path)
 
+    build_dir = tex_path.parent / "build"
+    if verify_length:
+        length_report = verify_page_length(orchestrator, tex_path)
+        compiled_pdf = length_report.get("pdf_path")
+    else:
+        compile_result = LatexCompiler().compile(tex_path, out_dir=build_dir)
+        compiled_pdf = compile_result.get("pdf_path")
+
+    archived_pdf: Optional[Path] = None
+    if compiled_pdf and Path(compiled_pdf).exists():
+        archived_pdf = _archive_pdf(Path(compiled_pdf))
+
     outcome: Dict[str, Any] = {
         "result": result,
         "output_path": md_path,
         "tex_path": tex_path,
         "approval": approval,
         "bibliography": bibliography,
+        "archived_pdf": archived_pdf,
     }
     if verify_length:
-        outcome["length_report"] = verify_page_length(orchestrator, tex_path)
+        outcome["length_report"] = length_report  # type: ignore[possibly-undefined]
     return outcome

@@ -1,23 +1,14 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'output.blg'
-[59] biber-MSWIN64:342> INFO - === 
-[81] Biber.pm:421> INFO - Reading 'output.bcf'
-[151] Biber.pm:1002> INFO - Found 9 citekeys in bib section 0
+[57] biber-MSWIN64:342> INFO - === 
+[78] Biber.pm:421> INFO - Reading 'output.bcf'
+[150] Biber.pm:1002> INFO - Found 20 citekeys in bib section 0
 [159] Biber.pm:4487> INFO - Processing section 0
 [165] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[168] UCollate.pm:68> INFO - Overriding locale 'he-IL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[169] UCollate.pm:68> INFO - Overriding locale 'he-IL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[169] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'he-IL'
-[169] bbl.pm:676> INFO - Writing 'output.bbl' with encoding 'UTF-8'
-[169] bbl.pm:779> INFO - Output to output.bbl
-[169] Biber.pm:132> WARN - Data source 'references.bib' is empty, ignoring
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref1' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref2' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref3' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref4' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref5' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref6' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref7' (section 0)
-[169] Biber.pm:132> WARN - I didn't find a database entry for 'ref8' (section 0)
-[170] Biber.pm:132> WARN - I didn't find a database entry for 'ref9' (section 0)
-[170] Biber.pm:134> INFO - WARNINGS: 10
+[191] bibtex.pm:1713> INFO - LaTeX decoding ...
+[199] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[247] UCollate.pm:68> INFO - Overriding locale 'he-IL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[247] UCollate.pm:68> INFO - Overriding locale 'he-IL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[247] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'he-IL'
+[253] bbl.pm:676> INFO - Writing 'output.bbl' with encoding 'UTF-8'
+[257] bbl.pm:779> INFO - Output to output.bbl

@@ -8,6 +8,13 @@ logger = logging.getLogger(__name__)
 
 _BEGIN_RE = re.compile(r"\\begin\{(\w+\*?)\}")
 _END_RE = re.compile(r"\\end\{(\w+\*?)\}")
+_COMMENT_RE = re.compile(r"(?<!\\)%.*")
+
+
+def _strip_comments(tex: str) -> str:
+    """Drops LaTeX comments (an unescaped % to end of line) so commented-out
+    code is never counted as real structure."""
+    return _COMMENT_RE.sub("", tex)
 
 
 def _math_issues(tex: str) -> List[str]:
@@ -19,7 +26,8 @@ def _math_issues(tex: str) -> List[str]:
     inline_dollars = tex.replace("$$", "").count("$")
     if inline_dollars % 2 != 0:
         issues.append("unbalanced $ inline-math delimiters")
-    if tex.count("\\[") != tex.count("\\]"):
+    # \[ \] display math, but not \\[..] which is a line break with spacing.
+    if len(re.findall(r"(?<!\\)\\\[", tex)) != len(re.findall(r"(?<!\\)\\\]", tex)):
         issues.append("unbalanced \\[ \\] display-math delimiters")
     return issues
 
@@ -50,6 +58,7 @@ def check_tex(tex: str, bib_keys: Optional[Set[str]] = None) -> Dict[str, object
     and (when bib_keys is supplied) no unresolved citation keys. Brace balance is
     a heuristic, but reliably catches the structural breakage that halts LuaLaTeX.
     """
+    tex = _strip_comments(tex)
     issues = _math_issues(tex) + _structure_issues(tex)
     if bib_keys is not None:
         issues += _citation_issues(tex, bib_keys)

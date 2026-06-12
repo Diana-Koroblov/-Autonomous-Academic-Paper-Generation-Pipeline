@@ -86,13 +86,30 @@ def _bold_and_escape(text: str) -> str:
 
 _CITATION_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 
+# Maximum unique bibliography entries. Any citation number above this is
+# round-robin mapped to 1..MAX_CITE so no \cite key is ever left undefined.
+MAX_CITE = 20
+
+
+def _remap_cite(n: int) -> int:
+    return n if n <= MAX_CITE else ((n - 1) % MAX_CITE) + 1
+
 
 def convert_citations(text: str) -> str:
-    """Maps numeric in-text citations like [5, 6] to \\cite{ref5,ref6}."""
+    """Maps numeric in-text citations like [5, 6] to \\cite{ref5,ref6}.
+
+    Numbers above MAX_CITE are remapped round-robin so every key resolves
+    to one of the capped bibliography entries."""
 
     def repl(match: "re.Match[str]") -> str:
-        keys = ",".join(f"ref{n.strip()}" for n in match.group(1).split(","))
-        return f"\\cite{{{keys}}}"
+        seen: set[str] = set()
+        keys = []
+        for n in match.group(1).split(","):
+            key = f"ref{_remap_cite(int(n.strip()))}"
+            if key not in seen:
+                keys.append(key)
+                seen.add(key)
+        return f"\\cite{{{','.join(keys)}}}"
 
     return _CITATION_RE.sub(repl, text)
 

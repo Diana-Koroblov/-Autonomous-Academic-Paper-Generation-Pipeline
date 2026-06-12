@@ -5,7 +5,7 @@ from typing import List, Optional
 
 from sdk.bib_sync import REFERENCES_HEADINGS, in_text_numbers
 from sdk.latex_style import CoverInfo, cover_page_tex, enhanced_preamble
-from sdk.md_latex import POSTAMBLE, PREAMBLE, figure_block, inline, md_table, placeholder_box, title_block
+from sdk.md_latex import MAX_CITE, POSTAMBLE, PREAMBLE, figure_block, inline, md_table, placeholder_box, title_block
 
 logger = logging.getLogger(__name__)
 
@@ -97,7 +97,7 @@ class LatexConverter:
         return False
 
     def _is_references_heading(self, stripped: str) -> bool:
-        head = re.match(r"##\s+(.*)", stripped)
+        head = re.match(r"(?:#{1,3}\s+|\\(?:chapter|section)\{)(.*?)(?:\}|$)", stripped)
         return bool(head and any(h in head.group(1) for h in REFERENCES_HEADINGS))
 
     def convert(self, raw: str, cover: Optional[CoverInfo] = None) -> str:
@@ -108,7 +108,7 @@ class LatexConverter:
             out.append(cover_page_tex(cover))
         # Seed \nocite in citation order so biblatex (sorting=none) numbers the
         # bibliography to match the writer's existing [1], [2], ... markers.
-        nums = sorted(in_text_numbers(raw))
+        nums = sorted(in_text_numbers(raw))[:MAX_CITE]
         if nums:
             out.append("\\nocite{" + ",".join(f"ref{n}" for n in nums) + "}")
         lines = raw.splitlines()
@@ -125,19 +125,32 @@ class LatexConverter:
                 continue
             if stripped.startswith("```"):  # drop Markdown code-fence markers
                 continue
-            # Pass raw LaTeX (and LaTeX comments) through verbatim. The writer may
-            # emit whole environments itself; escaping them would print the source.
-            if self._latex_depth > 0 or stripped.startswith("\\") or stripped.startswith("%"):
+            if stripped.startswith("%"):  # drop standalone LaTeX comments (e.g. the model's example preamble)
+                continue
+            # Catch \chapter{רשימת מקורות} (and similar) BEFORE the verbatim
+            # passthrough, so a LaTeX-style references heading is properly
+            # intercepted and does not end up printed as raw body text.
+            if self._latex_depth == 0 and self._is_references_heading(stripped):
+                if table_buf:
+                    self._close_list(out)
+                    out.append(md_table(table_buf))
+                    table_buf = []
+                self._close_list(out)
+                out.append("\\printbibliography[title={רשימת מקורות}]")
+                self._in_refs = True
+                continue
+            # Pass raw LaTeX through verbatim. The writer may emit whole
+            # environments itself; escaping them would print the source.
+            if self._latex_depth > 0 or stripped.startswith("\\"):
                 if table_buf:
                     self._close_list(out)
                     out.append(md_table(table_buf))
                     table_buf = []
                 self._close_list(out)
                 out.append(line)
-                if not stripped.startswith("%"):
-                    self._latex_depth = max(
-                        0, self._latex_depth + stripped.count("\\begin{") - stripped.count("\\end{")
-                    )
+                self._latex_depth = max(
+                    0, self._latex_depth + stripped.count("\\begin{") - stripped.count("\\end{")
+                )
                 continue
             if stripped.startswith("|"):
                 table_buf.append(line)
@@ -152,7 +165,7 @@ class LatexConverter:
                 continue
             if self._is_references_heading(stripped):
                 self._close_list(out)
-                out.append("\\printbibliography")
+                out.append("\\printbibliography[title={רשימת מקורות}]")
                 self._in_refs = True
                 continue
             if not title_done:
@@ -170,6 +183,11 @@ class LatexConverter:
         if table_buf:
             out.append(md_table(table_buf))
         self._close_list(out)
+        # If the draft never included a reference list, still print the
+        # bibliography so the (corpus-grounded) citations have a target section.
+        if not self._in_refs:
+            out.append("\\newpage")
+            out.append("\\printbibliography[title={רשימת מקורות}]")
         out.append(POSTAMBLE)
         return "\n".join(out) + "\n"
 

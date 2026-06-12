@@ -8,6 +8,7 @@ from google import genai
 from google.genai import types
 
 from tools.rag_query import RAGQuery
+from tools.web_search import format_web_results, web_search
 
 logger = logging.getLogger(__name__)
 
@@ -116,6 +117,17 @@ class ResearcherAgent:
                 return "No high-similarity chunks found in RAG database."
             return str(results)
 
+        @tool("search_web_for_articles")
+        def web_search_tool(query_text: str) -> str:
+            """
+            Search the internet for academic articles, papers, and news about
+            UAP, UFOs, extraterrestrial life, or related topics. Returns title,
+            URL, author, year, and a short snippet for each result. Use this to
+            find real online sources that can be cited in the reference list.
+            """
+            results = web_search(query_text)
+            return format_web_results(results)
+
         backstory_text = (
             "You are the elite Lead Researcher of the Autonomous Academic Paper Generation Crew.\n"
             "Your decisions are driven strictly by actual RAG source materials.\n"
@@ -130,5 +142,5 @@ class ResearcherAgent:
             allow_delegation=False,
             verbose=True,
             max_iter=self.max_iter,
-            tools=[search_tool],
+            tools=[search_tool, web_search_tool],
         )

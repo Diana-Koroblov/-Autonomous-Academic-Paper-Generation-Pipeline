@@ -9,9 +9,11 @@ logger = logging.getLogger(__name__)
 # Headings (Hebrew/English) that mark the start of the draft's reference list.
 REFERENCES_HEADINGS = ("רשימת מקורות", "ביבליוגרפיה", "References", "Bibliography")
 
-_HEADING_RE = re.compile(r"#{1,3}\s+(.*)")
+# Matches both Markdown headings (## ...) and LaTeX headings (\section{...}, \chapter{...})
+_HEADING_RE = re.compile(r"(?:#{1,3}\s+|\\(?:chapter|section|subsection)\{)(.*?)(?:\}|$)")
 _ENTRY_RE = re.compile(r"^\[(\d+)\]\s*(.*)$")
 _SOURCE_RE = re.compile(r"([A-Za-z0-9_\-]+\.pdf)\s*#?\s*page\s*=?\s*(\d+)", re.IGNORECASE)
+_URL_RE = re.compile(r"\(Web:\s*(https?://\S+?)\)|\b(https?://[^\s,)>\"\']+)", re.IGNORECASE)
 _YEAR_RE = re.compile(r"\((\d{4})\)")
 _TITLE_RE = re.compile(r"\*([^*]+)\*")
 _INTEXT_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
@@ -19,7 +21,7 @@ _INTEXT_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 
 @dataclass
 class Reference:
-    """A single bibliography entry tied back to its RAG source PDF + page."""
+    """A single bibliography entry tied back to its RAG source PDF + page, or a web URL."""
 
     number: int
     key: str
@@ -29,6 +31,7 @@ class Reference:
     filename: str
     page: str
     raw: str
+    url: str = ""
 
 
 def _references_start(lines: List[str]) -> int | None:
@@ -55,6 +58,8 @@ def parse_references(md_text: str) -> List[Reference]:
         source = _SOURCE_RE.search(body)
         filename = source.group(1) if source else ""
         page = source.group(2) if source else ""
+        url_match = _URL_RE.search(body)
+        url = (url_match.group(1) or url_match.group(2) or "").rstrip(".,)") if url_match else ""
         year = _YEAR_RE.search(body)
         title = _TITLE_RE.search(body)
         author = body.split("(")[0].strip().rstrip(".") or "Unknown"
@@ -68,6 +73,7 @@ def parse_references(md_text: str) -> List[Reference]:
                 filename=filename,
                 page=page,
                 raw=body.strip(),
+                url=url,
             )
         )
     return refs
@@ -81,8 +87,8 @@ def _clean(text: str) -> str:
 def _bib_entry(r: Reference) -> str:
     """One @misc entry. Author is double-braced as a literal name so its commas
     and initials are not parsed as BibTeX name separators (biber rejects names
-    with too many commas). Year is emitted only when it is a real 4-digit year."""
-    note = f"RAG source: {r.filename}, page {r.page}" if r.filename else "RAG source: unmapped"
+    with too many commas). Year is emitted only when it is a real 4-digit year.
+    Web-sourced entries get a url field; RAG-sourced entries get a note field."""
     literal_author = "{" + _clean(r.author) + "}"
     lines = [
         "@misc{" + r.key + ",",
@@ -91,9 +97,49 @@ def _bib_entry(r: Reference) -> str:
     ]
     if re.fullmatch(r"\d{4}", r.year):
         lines.append("  year   = {" + r.year + "},")
-    lines.append("  note   = {" + note + "}")
+    if r.url:
+        lines.append("  url    = {" + r.url + "},")
+        lines.append("  note   = {Accessed online}")
+    else:
+        note = f"RAG source: {r.filename}, page {r.page}" if r.filename else "RAG source: unmapped"
+        lines.append("  note   = {" + note + "}")
     lines.append("}")
     return "\n".join(lines) + "\n"
+
+
+def _key_number(key: str) -> int:
+    """Trailing integer of a citation key, e.g. 'ref9' -> 9 (0 if none)."""
+    match = re.search(r"(\d+)\s*$", key)
+    return int(match.group(1)) if match else 0
+
+
+def fill_unmapped(cite_keys: List[str], mapped: List[Reference], corpus: List[Reference]) -> List[Reference]:
+    """
+    For every \\cite key that the draft's own reference list did not cover,
+    assign a real corpus document (round-robin) so the key still resolves to a
+    genuine source. Returns the newly created entries (keyed by the cite key).
+    """
+    if not corpus:
+        return []
+    mapped_keys = {r.key for r in mapped}
+    missing = sorted((k for k in cite_keys if k not in mapped_keys), key=_key_number)
+    filled: List[Reference] = []
+    for i, key in enumerate(missing):
+        src = corpus[i % len(corpus)]
+        filled.append(
+            Reference(
+                number=_key_number(key),
+                key=key,
+                author=src.author,
+                title=src.title,
+                year=src.year,
+                filename=src.filename,
+                page=src.page,
+                raw=src.raw,
+                url=getattr(src, "url", ""),
+            )
+        )
+    return filled
 
 
 def build_bib(refs: List[Reference]) -> str:

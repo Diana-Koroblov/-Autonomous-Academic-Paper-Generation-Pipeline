@@ -34,11 +34,28 @@ def test_synchronize_bibliography_flags_unresolved_cite(tmp_path):
     md_path = tmp_path / "output.md"
     md_path.write_text(MD, encoding="utf-8")
     tex_path = tmp_path / "output.tex"
-    # Body cites ref9, which has no .bib entry -> Gate 4 sanity must fail.
+    # Body cites ref9, which the draft never listed. With no corpus to fall back
+    # on, it stays unresolved -> Gate 4 sanity must fail.
     tex_path.write_text("\\cite{ref9}", encoding="utf-8")
+    empty_corpus = tmp_path / "empty_corpus"
+    empty_corpus.mkdir()
+
+    report = post_generation.synchronize_bibliography(md_path, tex_path, corpus_dir=empty_corpus)
+    assert report["sanity"]["ok"] is False
+
+
+def test_synchronize_bibliography_grounds_unlisted_cite_in_corpus(tmp_path):
+    # A draft with no reference list at all: every \cite must still resolve by
+    # falling back to a real corpus document, so Gate 4 sanity passes.
+    md_path = tmp_path / "output.md"
+    md_path.write_text("טקסט עם [1] ו[2].", encoding="utf-8")
+    tex_path = tmp_path / "output.tex"
+    tex_path.write_text("\\cite{ref1}\n\\cite{ref2}\n\\printbibliography", encoding="utf-8")
 
     report = post_generation.synchronize_bibliography(md_path, tex_path)
-    assert report["sanity"]["ok"] is False
+
+    assert report["entries"] == 2
+    assert report["sanity"]["ok"] is True
 
 
 @patch("sdk.post_generation.LatexCompiler")

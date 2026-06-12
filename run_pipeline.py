@@ -33,6 +33,8 @@ def main() -> dict:
     log = logging.getLogger(__name__)
     log.info(f"Pipeline finished. Raw draft: {outcome['output_path']}")
     log.info(f"Compile-ready LaTeX (compile this): {outcome['tex_path']}")
+    if outcome.get("archived_pdf"):
+        log.info(f"Article archived: {outcome['archived_pdf']}")
     if "length_report" in outcome:
         report = outcome["length_report"]
         log.info(f"Page-length: {report['status']} ({report['page_count']} pages, target {report['target']}).")

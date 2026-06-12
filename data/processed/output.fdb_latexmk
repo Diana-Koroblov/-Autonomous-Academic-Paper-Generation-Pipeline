@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber output"] 1781268926.54031 "output.bcf" "output.bbl" "output" 1781269392.13667 0
-  "output.bcf" 1781269391.75562 115012 66c84e4452f169c4f02336f254d3163d "lualatex"
-  "references.bib" 1781267643.27225 0 d41d8cd98f00b204e9800998ecf8427e ""
+["biber output"] 1781274863.72094 "output.bcf" "output.bbl" "output" 1781274982.04306 0
+  "output.bcf" 1781274981.6721 115417 e7d60df15854c75f063425bbda4b541b "lualatex"
+  "references.bib" 1781274978.54628 1881 dbf23d2a55fd502c0d9fa318ba28bfe6 ""
   (generated)
   "output.bbl"
   "output.blg"
   (rewritten before read)
-["lualatex"] 1781269389.4455 "output.tex" "output.pdf" "output" 1781269392.1372 0
+["lualatex"] 1781274979.27992 "output.tex" "output.pdf" "output" 1781274982.04361 0
   "C:/Users/itaym/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1781269238.34735 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/itaym/AppData/Local/MiKTeX/luatex-cache/generic/fonts/hb/5a2783d758c606e6a473bef0c24d0f3d701c94f1a07971cb000c0372ba270bd9.luc" 1781194497.76201 46790 7ecee2a610fea4b23c304f3823443a04 ""
   "C:/Users/itaym/AppData/Local/MiKTeX/luatex-cache/generic/fonts/hb/6e7d7a0c93d543965dfe5ce81bc53477182a499c80fe04f8e61f7cabd19e9ec6.luc" 1781194497.7024 269539 ea6f769d61f58bc015fc8af54f56b538 ""
@@ -258,13 +258,14 @@
   "C:/Users/itaym/AppData/Roaming/MiKTeX/tex/generic/config/language.dat" 1781112094.24259 2269 983cd649586da7942508216422e6c810 ""
   "C:/WINDOWS/Fonts/arial.ttf" 1779884025.31071 1045720 80ba139eae9f6344f167e76b7a0474c8 ""
   "C:/WINDOWS/Fonts/arialbd.ttf" 1779884025.30816 989780 ec5f63951e557e3d7f64a814a42f525d ""
+  "C:/WINDOWS/Fonts/arialni.ttf" 1753872747.5788 181124 989670c4c82248bb6a8cec3558212374 ""
   "c:/users/itaym/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmono12-regular.otf" 1256929440 63012 5db69ad3c177ae338e5504d80d9e9eb6 ""
-  "output.aux" 1781269391.74086 15347 416cc8239d46b6941debdb7221b37c82 "lualatex"
-  "output.bbl" 1781268927.69767 486 e75d7e0db03f09d45b25df2f538bb294 "biber output"
-  "output.out" 1781269391.74848 9434 184a5fb548f30a4b2ed14032d3a46195 "lualatex"
-  "output.run.xml" 1781269391.75764 2323 463674dafef271d6a618bfd7796e8da1 "lualatex"
-  "output.tex" 1781269386.36981 73696 b3fb5a2f73e1cce282f3f30b5c2561b8 ""
-  "output.toc" 1781269391.75764 3673 657d03d4a93fb3ed675c083221beb8f3 "lualatex"
+  "output.aux" 1781274981.65735 15963 5e68edb83ceba7e8f458ed7c9aeab509 "lualatex"
+  "output.bbl" 1781274864.93653 10237 974e0056898b4fdbfb21865cb92aa888 "biber output"
+  "output.out" 1781274981.66499 9434 184a5fb548f30a4b2ed14032d3a46195 "lualatex"
+  "output.run.xml" 1781274981.67414 2323 abb9b97c1020305c0dc0fe7f53b9ba35 "lualatex"
+  "output.tex" 1781274978.50196 71828 50507bd6d481bcedcaf3aa6f985bb43f ""
+  "output.toc" 1781274981.67414 3673 657d03d4a93fb3ed675c083221beb8f3 "lualatex"
   (generated)
   "output.aux"
   "output.bcf"

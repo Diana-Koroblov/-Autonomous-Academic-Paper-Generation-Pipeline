@@ -10,6 +10,7 @@ from agents.researcher import ResearcherAgent
 from agents.reviewer import ReviewerAgent
 from agents.writer import WriterAgent
 from sdk.harness import Harness
+from sdk.token_economy import extract_crew_token_usage
 from tools.rag_query import RAGQuery
 
 logger = logging.getLogger(__name__)
@@ -76,10 +77,18 @@ class PaperOrchestrator:
         p = self._paper_params()
         research = Task(
             description=(
-                f"Extract verifiable, citation-backed facts about '{p['subject']}' using the RAG "
-                "search tool. Reject any claim that is not grounded in the retrieved source chunks."
+                f"Research '{p['subject']}' using BOTH available tools:\n"
+                "1. Use search_web_for_articles to find at least 5 real academic papers or credible "
+                "articles online. For each result, record the full title, author, year, and URL.\n"
+                "2. Use run_rag_search to retrieve grounding evidence from the local document corpus.\n"
+                "Combine both sources into your research output. For web sources, format them as: "
+                "'WEB SOURCE: Author (Year). Title. URL'. "
+                "For RAG sources, include the filename and page number."
             ),
-            expected_output="A structured list of facts, each tagged with its source filename and page number.",
+            expected_output=(
+                "A structured research report with: (a) at least 5 web-sourced articles with full "
+                "author/year/URL metadata, and (b) RAG-grounded facts with source filename and page."
+            ),
             agent=self.researcher.get_agent(),
         )
         write = Task(
@@ -130,5 +139,16 @@ class PaperOrchestrator:
         logger.info("Starting paper generation pipeline.", extra={"session_id": session_id})
         self.output_path.parent.mkdir(parents=True, exist_ok=True)
         result = self.build_crew().kickoff()
+        usage = extract_crew_token_usage(result)
+        if usage:
+            self.harness.log_token_usage("crew_total", usage["input_tokens"], usage["output_tokens"])
+            logger.info(
+                "CrewAI token usage: %d input, %d output, %d total (%d requests).",
+                usage["input_tokens"],
+                usage["output_tokens"],
+                usage["total_tokens"],
+                usage["successful_requests"],
+                extra={"session_id": session_id},
+            )
         logger.info("Pipeline execution finished.", extra={"session_id": session_id})
         return result
